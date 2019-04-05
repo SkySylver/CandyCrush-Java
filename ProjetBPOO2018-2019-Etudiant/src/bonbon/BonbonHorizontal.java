@@ -1,6 +1,6 @@
 package bonbon;
 
-public class BonbonHorizontal extends Bonbon{
+public class BonbonHorizontal implements Bonbon{
 
 	private String couleur;
 	
