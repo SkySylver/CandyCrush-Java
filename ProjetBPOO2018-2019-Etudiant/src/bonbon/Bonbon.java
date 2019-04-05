@@ -1,5 +1,5 @@
 package bonbon;
 
 public interface Bonbon {
-	public void exploser();
+	public void explose();
 }
