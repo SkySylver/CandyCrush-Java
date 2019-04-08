@@ -1,7 +1,7 @@
 package combinaison;
 
+import exceptions.GrilleException;
 import grille.Grille;
-import grille.GrilleException;
 
 public class TroisVerticauxSimples extends Combinaison {
 	private int debut;
