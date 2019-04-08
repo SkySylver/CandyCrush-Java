@@ -1,6 +1,7 @@
 package grille;
 
 import bonbon.*;
+import exceptions.GrilleException;
 
 public class Grille {
 	private final static int taille = 10;
@@ -11,13 +12,19 @@ public class Grille {
 
 		for (int i = 0; i <= taille - 1; i++) {
 			for (int j = 0; j <= taille - 1; j++) {
-				do {
-				
-				}while(true);//while(g[i][j].Verifier());
-				
+				g[i][j] = new BonbonSimple();
 			}
-
 		}
+	}
+	
+	public void Actualiser() {
+		
+		
+	}
+	
+	public void Tomber() {
+		
+		
 	}
 	
 	public String getCouleur(int x, int y) throws GrilleException{
