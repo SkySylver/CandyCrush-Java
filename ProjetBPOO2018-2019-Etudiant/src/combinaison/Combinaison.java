@@ -13,15 +13,15 @@ public abstract class Combinaison {
 	}
 	
 	public abstract boolean	combinaisonExiste(int l, int c, Grille grille) throws Exception;
-	public abstract void	executerCombinaison(int l, int c, Grille grille) throws Exception;	
+	public abstract void	executerCombinaison(Grille grille) throws Exception;	
 	
 	public void detecter(int l, int c, Grille grille) throws Exception {
 		if (combinaisonExiste(l, c, grille))
-			executerCombinaison(l, c, grille);
+			executerCombinaison(grille);
 		else if (suivante != null)
 			suivante.detecter(l, c, grille);
 		else
-			throw new Exception("Il n'existe aucune combinaison ");
+			System.out.println("\nAucune combinaison !\n");
 	}
 	
 }

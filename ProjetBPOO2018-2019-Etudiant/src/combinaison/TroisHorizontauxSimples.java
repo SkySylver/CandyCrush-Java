@@ -5,7 +5,8 @@ import grille.Grille;
 
 public class TroisHorizontauxSimples extends Combinaison {
 
-	private int debut;
+	private int debutColonne;
+	private int ligne;
 
 	public TroisHorizontauxSimples(Combinaison comb) {
 		super(comb);
@@ -18,14 +19,17 @@ public class TroisHorizontauxSimples extends Combinaison {
 		String coul = grille.getCouleur(l, c);
 		String t = grille.getType(l, c);
 		
-		while(c>0 && grille.getCouleur(l,c-1).equals(coul))
+		
+		while(c>0 && grille.getCouleur(l,c-1).equals(coul)) {
 			c--;
+		}
 
 		if(c<8) {
 			if (grille.getCouleur(l, c + 1).equals(coul) && grille.getCouleur(l, c + 2).equals(coul)
 					&& !grille.getCouleur(l, c + 3).equals(coul)) {
 				if (grille.getType(l, c + 1).equals(t) && grille.getType(l, c + 2).equals(t)) {
-					debut = c;
+					debutColonne = c;
+					ligne = l;
 					return true;
 				}
 			}
@@ -35,9 +39,14 @@ public class TroisHorizontauxSimples extends Combinaison {
 	}
 
 	
-	public void executerCombinaison(int x, int y, Grille grille) throws Exception {
-		for(int i = debut; i<debut+3;i++) {
+	public void executerCombinaison(Grille grille) throws Exception {
+		/*
+		for(int i = debut; i<debut+3;i++)  {
 			
 		}
+		*/
+		
+		int fin = debutColonne + 3;
+		System.out.println("Combinaison horizontale détectée de " + debutColonne + " à " + fin + " ligne " + ligne);
 	}
 }

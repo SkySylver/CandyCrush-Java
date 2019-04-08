@@ -4,7 +4,8 @@ import exceptions.GrilleException;
 import grille.Grille;
 
 public class TroisVerticauxSimples extends Combinaison {
-	private int debut;
+	private int debutLigne;
+	private int colonne;
 
 	public TroisVerticauxSimples(Combinaison comb) {
 		super(comb);
@@ -23,7 +24,8 @@ public class TroisVerticauxSimples extends Combinaison {
 			if (grille.getCouleur(l + 1, c).equals(coul) && grille.getCouleur(l + 2, c).equals(coul)
 					&& !grille.getCouleur(l + 3, c).equals(coul)) {
 				if (grille.getType(l + 1, c).equals(t) && grille.getType(l + 2, c).equals(t)) {
-					debut = l;
+					debutLigne = l;
+					colonne = c;
 					return true;
 				}
 			}
@@ -32,9 +34,14 @@ public class TroisVerticauxSimples extends Combinaison {
 		return false;
 	}
 
-	public void executerCombinaison(int x, int y, Grille grille) throws Exception {
-		for (int i = debut; i < debut + 3; i++) {
+	public void executerCombinaison(Grille grille) throws Exception {
+		/*for (int i = debut; i < debut + 3; i++) {
 
 		}
+		*/
+		int fin = debutLigne + 3;
+
+		System.out.println("Combinaison horizontale détectée de " + debutLigne + " à " + fin + " colonne" + colonne);
+
 	}
 }
