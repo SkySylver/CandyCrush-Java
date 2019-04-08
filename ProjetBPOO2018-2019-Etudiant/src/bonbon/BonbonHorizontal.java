@@ -16,4 +16,8 @@ public class BonbonHorizontal extends Bonbon {
 
 	}
 
+	public String getType() {
+		return "BonbonHorizontal";
+	}
+
 }

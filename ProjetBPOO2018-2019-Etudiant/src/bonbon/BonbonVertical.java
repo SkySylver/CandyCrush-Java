@@ -15,4 +15,7 @@ public class BonbonVertical extends Bonbon {
 
 	}
 
+	public String getType() {
+		return "BonbonVertical";
+	}
 }

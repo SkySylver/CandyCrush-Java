@@ -31,4 +31,5 @@ public abstract class Bonbon {
 	}
 
 	public abstract void explose();
+	public abstract String getType();
 }
