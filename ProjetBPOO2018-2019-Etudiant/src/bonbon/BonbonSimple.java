@@ -1,9 +1,19 @@
 package bonbon;
 
-public class BonbonSimple implements Bonbon{
+public class BonbonSimple extends Bonbon{
 
-	public BonbonSimple(){}
-	
-	public void explose() {
+	public BonbonSimple() {
+		super();
 	}
+	
+	public BonbonSimple(String couleur) {
+		this.setCouleur(couleur);
+
+	}
+
+	public void explose() {
+
+	}
+
+
 }

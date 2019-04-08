@@ -1,39 +1,19 @@
 package bonbon;
 
-public class BonbonHorizontal implements Bonbon{
+import java.util.Random;
 
-	private String couleur;
-	
-	
+public class BonbonHorizontal extends Bonbon {
+
 	public BonbonHorizontal() {
-		
+		super();
 	}
-	
+
 	public BonbonHorizontal(String couleur) {
-		
-		
+		super(couleur);
 	}
-	
-	
 
-	
-	
 	public void explose() {
-		
+
 	}
-
-
-
-	public String getCouleur() {
-		return couleur;
-	}
-
-
-
-	public void setCouleur(String couleur) {
-		if(!lesCouleurs.contains(couleur)) throw new IllegalArgumentException("Couleur incorrecte");
-		else this.couleur = couleur;
-	}
-
 
 }

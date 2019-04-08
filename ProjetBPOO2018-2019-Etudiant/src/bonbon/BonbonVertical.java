@@ -1,12 +1,18 @@
 package bonbon;
 
-public class BonbonVertical implements Bonbon{
+public class BonbonVertical extends Bonbon {
 
-	public BonbonVertical(){}
-
-	
-	public void explose() {
-		
+	public BonbonVertical() {
+		super();
 	}
-	
+
+	public BonbonVertical(String couleur) {
+		super(couleur);
+
+	}
+
+	public void explose() {
+
+	}
+
 }
