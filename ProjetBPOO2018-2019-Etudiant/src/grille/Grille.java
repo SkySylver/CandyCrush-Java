@@ -17,7 +17,7 @@ public class Grille {
 	}
 
 	// Pourquoi ne pas faire directement g[x][y].getCouleur ??
-	// parce qu'on prend une classe Grille (grille) en entrée qui elle même déclare
+	// parce qu'on prend une classe Grille (Grille grille) en entrée qui elle même déclare
 	// une grille de Bonbon (Bonbon[][] g) en private donc on peut pas faire
 	// grille.g[x][y].getCouleur(); à cause du private
 	// et même en le mettant en public ce serait moins lisible
