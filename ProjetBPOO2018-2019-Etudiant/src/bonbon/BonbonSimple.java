@@ -7,7 +7,7 @@ public class BonbonSimple extends Bonbon{
 	}
 	
 	public BonbonSimple(String couleur) {
-		this.setCouleur(couleur);
+		super(couleur);
 
 	}
 
