@@ -29,7 +29,7 @@ public class Application {
 	private static Combinaison initCombinaisons() {
 		Combinaison maComb = null;
 		maComb = new TroisHorizontauxSimples(maComb);
-	//	maComb = new TroisVerticauxSimples(maComb);
+		maComb = new TroisVerticauxSimples(maComb);
 		return maComb;
 	}
 	
@@ -45,7 +45,9 @@ public class Application {
         Thread.sleep(2000);
 		System.out.println("etape 4\n");
         comb.detecter(2, 7, grille);
-        Thread.sleep(5000000);
+        
+        Thread.sleep(99999);
+
 
 	}
 

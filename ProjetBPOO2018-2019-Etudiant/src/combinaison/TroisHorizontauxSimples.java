@@ -46,7 +46,7 @@ public class TroisHorizontauxSimples extends Combinaison {
 		}
 		*/
 		
-		int fin = debutColonne + 3;
+		int fin = debutColonne + 2;
 		System.out.println("Combinaison horizontale détectée de " + debutColonne + " à " + fin + " ligne " + ligne);
 	}
 }

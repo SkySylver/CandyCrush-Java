@@ -39,9 +39,9 @@ public class TroisVerticauxSimples extends Combinaison {
 
 		}
 		*/
-		int fin = debutLigne + 3;
+		int fin = debutLigne + 2;
 
-		System.out.println("Combinaison horizontale détectée de " + debutLigne + " à " + fin + " colonne" + colonne);
+		System.out.println("Combinaison verticale détectée de " + debutLigne + " à " + fin + " colonne" + colonne);
 
 	}
 }
