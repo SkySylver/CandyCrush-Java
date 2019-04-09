@@ -1,13 +1,9 @@
 package bonbon;
 
-public class Meringue extends Bonbon{
-	
+public class Meringue extends Bonbon{	
 	public Meringue() {
 		super();
-	}
-	
-	public Meringue(String couleur) {
-		super(couleur);
+		setCouleur("Meringue");
 	}
 
 	public void explose() {

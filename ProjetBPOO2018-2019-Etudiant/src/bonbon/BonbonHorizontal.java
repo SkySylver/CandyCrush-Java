@@ -1,7 +1,5 @@
 package bonbon;
 
-import java.util.Random;
-
 public class BonbonHorizontal extends Bonbon {
 
 	public BonbonHorizontal() {

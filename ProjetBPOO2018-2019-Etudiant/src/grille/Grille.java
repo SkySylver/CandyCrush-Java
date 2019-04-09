@@ -1,12 +1,12 @@
 package grille;
 
 import bonbon.*;
-import exceptions.GrilleException;
+import exceptions.CandyException;
 
 public class Grille {
 	private final static int TAILLE = 10;
 
-	private Bonbon[][] grille = new Bonbon[10][10];
+	private Bonbon[][] grille = new Bonbon[TAILLE][TAILLE];
 
 	public Grille() {
 	}
@@ -16,7 +16,7 @@ public class Grille {
 		
 		for (int i = 0; i <= TAILLE - 1; i++) {
 			for (int j = 0; j <= TAILLE - 1; j++) {
-				grille[i][j] = new Mur();
+				grille[i][j] = new Vide();
 			}
 		}
 		
@@ -47,8 +47,8 @@ public class Grille {
 		 * On ajoute 3 bonbons verts alignés verticalement et commençant en (2,2). Le bonbon du bas est rayé
 		 */
 		grille[2][2] = new BonbonSimple("Vert");
-		grille[3][2] = new BonbonVertical("Vert");
-		grille[4][2] = new BonbonSimple("Vert");
+		grille[3][2] = new BonbonSimple("Vert");
+		grille[4][2] = new BonbonVertical("Vert");
 
 		/**
 		 * On ajoute 4 bonbons verts alignés verticalement et commençant en (3,6). Le bonbon du bas est rayé
@@ -96,7 +96,7 @@ public class Grille {
 		/** 
 		 * Pour afficher la liste des images
 		 */
-		grille[9][0] = new Mur();
+		grille[9][0] = new Vide();
 		grille[9][1] = new BonbonSimple("Bleu");
 		grille[9][2] = new BonbonSimple("Violet");
 		grille[9][3] = new BonbonSimple("Jaune");
@@ -114,16 +114,17 @@ public class Grille {
 	// une grille de Bonbon (Bonbon[][] g) en private donc on peut pas faire
 	// grille.g[x][y].getCouleur(); � cause du private
 	// et m�me en le mettant en public ce serait moins lisible
-	public String getCouleur(int x, int y) throws GrilleException {
-		if (getType(x, y).equals("Vide"))
-			throw new GrilleException("Couleur vide demand�e !");
-		return grille[x][y].getCouleur();
+	public String getCouleur(int l, int c) throws CandyException {
+		if(l>9 || l<0 || c>9 || c<0)
+			throw new CandyException("Bonbon hors de grille !");
+		return grille[l][c].getCouleur();
 	}
 
 	// Pourquoi ne pas faire directement g[x][y].getType ??
-	public String getType(int x, int y) {
-
-		return grille[x][y].getType();// retourne le type de bonbon
+	public String getType(int l, int c) throws CandyException {
+		if(l>9 || l<0 || c>9 || c<0)
+			throw new CandyException("Bonbon hors de grille !");
+		return grille[l][c].getType();// retourne le type de bonbon
 	}
 
 	// Verifie s'il y a des combinaisons de bonbons + les explose + refait tomber

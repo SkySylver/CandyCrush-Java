@@ -1,6 +1,6 @@
 package combinaison;
 
-import exceptions.GrilleException;
+import exceptions.CandyException;
 import grille.Grille;
 
 public class TroisVerticauxSimples extends Combinaison {
@@ -11,22 +11,23 @@ public class TroisVerticauxSimples extends Combinaison {
 		super(comb);
 	}
 
-	public boolean combinaisonExiste(int l, int c, Grille grille) throws GrilleException {
+	public boolean combinaisonExiste(int l, int c, Grille grille) throws CandyException{
 		// même principe que dans TroisHorizontauxSimples
 
 		String coul = grille.getCouleur(l, c);
 		String t = grille.getType(l, c);
 
-		while (l > 0 && grille.getCouleur(l - 1, c).equals(coul))
-			l--;
+		if (t.equals("BonbonSimple")) {
+			while (l > 0 && grille.getCouleur(l - 1, c).equals(coul) && grille.getType(l - 1, c).equals(t))
+				l--;
 
-		if (l < 8) {
-			if (grille.getCouleur(l + 1, c).equals(coul) && grille.getCouleur(l + 2, c).equals(coul)
-					&& !grille.getCouleur(l + 3, c).equals(coul)) {
-				if (grille.getType(l + 1, c).equals(t) && grille.getType(l + 2, c).equals(t)) {
-					debutLigne = l;
-					colonne = c;
-					return true;
+			if (l < 8) {
+				if (grille.getCouleur(l + 1, c).equals(coul) && grille.getCouleur(l + 2, c).equals(coul)) {
+					if (grille.getType(l + 1, c).equals(t) && grille.getType(l + 2, c).equals(t)) {
+						debutLigne = l;
+						colonne = c;
+						return true;
+					}
 				}
 			}
 		}
@@ -34,14 +35,8 @@ public class TroisVerticauxSimples extends Combinaison {
 		return false;
 	}
 
-	public void executerCombinaison(Grille grille) throws Exception {
-		/*for (int i = debut; i < debut + 3; i++) {
+	public void executerCombinaison(Grille grille) throws CandyException {
 
-		}
-		*/
-		int fin = debutLigne + 2;
-
-		System.out.println("Combinaison verticale détectée de " + debutLigne + " à " + fin + " colonne" + colonne);
-
+		System.out.println("3 bonbons verticaux " + grille.getCouleur(debutLigne, colonne));
 	}
 }
