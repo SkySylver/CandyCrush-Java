@@ -43,6 +43,5 @@ public class QuatreHorizontauxSimples extends Combinaison{
 
 	public void executerCombinaison(Grille grille) throws CandyException{	
 		System.out.println("4 bonbons " + grille.getCouleur(ligne, debutColonne));
-		
 	}
 }

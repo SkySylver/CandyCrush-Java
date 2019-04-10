@@ -29,13 +29,13 @@ public class Application {
 	private static Combinaison initCombinaisons() {
 		Combinaison maComb = null;
 		maComb = new TroisHorizontauxSimples(maComb);
-		// maComb = new TroisVerticauxSimples(maComb);
+		maComb = new TroisVerticauxSimples(maComb);
 		maComb = new QuatreHorizontauxSimples(maComb);
-		//maComb = new QuatreVerticauxSimples(maComb);
+		maComb = new QuatreVerticauxSimples(maComb);
 		maComb = new TroisHorizontauxRayesH(maComb);
-		//A FAIRE//maComb = new TroisVerticauxRayesH(maComb);
-		//A FAIRE//maComb = new TroisHorizontauxRayesV(maComb);
-		//A FAIRE//maComb = new TroisVerticauxRayesV(maComb);
+		maComb = new TroisVerticauxRayesH(maComb);
+		maComb = new TroisHorizontauxRayesV(maComb);
+		maComb = new TroisVerticauxRayesV(maComb);
 
 		return maComb;
 	}

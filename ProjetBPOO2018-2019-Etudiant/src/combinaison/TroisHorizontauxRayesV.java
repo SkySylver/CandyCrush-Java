@@ -4,12 +4,14 @@ import exceptions.CandyException;
 import grille.Grille;
 
 // TROIS BONBONS ALIGNES HORIZONTALEMENT DONT UN RAYE A L'HORIZONTALE
-public class TroisHorizontauxRayesH extends Combinaison {
+public class TroisHorizontauxRayesV extends Combinaison {
 
 	private int debutColonne;
 	private int ligne;
+	private int colonnesARayer[]= {-1,-1,-1};
+	private boolean rayeTrouve = false;
 
-	public TroisHorizontauxRayesH(Combinaison comb) {
+	public TroisHorizontauxRayesV(Combinaison comb) {
 		super(comb);
 	}
 
@@ -18,7 +20,7 @@ public class TroisHorizontauxRayesH extends Combinaison {
 		String coul = grille.getCouleur(l, c);
 		String t = grille.getType(l, c);
 
-		if (t.equals("BonbonSimple") || t.contentEquals("BonbonHorizontal")) {
+		if (t.equals("BonbonSimple") || t.contentEquals("BonbonVertical")) {
 
 			// on se place sur le bonbon le plus à gauche qui est de la même couleur
 			while (c > 0 && grille.getCouleur(l, c - 1).equals(coul)) {
@@ -27,12 +29,13 @@ public class TroisHorizontauxRayesH extends Combinaison {
 
 			if (c < 8) {
 				if (grille.getCouleur(l, c + 1).equals(coul) && grille.getCouleur(l, c + 2).equals(coul)) {
-					if (grille.getType(l, c).equals("BonbonHorizontal")
-							|| grille.getType(l, c + 1).equals("BonbonHorizontal")
-							|| grille.getType(l, c + 2).equals("BonbonHorizontal")) {
-						debutColonne = c;// cette ligne est utile seulement pour connaître la couleur car
-						// de toute façon on va rayer toute la ligne
-						ligne = l;
+					for(int i = 0;i<3;i++) {
+						if(grille.getType(l, c+i).equals("BonbonVertical")) {
+							rayeTrouve = true;
+							colonnesARayer[i]=c+i;
+						}
+					}
+					if(rayeTrouve) {
 						return true;
 					}
 				}
@@ -44,7 +47,7 @@ public class TroisHorizontauxRayesH extends Combinaison {
 
 	public void executerCombinaison(Grille grille) throws CandyException {
 
-		System.out.println("3 bonbons " + grille.getCouleur(ligne, debutColonne) + " dont un rayé à l'horizontal");
+		System.out.println("3 bonbons " + grille.getCouleur(ligne, debutColonne) + " dont un rayé à la verticale");
 
 	}
 }
