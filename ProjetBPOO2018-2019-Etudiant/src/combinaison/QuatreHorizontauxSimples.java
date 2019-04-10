@@ -3,6 +3,7 @@ package combinaison;
 import exceptions.CandyException;
 import grille.Grille;
 
+//QUATRE BONBONS SIMPLES ALIGNES HORIZONTALEMENT
 public class QuatreHorizontauxSimples extends Combinaison{
 	private int debutColonne;
 	private int ligne;
@@ -41,7 +42,7 @@ public class QuatreHorizontauxSimples extends Combinaison{
 	}
 
 	public void executerCombinaison(Grille grille) throws CandyException{	
-		System.out.println("4 bonbons horizontaux " + grille.getCouleur(ligne, debutColonne));
+		System.out.println("4 bonbons " + grille.getCouleur(ligne, debutColonne));
 		
 	}
 }

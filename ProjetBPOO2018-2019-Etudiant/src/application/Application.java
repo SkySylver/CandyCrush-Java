@@ -31,7 +31,12 @@ public class Application {
 		maComb = new TroisHorizontauxSimples(maComb);
 		// maComb = new TroisVerticauxSimples(maComb);
 		maComb = new QuatreHorizontauxSimples(maComb);
-		// faire la même pour la verticale
+		//maComb = new QuatreVerticauxSimples(maComb);
+		maComb = new TroisHorizontauxRayesH(maComb);
+		//A FAIRE//maComb = new TroisVerticauxRayesH(maComb);
+		//A FAIRE//maComb = new TroisHorizontauxRayesV(maComb);
+		//A FAIRE//maComb = new TroisVerticauxRayesV(maComb);
+
 		return maComb;
 	}
 
@@ -54,19 +59,19 @@ public class Application {
 
 		// Test détection des combinaisons
 		System.out.println("\n\tDétection des combinaisons: \n");
-		System.out.println("Combinaison en (3,2):");
+		System.out.print("Combinaison en (3,2):");
 		comb.detecter(3, 2, grille);
-		System.out.println("Combinaison en (3,3):");
+		System.out.print("Combinaison en (3,3):");
 		comb.detecter(3, 3, grille);
-		System.out.println("Combinaison en (2,4):");
+		System.out.print("Combinaison en (2,4):");
 		comb.detecter(2, 4, grille);
-		System.out.println("Combinaison en (2,7):");
+		System.out.print("Combinaison en (2,7):");
 		comb.detecter(2, 7, grille);
-		System.out.println("Combinaison en (6,6):");
+		System.out.print("Combinaison en (6,6):");
 		comb.detecter(6, 6, grille);
-		System.out.println("Combinaison en (7,6):");
+		System.out.print("Combinaison en (7,6):");
 		comb.detecter(7, 6, grille);
-		System.out.println("Combinaison en (5,4):");
+		System.out.print("Combinaison en (5,4):");
 		comb.detecter(5, 4, grille);
 
 		System.exit(0);

@@ -3,6 +3,7 @@ package combinaison;
 import exceptions.CandyException;
 import grille.Grille;
 
+//TROIS BONBONS SIMPLES ALIGNES VERTICALEMENT
 public class TroisVerticauxSimples extends Combinaison {
 	private int debutLigne;
 	private int colonne;
@@ -37,6 +38,6 @@ public class TroisVerticauxSimples extends Combinaison {
 
 	public void executerCombinaison(Grille grille) throws CandyException {
 
-		System.out.println("3 bonbons verticaux " + grille.getCouleur(debutLigne, colonne));
+		System.out.println("3 bonbons " + grille.getCouleur(debutLigne, colonne));
 	}
 }

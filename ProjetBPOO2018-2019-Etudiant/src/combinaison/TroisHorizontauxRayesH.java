@@ -4,12 +4,12 @@ import exceptions.CandyException;
 import grille.Grille;
 
 // TROIS BONBONS SIMPLES ALIGNES HORIZONTALEMENT
-public class TroisHorizontauxSimples extends Combinaison {
+public class TroisHorizontauxRayesH extends Combinaison {
 
 	private int debutColonne;
 	private int ligne;
 
-	public TroisHorizontauxSimples(Combinaison comb) {
+	public TroisHorizontauxRayesH(Combinaison comb) {
 		super(comb);
 	}
 
@@ -21,30 +21,33 @@ public class TroisHorizontauxSimples extends Combinaison {
 		String coul = grille.getCouleur(l, c);
 		String t = grille.getType(l, c);
 
-		if (t.equals("BonbonSimple")) {
-			
-			//on se place sur le bonbon le plus à gauche qui est du même type (donc simple) et de même couleur
-			while (c > 0 && grille.getCouleur(l, c - 1).equals(coul) && grille.getType(l, c - 1).equals(t)) {
+		if (t.equals("BonbonSimple") || t.contentEquals("BonbonHorizontal")) {
+
+			// on se place sur le bonbon le plus à gauche qui est de la même couleur
+			while (c > 0 && grille.getCouleur(l, c - 1).equals(coul)) {
 				c--;
 			}
 
 			if (c < 8) {
 				if (grille.getCouleur(l, c + 1).equals(coul) && grille.getCouleur(l, c + 2).equals(coul)) {
-					if (grille.getType(l, c + 1).equals(t) && grille.getType(l, c + 2).equals(t)) {
-						debutColonne = c;
+					if (grille.getType(l, c).equals("BonbonHorizontal")
+							|| grille.getType(l, c + 1).equals("BonbonHorizontal")
+							|| grille.getType(l, c + 2).equals("BonbonHorizontal")) {
+						debutColonne = c;// cette ligne est utile seulement pour connaître la couleur car
+						// de toute façon on va rayer toute la ligne
 						ligne = l;
 						return true;
 					}
 				}
 			}
 		}
-		
+
 		return false;
 	}
 
 	public void executerCombinaison(Grille grille) throws CandyException {
-		
-		System.out.println("3 bonbons " + grille.getCouleur(ligne, debutColonne));
-		
+
+		System.out.println("3 bonbons " + grille.getCouleur(ligne, debutColonne) + " dont un rayé à l'horizontal");
+
 	}
 }
