@@ -7,13 +7,12 @@ public class BonbonSimple extends Bonbon{
 	}
 	
 	public BonbonSimple(String couleur) {
-		this.setCouleur(couleur);
-
-	}
-
-	public void explose() {
+		super(couleur);
 
 	}
 
 
+	public String getType() {
+		return "BonbonSimple";
+	}
 }
