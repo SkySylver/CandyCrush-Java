@@ -131,12 +131,7 @@ public class Grille {
 
 	}
 
-<<<<<<< HEAD
-
 	public void Exploser(int x, int y) {
-=======
-	public void exploser(int x, int y) {
->>>>>>> branch 'master' of https://gitlab.com/nsUsta/candy.git
 		switch (grille[x][y].getType()) {
 		case "BonbonSimple":
 			grille[x][y] = new Vide();
