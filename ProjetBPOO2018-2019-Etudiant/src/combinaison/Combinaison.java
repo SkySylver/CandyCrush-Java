@@ -14,7 +14,7 @@ public abstract class Combinaison {
 	}
 	
 	public abstract boolean	combinaisonExiste(int l, int c, Grille grille) throws CandyException;
-	public abstract void	executerCombinaison(Grille grille) throws CandyException;	
+	public abstract void executerCombinaison(Grille grille) throws CandyException;
 	
 	public void detecter(int l, int c, Grille grille) throws CandyException{
 		if (combinaisonExiste(l, c, grille))

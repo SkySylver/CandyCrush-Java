@@ -22,8 +22,9 @@ public class TroisHorizontauxSimples extends Combinaison {
 		String t = grille.getType(l, c);
 
 		if (t.equals("BonbonSimple")) {
-			
-			//on se place sur le bonbon le plus à gauche qui est du même type (donc simple) et de même couleur
+
+			// on se place sur le bonbon le plus à gauche qui est du même type (donc simple)
+			// et de même couleur
 			while (c > 0 && grille.getCouleur(l, c - 1).equals(coul) && grille.getType(l, c - 1).equals(t)) {
 				c--;
 			}
@@ -38,13 +39,13 @@ public class TroisHorizontauxSimples extends Combinaison {
 				}
 			}
 		}
-		
+
 		return false;
 	}
 
 	public void executerCombinaison(Grille grille) throws CandyException {
-		
+
 		System.out.println("3 bonbons " + grille.getCouleur(ligne, debutColonne));
-		
+
 	}
 }
