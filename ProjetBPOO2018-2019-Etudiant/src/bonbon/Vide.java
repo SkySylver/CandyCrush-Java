@@ -7,10 +7,6 @@ public class Vide extends Bonbon{
 		setCouleur("Vide");
 	}
 
-	public void explose() {
-
-	}
-
 	public String getType() {
 		return "Vide";
 	}

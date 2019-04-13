@@ -10,9 +10,6 @@ public class BonbonHorizontal extends Bonbon {
 		super(couleur);
 	}
 
-	public void explose() {
-
-	}
 
 	public String getType() {
 		return "BonbonHorizontal";

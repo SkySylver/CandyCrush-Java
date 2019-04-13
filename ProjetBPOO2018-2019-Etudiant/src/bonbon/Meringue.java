@@ -6,10 +6,6 @@ public class Meringue extends Bonbon{
 		setCouleur("Meringue");
 	}
 
-	public void explose() {
-
-	}
-
 	public String getType() {
 		return "Meringue";
 	}

@@ -30,7 +30,6 @@ public abstract class Bonbon {
 		else
 			this.couleur = couleur;
 	}
-
-	public abstract void explose();
+	
 	public abstract String getType();
 }

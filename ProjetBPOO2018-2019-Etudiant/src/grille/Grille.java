@@ -24,6 +24,7 @@ public class Grille {
 		/**
 		 * On ajoute 3 bonbons bleus alignÃ©s horizontalement et commenÃ§ant en (2,4)
 		 */
+
 		grille[2][4] = new BonbonSimple("Bleu");
 		grille[2][5] = new BonbonSimple("Bleu");
 		grille[2][6] = new BonbonSimple("Bleu");
@@ -112,19 +113,12 @@ public class Grille {
 
 	}
 
-	// Pourquoi ne pas faire directement g[x][y].getCouleur ??
-	// parce qu'on prend une classe Grille (Grille grille) en entrée qui elle même
-	// déclare
-	// une grille de Bonbon (Bonbon[][] g) en private donc on peut pas faire
-	// grille.g[x][y].getCouleur(); à cause du private
-	// et même en le mettant en public ce serait moins lisible
 	public String getCouleur(int l, int c) throws CandyException {
 		if (l > 9 || l < 0 || c > 9 || c < 0)
 			throw new CandyException("Bonbon hors de grille !");
 		return grille[l][c].getCouleur();
 	}
 
-	// Pourquoi ne pas faire directement g[x][y].getType ??
 	public String getType(int l, int c) throws CandyException {
 		if (l > 9 || l < 0 || c > 9 || c < 0)
 			throw new CandyException("Bonbon hors de grille !");
@@ -134,6 +128,31 @@ public class Grille {
 	// Verifie s'il y a des combinaisons de bonbons + les explose + refait tomber
 	public void actualiser() {
 
+	}
+
+	
+	// Verifie combinaison au lieu de l'echange, et explose la où il y en a
+	// Sinon annule l'echange
+	public void Echanger() {
+	}
+
+	public void Exploser(int x, int y) {
+		switch (grille[x][y].getType()) {
+		case "BonbonSimple":
+			grille[x][y] = new Vide();
+			break;
+
+		case "BonbonHorizontal":
+			for (int i = 0; i < TAILLE; i++) {
+				grille[i][y] = new Vide();
+			}
+			break;
+		case "BonbonVertical":
+			for (int i = 0; i < TAILLE; i++) {
+				grille[x][i] = new Vide();
+			}
+			break;
+		}
 	}
 
 	// Fait tomber les bonbons de chaque colonnes + Actualise
