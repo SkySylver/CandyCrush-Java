@@ -61,6 +61,12 @@ public class Application {
 		System.out.print("Combinaison en (5,4):");
 		comb.detecter(5, 4, grille);
 
+		// Test échanges
+		grille.echange(4, 4, 5, 4);
+		System.out.print("Combinaison en (4,4):");
+		comb.detecter(4, 4, grille);
+		System.out.print("Combinaison en (5,4):");
+		comb.detecter(5, 4, grille);
 		System.exit(0);
 	}
 
