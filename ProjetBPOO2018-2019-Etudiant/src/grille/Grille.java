@@ -131,17 +131,6 @@ public class Grille {
 
 	}
 
-	
-	// Verifie combinaison au lieu de l'echange, et explose la où il y en a
-	// Sinon annule l'echange
-	public void Echanger(int x1, int y1, int x2, int y2) {
-	
-		if(combinaisonExiste(x1, y1, this)) {
-			
-			
-		}
-		
-	}
 
 	public void Exploser(int x, int y) {
 		switch (grille[x][y].getType()) {
