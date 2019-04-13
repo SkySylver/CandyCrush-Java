@@ -62,7 +62,6 @@ public class Application {
 		comb.detecter(5, 4, grille);
 
 		// Test échanges
-
 		System.out.println("\n\tTest échanges: \n");
 		System.out.print("Echange en (4,4) (5,4):");
 		grille.echange(4, 4, 5, 4);
