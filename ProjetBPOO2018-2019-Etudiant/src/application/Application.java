@@ -62,7 +62,9 @@ public class Application {
 		comb.detecter(5, 4, grille);
 
 		// Test échanges
+
 		System.out.println("\n\tTest échanges: \n");
+		System.out.print("Echange en (4,4) (5,4):");
 		grille.echange(4, 4, 5, 4);
 		System.out.print("Combinaison en (4,4):");
 		comb.detecter(4, 4, grille);
@@ -71,9 +73,11 @@ public class Application {
 		
 		//Traitement échange (2,7) et (1,7)
 		System.out.println("\n\tTraitement échange (2,7) et (1,7): \n");
+		System.out.println("yo");
 		
 		
 		System.exit(0);
+		
 	}
 
 }

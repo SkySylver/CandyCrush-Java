@@ -3,7 +3,8 @@ package grille;
 import bonbon.*;
 import combinaison.Combinaison;
 import exceptions.CandyException;
-
+import combinaison.*
+;
 public class Grille {
 	private final static int TAILLE = 10;
 
@@ -130,7 +131,7 @@ public class Grille {
 
 	}
 
-	public void exploser(int x, int y) {
+	public void Exploser(int x, int y) {
 		switch (grille[x][y].getType()) {
 		case "BonbonSimple":
 			grille[x][y] = new Vide();
