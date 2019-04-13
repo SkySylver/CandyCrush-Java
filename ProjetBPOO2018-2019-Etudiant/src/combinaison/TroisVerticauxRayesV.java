@@ -45,4 +45,9 @@ public class TroisVerticauxRayesV extends Combinaison {
 		System.out.println("3 bonbons " + grille.getCouleur(debutLigne, colonne) + " dont un rayé à la verticale");
 
 	}
+
+	@Override
+	public String toString() {
+		return "TroisVerticauxRayesV [debutLigne=" + debutLigne + ", colonne=" + colonne + "]";
+	}
 }

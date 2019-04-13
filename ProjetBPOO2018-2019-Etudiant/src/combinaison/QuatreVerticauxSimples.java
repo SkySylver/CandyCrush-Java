@@ -44,4 +44,9 @@ public class QuatreVerticauxSimples extends Combinaison {
 		System.out.println("4 bonbons " + grille.getCouleur(debutLigne, colonne));
 
 	}
+
+	@Override
+	public String toString() {
+		return "QuatreVerticauxSimples [debutLigne=" + debutLigne + ", colonne=" + colonne + "]";
+	}
 }

@@ -32,4 +32,31 @@ public abstract class Bonbon {
 	}
 	
 	public abstract String getType();
+
+	@Override
+	public String toString() {
+		return "Bonbon [couleur=" + couleur + ", lesCouleurs=" + lesCouleurs + "]";
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bonbon other = (Bonbon) obj;
+		if (couleur == null) {
+			if (other.couleur != null)
+				return false;
+		} else if (!couleur.equals(other.couleur))
+			return false;
+		if (lesCouleurs == null) {
+			if (other.lesCouleurs != null)
+				return false;
+		} else if (!lesCouleurs.equals(other.lesCouleurs))
+			return false;
+		return true;
+	}
 }

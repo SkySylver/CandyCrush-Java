@@ -1,5 +1,7 @@
 package combinaison;
 
+import java.util.Arrays;
+
 import exceptions.CandyException;
 import grille.Grille;
 
@@ -48,5 +50,11 @@ public class TroisVerticauxRayesH extends Combinaison {
 
 		System.out.println("3 bonbons " + grille.getCouleur(debutLigne, colonne) + " dont un rayé à l'horizontale");
 
+	}
+
+	@Override
+	public String toString() {
+		return "TroisVerticauxRayesH [debutLigne=" + debutLigne + ", colonne=" + colonne + ", lignesARayer="
+				+ Arrays.toString(lignesARayer) + ", rayeTrouve=" + rayeTrouve + "]";
 	}
 }

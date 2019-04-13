@@ -43,5 +43,10 @@ public abstract class Combinaison {
 
 		return maComb;
 	}
+	
+	@Override
+	public String toString() {
+		return "Combinaison [suivante=" + suivante + "]";
+	}
 		
 }
