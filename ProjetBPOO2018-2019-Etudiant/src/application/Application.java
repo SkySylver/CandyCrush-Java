@@ -8,7 +8,7 @@ public class Application {
 
 	public static void main(String[] args) {
 
-		comb = initCombinaisons();
+		comb = Combinaison.initCombinaisons();
 		if (comb == null) {
 			System.out.println("Aucune combinaison disponible !");
 			System.exit(0);
@@ -26,19 +26,6 @@ public class Application {
 		}
 	}
 
-	private static Combinaison initCombinaisons() {
-		Combinaison maComb = null;
-		maComb = new TroisHorizontauxSimples(maComb);
-		maComb = new TroisVerticauxSimples(maComb);
-		maComb = new QuatreHorizontauxSimples(maComb);
-		maComb = new QuatreVerticauxSimples(maComb);
-		maComb = new TroisHorizontauxRayesH(maComb);
-		maComb = new TroisVerticauxRayesH(maComb);
-		maComb = new TroisHorizontauxRayesV(maComb);
-		maComb = new TroisVerticauxRayesV(maComb);
-
-		return maComb;
-	}
 
 	private static void jouer(Grille grille) throws Exception {
 
