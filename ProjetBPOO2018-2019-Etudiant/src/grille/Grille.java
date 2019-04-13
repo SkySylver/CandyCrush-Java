@@ -130,13 +130,7 @@ public class Grille {
 
 	}
 
-	
-	// Verifie combinaison au lieu de l'echange, et explose la où il y en a
-	// Sinon annule l'echange
-	public void Echanger() {
-	}
-
-	public void Exploser(int x, int y) {
+	public void exploser(int x, int y) {
 		switch (grille[x][y].getType()) {
 		case "BonbonSimple":
 			grille[x][y] = new Vide();
@@ -162,30 +156,29 @@ public class Grille {
 		}
 	}
 
-	//remplacer 9 par MAX et 0 par MIN 
+	// remplacer 9 par MAX et 0 par MIN
 	public void echange(int ls, int cs, int lt, int ct) throws CandyException {
-		if (ls > 9 || cs > 9 || lt > 9 || ct > 9 || ls < 0 || cs < 0 || lt < 0 || ct < 0) 
+		if (ls > 9 || cs > 9 || lt > 9 || ct > 9 || ls < 0 || cs < 0 || lt < 0 || ct < 0)
 			throw new CandyException("Coordonnées incorrectes");
 		if (getType(ls, cs).equals("Meringue") || getType(lt, ct).equals("Meringue"))
 			throw new CandyException("Echange avec Meringue");
 		if (getType(ls, cs).equals("Vide") || getType(lt, ct).equals("Vide"))
 			throw new CandyException("Echange avec Vide");
-		
-		//On echange les bonbons
+
+		// On echange les bonbons
 		Bonbon temp = grille[ls][cs];
 		grille[ls][cs] = grille[lt][ct];
 		grille[lt][ct] = temp;
-		
-		//Si aucune combinaison n'est détectée on remet les bonbons à leurs places et on jette une exception
+
+		// Si aucune combinaison n'est détectée on remet les bonbons à leurs places et
+		// on jette une exception
 		Combinaison comb = null;
 		comb = Combinaison.initCombinaisons();
-		if(!comb.detecter(ls, cs, this) || !comb.detecter(lt, ct, this)) {
+		if (!comb.detecter(ls, cs, this) && !comb.detecter(lt, ct, this)) {
 			temp = grille[ls][cs];
 			grille[ls][cs] = grille[lt][ct];
 			grille[lt][ct] = temp;
 			throw new CandyException("Aucune combinaison apres echange");
 		}
-			
-
 	}
 }
