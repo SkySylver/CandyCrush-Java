@@ -16,13 +16,32 @@ public abstract class Combinaison {
 	public abstract boolean	combinaisonExiste(int l, int c, Grille grille) throws CandyException;
 	public abstract void executerCombinaison(Grille grille) throws CandyException;
 	
-	public void detecter(int l, int c, Grille grille) throws CandyException{
-		if (combinaisonExiste(l, c, grille))
+	public boolean detecter(int l, int c, Grille grille) throws CandyException{
+		if (combinaisonExiste(l, c, grille)) {
 			executerCombinaison(grille);
-		else if (suivante != null)
-			suivante.detecter(l, c, grille);
-		else
+			return true;
+		}
+		else if (suivante != null) {
+			return suivante.detecter(l, c, grille);
+		}
+		else {
 			System.out.println("Aucune");
+			return false;
+		}
 	}
 	
+	public static Combinaison initCombinaisons() {
+		Combinaison maComb = null;
+		maComb = new TroisHorizontauxSimples(maComb);
+		maComb = new TroisVerticauxSimples(maComb);
+		maComb = new QuatreHorizontauxSimples(maComb);
+		maComb = new QuatreVerticauxSimples(maComb);
+		maComb = new TroisHorizontauxRayesH(maComb);
+		maComb = new TroisVerticauxRayesH(maComb);
+		maComb = new TroisHorizontauxRayesV(maComb);
+		maComb = new TroisVerticauxRayesV(maComb);
+
+		return maComb;
+	}
+		
 }

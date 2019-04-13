@@ -1,6 +1,7 @@
 package grille;
 
 import bonbon.*;
+import combinaison.Combinaison;
 import exceptions.CandyException;
 import combinaison.*
 ;
@@ -8,6 +9,9 @@ public class Grille {
 	private final static int TAILLE = 10;
 
 	private Bonbon[][] grille = new Bonbon[TAILLE][TAILLE];
+
+	public Grille() {
+	}
 
 	// grille pour le test, celle qui est décrite dans ui > CandyCrush.java
 	public Grille(boolean test) {
@@ -123,7 +127,7 @@ public class Grille {
 	}
 
 	// Verifie s'il y a des combinaisons de bonbons + les explose + refait tomber
-	public void Actualiser() {
+	public void actualiser() {
 
 	}
 
@@ -159,9 +163,36 @@ public class Grille {
 	}
 
 	// Fait tomber les bonbons de chaque colonnes + Actualise
-	public void Tomber() {
+	public void tomber() {
 		for (int i = 0; i < TAILLE; i++) {
 
 		}
+	}
+
+	//remplacer 9 par MAX et 0 par MIN 
+	public void echange(int ls, int cs, int lt, int ct) throws CandyException {
+		if (ls > 9 || cs > 9 || lt > 9 || ct > 9 || ls < 0 || cs < 0 || lt < 0 || ct < 0) 
+			throw new CandyException("Coordonnées incorrectes");
+		if (getType(ls, cs).equals("Meringue") || getType(lt, ct).equals("Meringue"))
+			throw new CandyException("Echange avec Meringue");
+		if (getType(ls, cs).equals("Vide") || getType(lt, ct).equals("Vide"))
+			throw new CandyException("Echange avec Vide");
+		
+		//On echange les bonbons
+		Bonbon temp = grille[ls][cs];
+		grille[ls][cs] = grille[lt][ct];
+		grille[lt][ct] = temp;
+		
+		//Si aucune combinaison n'est détectée on remet les bonbons à leurs places et on jette une exception
+		Combinaison comb = null;
+		comb = Combinaison.initCombinaisons();
+		if(!comb.detecter(ls, cs, this) || !comb.detecter(lt, ct, this)) {
+			temp = grille[ls][cs];
+			grille[ls][cs] = grille[lt][ct];
+			grille[lt][ct] = temp;
+			throw new CandyException("Aucune combinaison apres echange");
+		}
+			
+
 	}
 }
