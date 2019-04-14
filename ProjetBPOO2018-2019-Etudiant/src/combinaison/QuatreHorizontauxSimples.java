@@ -54,7 +54,9 @@ public class QuatreHorizontauxSimples extends Combinaison{
 		grille.putBonbonHorizontal(ligne, colonne, coul);
 	}
 
+	@Override
 	public String toString() {
-		return "QuatreHorizontauxSimples [debutColonne=" + debutColonne + ", ligne=" + ligne + "]";
+		return "QuatreHorizontauxSimples [debutColonne=" + debutColonne + ", ligne=" + ligne + ", colonne=" + colonne
+				+ "]";
 	}
 }

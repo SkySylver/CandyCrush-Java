@@ -18,6 +18,7 @@ public class TroisHorizontauxSimples extends Combinaison {
 		// puis on décale d'un bonbon vers la gauche tant que le bonbon à gauche est de
 		// la même couleur et du même type
 
+		ligne = l;
 		String coul = grille.getCouleur(l, c);
 		String t = grille.getType(l, c);
 
@@ -33,7 +34,6 @@ public class TroisHorizontauxSimples extends Combinaison {
 				if (grille.getCouleur(l, c + 1).equals(coul) && grille.getCouleur(l, c + 2).equals(coul)) {
 					if (grille.getType(l, c + 1).equals(t) && grille.getType(l, c + 2).equals(t)) {
 						debutColonne = c;
-						ligne = l;
 						return true;
 					}
 				}
@@ -48,6 +48,9 @@ public class TroisHorizontauxSimples extends Combinaison {
 	}
 	
 	public void executerCombinaison(Grille grille) throws CandyException {
+		for(int i = debutColonne; i<debutColonne+3; i++) {
+			grille.exploser(ligne, i);
+		}
 	}
 
 	@Override

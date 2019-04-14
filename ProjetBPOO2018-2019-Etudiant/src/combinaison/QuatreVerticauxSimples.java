@@ -6,6 +6,7 @@ import grille.Grille;
 //QUATRE BONBONS SIMPLES ALIGNES VERTICALEMENT
 public class QuatreVerticauxSimples extends Combinaison {
 	private int debutLigne;
+	private int ligne;
 	private int colonne;
 
 	public QuatreVerticauxSimples(Combinaison comb) {
@@ -15,6 +16,8 @@ public class QuatreVerticauxSimples extends Combinaison {
 	public boolean combinaisonExiste(int l, int c, Grille grille) throws CandyException {
 		// même principe que QuatreHorizontauxSimples
 
+		ligne = l;
+		colonne = c;		
 		String coul = grille.getCouleur(l, c);
 		String t = grille.getType(l, c);
 
@@ -30,7 +33,6 @@ public class QuatreVerticauxSimples extends Combinaison {
 					if (grille.getType(l + 1, c).equals(t) && grille.getType(l + 2, c).equals(t)
 							&& grille.getType(l + 3, c).equals(t)) {
 						debutLigne = l;
-						colonne = c;
 						return true;
 					}
 				}
@@ -45,7 +47,10 @@ public class QuatreVerticauxSimples extends Combinaison {
 	}
 	
 	public void executerCombinaison(Grille grille) throws CandyException {
-
+		String coul = grille.getCouleur(ligne, colonne);
+		for(int i = debutLigne; i<debutLigne +4; i++)
+			grille.exploser(i,  colonne);
+		grille.putBonbonVertical(ligne, colonne, coul);
 	}
 
 	@Override

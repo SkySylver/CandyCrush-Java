@@ -10,6 +10,7 @@ public class TroisHorizontauxRayesV extends Combinaison {
 
 	private int debutColonne;
 	private int ligne;
+	private int colonne;
 	private int colonnesARayer[]= {-1,-1,-1};
 	private boolean rayeTrouve = false;
 
