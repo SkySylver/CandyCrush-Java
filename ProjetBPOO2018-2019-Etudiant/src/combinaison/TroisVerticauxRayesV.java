@@ -39,10 +39,12 @@ public class TroisVerticauxRayesV extends Combinaison {
 
 		return false;
 	}
+	public void reponse(Grille grille) throws CandyException {
+		System.out.println("3 bonbons " + grille.getCouleur(debutLigne, colonne) + " dont un rayé à la verticale");
+	}
 
 	public void executerCombinaison(Grille grille) throws CandyException {
 
-		System.out.println("3 bonbons " + grille.getCouleur(debutLigne, colonne) + " dont un rayé à la verticale");
 
 	}
 

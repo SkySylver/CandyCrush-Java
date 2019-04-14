@@ -42,9 +42,12 @@ public class TroisHorizontauxRayesH extends Combinaison {
 		return false;
 	}
 
+	public void reponse(Grille grille) throws CandyException {
+		System.out.println("3 bonbons " + grille.getCouleur(ligne, debutColonne) + " dont un rayé à l'horizontal");
+	}
+	
 	public void executerCombinaison(Grille grille) throws CandyException {
 
-		System.out.println("3 bonbons " + grille.getCouleur(ligne, debutColonne) + " dont un rayé à l'horizontal");
 
 	}
 

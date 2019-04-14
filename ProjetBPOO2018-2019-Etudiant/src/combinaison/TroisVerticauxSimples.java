@@ -35,10 +35,13 @@ public class TroisVerticauxSimples extends Combinaison {
 
 		return false;
 	}
+	
+	public void reponse(Grille grille) throws CandyException {
+		System.out.println("3 bonbons " + grille.getCouleur(debutLigne, colonne));
+	}
 
 	public void executerCombinaison(Grille grille) throws CandyException {
 
-		System.out.println("3 bonbons " + grille.getCouleur(debutLigne, colonne));
 	}
 
 	@Override

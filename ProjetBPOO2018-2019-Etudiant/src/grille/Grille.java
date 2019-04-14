@@ -213,12 +213,6 @@ public class Grille {
 		}
 	}
 	
-	public void vider(int l, int c) throws CandyException {
-		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
-			throw new CandyException("Coordonnées incorrectes");
-		grille[l][c] = new Vide();
-	}
-	
 	public void putBonbonHorizontal(int l, int c, String coul) throws CandyException {
 		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
 			throw new CandyException("Coordonnées incorrectes");

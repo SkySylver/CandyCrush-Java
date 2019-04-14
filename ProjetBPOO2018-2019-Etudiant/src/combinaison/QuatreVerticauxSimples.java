@@ -40,8 +40,11 @@ public class QuatreVerticauxSimples extends Combinaison {
 		return false;
 	}
 
-	public void executerCombinaison(Grille grille) throws CandyException {
+	public void reponse(Grille grille) throws CandyException {
 		System.out.println("4 bonbons " + grille.getCouleur(debutLigne, colonne));
+	}
+	
+	public void executerCombinaison(Grille grille) throws CandyException {
 
 	}
 

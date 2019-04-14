@@ -15,10 +15,13 @@ public abstract class Combinaison {
 	
 	public abstract boolean	combinaisonExiste(int l, int c, Grille grille) throws CandyException;
 	public abstract void executerCombinaison(Grille grille) throws CandyException;
+	public abstract void reponse(Grille grille) throws CandyException;
+
 	
 	public Combinaison detecter(int l, int c, Grille grille) throws CandyException{
 		if (combinaisonExiste(l, c, grille)) {
-			executerCombinaison(grille);
+			reponse(grille); //reponse pour le test
+			//executerCombinaison(grille);
 			return this;
 		}
 		else if (suivante != null) {

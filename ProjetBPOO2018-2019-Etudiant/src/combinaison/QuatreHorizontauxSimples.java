@@ -42,12 +42,15 @@ public class QuatreHorizontauxSimples extends Combinaison{
 		
 		return false;
 	}
+	
+	public void reponse(Grille grille) throws CandyException {
+		System.out.println("4 bonbons " + grille.getCouleur(ligne, debutColonne));
+	}
 
 	public void executerCombinaison(Grille grille) throws CandyException{	
-		System.out.println("4 bonbons " + grille.getCouleur(ligne, debutColonne));
 		String coul = grille.getCouleur(ligne, colonne);
 		for(int i = debutColonne; i<debutColonne +4; i++)
-			grille.vider(ligne,  i);
+			grille.exploser(ligne,  i);
 		grille.putBonbonHorizontal(ligne, colonne, coul);
 	}
 
