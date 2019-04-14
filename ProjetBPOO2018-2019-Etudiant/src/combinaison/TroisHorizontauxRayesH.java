@@ -5,7 +5,7 @@ import grille.Grille;
 
 // TROIS BONBONS ALIGNES HORIZONTALEMENT DONT UN RAYE A L'HORIZONTALE
 public class TroisHorizontauxRayesH extends Combinaison {
-
+	
 	private int debutColonne;
 	private int ligne;
 
@@ -15,6 +15,7 @@ public class TroisHorizontauxRayesH extends Combinaison {
 
 	public boolean combinaisonExiste(int l, int c, Grille grille) throws CandyException {
 
+		ligne = l;
 		String coul = grille.getCouleur(l, c);
 		String t = grille.getType(l, c);
 
@@ -32,7 +33,6 @@ public class TroisHorizontauxRayesH extends Combinaison {
 							|| grille.getType(l, c + 2).equals("BonbonHorizontal")) {
 						debutColonne = c;// cette ligne est utile seulement pour connaître la couleur car
 						// de toute façon on va rayer toute la ligne
-						ligne = l;
 						return true;
 					}
 				}
@@ -47,8 +47,9 @@ public class TroisHorizontauxRayesH extends Combinaison {
 	}
 	
 	public void executerCombinaison(Grille grille) throws CandyException {
-
-
+		for(int i = 0; i<TAILLE-1; i++) {
+			grille.exploser(ligne, i);
+		}
 	}
 
 	@Override

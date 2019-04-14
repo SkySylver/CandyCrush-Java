@@ -9,6 +9,7 @@ import grille.Grille;
 public class TroisVerticauxRayesH extends Combinaison {
 
 	private int debutLigne;
+	private int ligne;
 	private int colonne;
 	private int lignesARayer[] = { -1, -1, -1 };
 	private boolean rayeTrouve = false;

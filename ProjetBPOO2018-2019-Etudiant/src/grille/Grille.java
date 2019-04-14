@@ -148,8 +148,6 @@ public class Grille {
 	}
 
 	public void exploser(int l, int c) throws CandyException {
-		if (grille[l][c].getType().equals("Vide"))
-			throw new CandyException("Impossile d'exploser du vide");
 		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
 			throw new CandyException("Coordonnées incorrectes");
 		grille[l][c] = new Vide();
@@ -160,7 +158,10 @@ public class Grille {
 			throw new CandyException("On ne peut pas faire tomber dans une case pleine");
 		while (l > 0 && grille[l - 1][c].getType().equals("Vide")) {
 
+			grille[l][c] = grille[l - 1][c];
+			l--;
 		}
+		grille[l][c] = new BonbonSimple();
 
 	}
 
@@ -190,9 +191,7 @@ public class Grille {
 			throw new CandyException("Echange avec Meringue");
 		if (getType(ls, cs).equals("Vide") || getType(lt, ct).equals("Vide"))
 			throw new CandyException("Echange avec Vide");
-		if (!((ls == lt && cs == ct + 1) || (ls == lt && cs == ct - 1) || (ls == lt + 1 && cs == ct)
-				|| (ls == lt - 1 && cs == ct)))
-			throw new CandyException("Case inaccessible");
+		
 
 		// On echange les bonbons
 		Bonbon temp = grille[ls][cs];
@@ -215,5 +214,11 @@ public class Grille {
 		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
 			throw new CandyException("Coordonnées incorrectes");
 		grille[l][c] = new BonbonHorizontal(coul);
+	}
+	
+	public void putBonbonVertical(int l, int c, String coul) throws CandyException {
+		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
+			throw new CandyException("Coordonnées incorrectes");
+		grille[l][c] = new BonbonVertical(coul);
 	}
 }

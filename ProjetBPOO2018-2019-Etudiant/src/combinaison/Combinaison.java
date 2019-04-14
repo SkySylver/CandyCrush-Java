@@ -4,6 +4,7 @@ import exceptions.CandyException;
 import grille.Grille;
 
 public abstract class Combinaison {
+	protected final static int TAILLE = 10;
 	private Combinaison suivante = null;
 
 	public Combinaison(Combinaison comb) {

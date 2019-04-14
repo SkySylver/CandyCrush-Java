@@ -8,7 +8,6 @@ public class TroisVerticauxRayesV extends Combinaison {
 
 	private int debutLigne;
 	private int colonne;
-
 	public TroisVerticauxRayesV(Combinaison comb) {
 		super(comb);
 	}
@@ -24,13 +23,12 @@ public class TroisVerticauxRayesV extends Combinaison {
 				l--;
 			}
 
-			if (c < 8) {
+			if (l < 8) {
 				if (grille.getCouleur(l + 1, c).equals(coul) && grille.getCouleur(l + 2, c).equals(coul)) {
 					if (grille.getType(l, c).equals("BonbonVertical")
 							|| grille.getType(l + 1, c).equals("BonbonVertical")
 							|| grille.getType(l + 2, c).equals("BonbonVertical")) {
 						colonne = c;
-						debutLigne = l;
 						return true;
 					}
 				}
@@ -44,8 +42,9 @@ public class TroisVerticauxRayesV extends Combinaison {
 	}
 
 	public void executerCombinaison(Grille grille) throws CandyException {
-
-
+		for(int i = 0; i<TAILLE-1; i++) {
+			grille.exploser(i, colonne);
+		}
 	}
 
 	@Override
