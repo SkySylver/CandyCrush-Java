@@ -137,16 +137,19 @@ public class Grille {
 
 	// Fait tomber les bonbons de chaque colonnes + recomplete ce qu'il manque
 	public void tomber() {
+		int a;
 		for (int i = 0; i < TAILLE; i++) { // Pour x de 0 a 9 (chaque colonne)
 			for (int j = TAILLE - 1; j >= 0; j--) { // Pour chaque case dans la colonne
-				while (grille[j][i].getType().equals("Vide")) { // Tant que la case est vide
+				a=0;
+				while (grille[j][i].getType().equals("Vide") && a<TAILLE) { // Tant que la case est vide
 						// Descend tous les elements de la colonne de 1
+					a++;
 					for (int c = j; c > 0; c--)
 						grille[c][i] = grille[c-1][i];
 					
 						// Si le haut de la colonne est vide, le remplit
-					if (grille[0][i].getType().equals("Vide"))
-						grille[0][i] = new BonbonSimple();// A remplacer par vide() quand on ne fait pas les tests
+					//if (grille[0][i].getType().equals("Vide"))
+						//grille[0][i] = new BonbonSimple();// A remplacer par vide() quand on ne fait pas les tests
 				}
 			}
 		}
