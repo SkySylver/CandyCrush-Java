@@ -176,7 +176,7 @@ public class Grille {
 					
 						// Si le haut de la colonne est vide, le remplit
 					if (grille[0][i].getType().equals("Vide"))
-						grille[0][i] = new Meringue();// A remplacer par vide() quand on ne fait pas les tests
+						grille[0][i] = new BonbonSimple();// A remplacer par vide() quand on ne fait pas les tests
 				}
 			}
 		}
