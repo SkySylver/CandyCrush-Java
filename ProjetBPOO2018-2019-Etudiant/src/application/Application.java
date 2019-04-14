@@ -15,16 +15,16 @@ public class Application {
 			System.exit(0);
 		}
 
-		while (true) {
-			// grille test
-			Grille grille = new Grille(true);
+		// while (true) {
+		// grille test
+		Grille grille = new Grille(true);
 
-			try {
-				jouer(grille);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		try {
+			jouer(grille);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		// }
 	}
 
 	private static void jouer(Grille grille) throws Exception {
@@ -65,12 +65,20 @@ public class Application {
 		System.out.println("\n\tTest des échanges :\n");
 
 		System.out.print("Echange en (4,4) (5,4):");
+		System.out.println("\n\tTest échanges: \n");
+		System.out.print("Appratition de: ");
 		grille.echange(4, 4, 5, 4);
-		System.out.print("Combinaison en (4,4):");
-		comb.detecter(4, 4, grille);
 		System.out.print("Combinaison en (5,4):");
 		comb.detecter(5, 4, grille);
-
+		System.out.println("Bonbon (3,4): " + grille.getCouleur(3, 4) + " " + grille.getType(3, 4));
+		System.out.println("Bonbon (4,4): " + grille.getCouleur(4, 4));
+		System.out.println("Bonbon (4,4): " + grille.getCouleur(5, 4));
+		System.out.println("Bonbon (4,4): " + grille.getCouleur(6, 4));
+		// grille.echange(4, 4, 3, 4);
+		// grille.echange(3, 7, 3, 8);
+		// grille.echange(2, 2, 3, 3);
+		// grille.echange(2, 2, 2, 4);
+		
 		System.out.print("Bonbon en (3,4) = Jaune est rayé : ");
 		if (grille.getCouleur(3, 4).contentEquals("Jaune") && grille.isRaye(3, 4))
 			System.out.println("Oui");
@@ -123,7 +131,22 @@ public class Application {
 			e.printStackTrace();
 		}
 
+		
+		// Traitement échange (2,7) et (1,7)
+		System.out.println("\n\tTraitement échange (2,7) et (1,7): \n");
+		System.out.print("Appratition de: ");
+		grille.echange(2, 7, 1, 7);
+		System.out.print("Combinaison en (1,7):");
+		comb.detecter(1, 7, grille);
+		System.out.print("\nCombinaison en (2,7):");
+		comb.detecter(2, 7, grille);
+		System.out.println("Bonbon (2,4): " + grille.getType(2, 4));
+		System.out.println("Bonbon (2,5): " + grille.getType(2, 5));
+		System.out.println("Bonbon (2,6): " + grille.getType(2, 6));
+		System.out.println("Bonbon (2,7): " + grille.getCouleur(2, 7) + " " + grille.getType(2, 7));
+
 		System.exit(0);
+
 	}
 
 }

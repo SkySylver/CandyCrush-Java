@@ -47,4 +47,9 @@ public class TroisHorizontauxRayesH extends Combinaison {
 		System.out.println("3 bonbons " + grille.getCouleur(ligne, debutColonne) + " dont un rayé à l'horizontal");
 
 	}
+
+	@Override
+	public String toString() {
+		return "TroisHorizontauxRayesH [debutColonne=" + debutColonne + ", ligne=" + ligne + "]";
+	}
 }

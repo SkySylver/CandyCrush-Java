@@ -130,9 +130,14 @@ public class Grille {
 		return grille[x][y].isRaye();
 	}
 
+<<<<<<< HEAD
 	
 	
 	
+=======
+	}
+
+>>>>>>> branch 'master' of https://gitlab.com/nsUsta/candy.git
 	public void Exploser(int x, int y) {
 		switch (grille[x][y].getType()) {
 		case "BonbonSimple":
@@ -170,6 +175,9 @@ public class Grille {
 			throw new CandyException("Echange avec Meringue");
 		if (getType(ls, cs).equals("Vide") || getType(lt, ct).equals("Vide"))
 			throw new CandyException("Echange avec Vide");
+		if (!((ls == lt && cs == ct + 1) || (ls == lt && cs == ct - 1) || (ls == lt + 1 && cs == ct)
+				|| (ls == lt - 1 && cs == ct)))
+			throw new CandyException("Case inaccessible");
 
 		// On echange les bonbons
 		Bonbon temp = grille[ls][cs];
@@ -180,7 +188,7 @@ public class Grille {
 		// on jette une exception
 		Combinaison comb = null;
 		comb = Combinaison.initCombinaisons();
-		if (!comb.detecter(ls, cs, this) && !comb.detecter(lt, ct, this)) {
+		if (comb.detecter(ls, cs, this) == null && comb.detecter(lt, ct, this) == null) {
 			temp = grille[ls][cs];
 			grille[ls][cs] = grille[lt][ct];
 			grille[lt][ct] = temp;

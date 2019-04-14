@@ -40,4 +40,9 @@ public class TroisVerticauxSimples extends Combinaison {
 
 		System.out.println("3 bonbons " + grille.getCouleur(debutLigne, colonne));
 	}
+
+	@Override
+	public String toString() {
+		return "TroisVerticauxSimples [debutLigne=" + debutLigne + ", colonne=" + colonne + "]";
+	}
 }

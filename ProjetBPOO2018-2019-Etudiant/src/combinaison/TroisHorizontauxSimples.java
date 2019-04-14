@@ -44,8 +44,11 @@ public class TroisHorizontauxSimples extends Combinaison {
 	}
 
 	public void executerCombinaison(Grille grille) throws CandyException {
-
 		System.out.println("3 bonbons " + grille.getCouleur(ligne, debutColonne));
+	}
 
+	@Override
+	public String toString() {
+		return "TroisHorizontauxSimples [debutColonne=" + debutColonne + ", ligne=" + ligne + "]";
 	}
 }
