@@ -130,14 +130,7 @@ public class Grille {
 		return grille[x][y].isRaye();
 	}
 
-<<<<<<< HEAD
-	
-	
-	
-=======
-	}
 
->>>>>>> branch 'master' of https://gitlab.com/nsUsta/candy.git
 	public void Exploser(int x, int y) {
 		switch (grille[x][y].getType()) {
 		case "BonbonSimple":
