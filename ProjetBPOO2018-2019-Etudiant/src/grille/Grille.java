@@ -135,27 +135,18 @@ public class Grille {
 		grille[l][c] = new Vide();
 	}
 
-	public void tomber(int l, int c) throws CandyException {
-		if (!grille[l][c].getType().equals("Vide"))
-			throw new CandyException("On ne peut pas faire tomber dans une case pleine");
-		while (l > 0 && grille[l - 1][c].getType().equals("Vide")) {
-			grille[l][c] = grille[l - 1][c];
-			l--;
-		}
-		grille[l][c] = new BonbonSimple();
-
-	}
-
 	// Fait tomber les bonbons de chaque colonnes + recomplete ce qu'il manque
-	public void Tomber() {
+	public void tomber() {
 		for (int i = 0; i < TAILLE; i++) { // Pour x de 0 a 9 (chaque colonne)
 			for (int j = TAILLE - 1; j >= 0; j--) { // Pour chaque case dans la colonne
-				while (grille[i][j].getType().equals("Vide")) { // Tant que la case est vide
-					for (int c = j; c < TAILLE; c++)
-						grille[i][c] = grille[i][c + 1];
-
-					if (grille[i][0].getType().equals("Vide"))
-						grille[i][0] = new BonbonSimple();
+				while (grille[j][i].getType().equals("Vide")) { // Tant que la case est vide
+						// Descend tous les elements de la colonne de 1
+					for (int c = j; c > 0; c--)
+						grille[c][i] = grille[c-1][i];
+					
+						// Si le haut de la colonne est vide, le remplit
+					if (grille[0][i].getType().equals("Vide"))
+						grille[0][i] = new BonbonSimple();// A remplacer par vide() quand on ne fait pas les tests
 				}
 			}
 		}
@@ -173,9 +164,7 @@ public class Grille {
 			throw new CandyException("Echange avec Meringue");
 		if (getType(ls, cs).equals("Vide") || getType(lt, ct).equals("Vide"))
 			throw new CandyException("Echange avec Vide");
-		if (!((ls == lt && cs == ct + 1) || (ls == lt && cs == ct - 1) || (ls == lt + 1 && cs == ct)
-				|| (ls == lt - 1 && cs == ct)))
-			throw new CandyException("Case inaccessible");
+		
 
 		// On echange les bonbons
 		Bonbon temp = grille[ls][cs];

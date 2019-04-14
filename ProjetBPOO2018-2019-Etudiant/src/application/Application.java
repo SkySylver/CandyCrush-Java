@@ -151,19 +151,20 @@ public class Application {
 		System.out.println("Bonbon (2,7): " + grille.getCouleur(2, 7) + " " + grille.getType(2, 7));
 
 		// Test des chutes
-
 		System.out.println("\n\t Test des chutes: \n");
+
+		grille.tomber();
 		System.out.println("Bonbon en (9,0): " + grille.getType(9, 0));
 		System.out.println("Bonbon en (9,7): " + grille.getCouleur(9, 7) + grille.getType(9, 7));
-		System.out.println("Bonbon en (9,7): " + grille.getCouleur(8, 7));
-		System.out.println("Bonbon en (9,7): " + grille.getCouleur(7, 7));
-		System.out.println("Bonbon en (9,7): " + grille.getCouleur(6, 7));
-		System.out.println("Bonbon en (9,7): " + grille.getCouleur(5, 7));
-		System.out.println("Bonbon en (9,7): " + grille.getCouleur(4, 7));
-		System.out.println("Bonbon en (9,7): " + grille.getCouleur(3, 7));
-		System.out.println("Bonbon en (9,7): " + grille.getCouleur(2, 7));
-		System.out.println("Bonbon en (9,7): " + grille.getCouleur(1, 7));
-		System.out.println("Bonbon en (9,7): " + grille.getCouleur(0, 7));
+		System.out.println("Bonbon en (8,7): " + grille.getCouleur(8, 7));
+		System.out.println("Bonbon en (7,7): " + grille.getCouleur(7, 7));
+		System.out.println("Bonbon en (6,7): " + grille.getCouleur(6, 7));
+		System.out.println("Bonbon en (5,7): " + grille.getCouleur(5, 7));
+		System.out.println("Bonbon en (4,7): " + grille.getCouleur(4, 7));
+		System.out.println("Bonbon en (3,7): " + grille.getCouleur(3, 7));
+		System.out.println("Bonbon en (2,7): " + grille.getCouleur(2, 7));
+		System.out.println("Bonbon en (1,7): " + grille.getCouleur(1, 7));
+		System.out.println("Bonbon en (0,7): " + grille.getCouleur(0, 7));
 
 
 

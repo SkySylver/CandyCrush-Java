@@ -42,7 +42,7 @@ public class TroisVerticauxRayesV extends Combinaison {
 	}
 
 	public void executerCombinaison(Grille grille) throws CandyException {
-		for(int i = 0; i<TAILLE-1; i++) {
+		for(int i = 0; i<TAILLE; i++) {
 			grille.exploser(i, colonne);
 		}
 	}

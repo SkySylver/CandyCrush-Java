@@ -49,7 +49,7 @@ public class TroisVerticauxRayesH extends Combinaison {
 				grille.exploser(i, colonne);
 			} else {
 				// sinon on explose toute la colonne
-				for (int j = 0; j < TAILLE - 1; j++)
+				for (int j = 0; j < TAILLE ; j++)
 					grille.exploser(i, j);
 			}
 		}
