@@ -151,8 +151,9 @@ public class Application {
 		System.out.println("Bonbon (2,7): " + grille.getCouleur(2, 7) + " " + grille.getType(2, 7));
 
 		// Test des chutes
-
 		System.out.println("\n\t Test des chutes: \n");
+
+		grille.Tomber();
 		System.out.println("Bonbon en (9,0): " + grille.getType(9, 0));
 		System.out.println("Bonbon en (9,7): " + grille.getCouleur(9, 7) + grille.getType(9, 7));
 		System.out.println("Bonbon en (8,7): " + grille.getCouleur(8, 7));
