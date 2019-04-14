@@ -131,18 +131,20 @@ public class Grille {
 		return grille[x][y].isRaye();
 	}
 
-	public void Exploser(int x, int y) {
-		String t = grille[x][y].getType();
-		grille[x][y] = new Vide();
+	public void Exploser(int l, int c) throws CandyException {
+		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
+			throw new CandyException("Coordonnées incorrectes");
+		String t = grille[l][c].getType();
+		grille[l][c] = new Vide();
 
 		if (t.equals("BonbonHorizontal")) {
 
 			for (int i = 0; i < TAILLE; i++) {
-				Exploser(i, y);
+				Exploser(i, c);
 			}
 		} else if (t.equals("BonbonHorizontal")) {
 			for (int i = 0; i < TAILLE; i++) {
-				Exploser(x, i);
+				Exploser(l, i);
 			}
 		}
 	}
