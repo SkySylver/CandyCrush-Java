@@ -1,10 +1,10 @@
 package grille;
-
+import java.lang.Math;
 import bonbon.*;
 import combinaison.Combinaison;
 import exceptions.CandyException;
-import combinaison.*
-;
+import combinaison.*;
+
 public class Grille {
 	private final static int TAILLE = 10;
 
@@ -126,11 +126,13 @@ public class Grille {
 		return grille[l][c].getType();// retourne le type de bonbon
 	}
 
-	// Verifie s'il y a des combinaisons de bonbons + les explose + refait tomber
-	public void actualiser() {
-
+	public boolean isRaye(int x, int y) {
+		return grille[x][y].isRaye();
 	}
 
+	
+	
+	
 	public void Exploser(int x, int y) {
 		switch (grille[x][y].getType()) {
 		case "BonbonSimple":
@@ -161,6 +163,9 @@ public class Grille {
 	public void echange(int ls, int cs, int lt, int ct) throws CandyException {
 		if (ls > 9 || cs > 9 || lt > 9 || ct > 9 || ls < 0 || cs < 0 || lt < 0 || ct < 0)
 			throw new CandyException("Coordonnées incorrectes");
+		if((Math.abs(ls-lt) + Math.abs(cs-ct)) != 1)
+			throw new CandyException("Case inaccessible");
+		
 		if (getType(ls, cs).equals("Meringue") || getType(lt, ct).equals("Meringue"))
 			throw new CandyException("Echange avec Meringue");
 		if (getType(ls, cs).equals("Vide") || getType(lt, ct).equals("Vide"))

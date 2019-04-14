@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
-
 public abstract class Bonbon {
 
 	private String couleur;
-	ArrayList<String> lesCouleurs = new ArrayList<String>(Arrays.asList("Bleu", "Vert", "Jaune", "Violet", "Vide" , "Meringue"));
+	ArrayList<String> lesCouleurs = new ArrayList<String>(
+			Arrays.asList("Bleu", "Vert", "Jaune", "Violet", "Vide", "Meringue"));
 
 	public Bonbon() {
 		Random random = new Random();
@@ -20,7 +20,7 @@ public abstract class Bonbon {
 		this.setCouleur(couleur);
 	}
 
-	public String getCouleur(){
+	public String getCouleur() {
 		return this.couleur;
 	}
 
@@ -30,6 +30,14 @@ public abstract class Bonbon {
 		else
 			this.couleur = couleur;
 	}
-	
+
 	public abstract String getType();
+
+	public boolean isRaye() {
+		if (this.getType().equals("BonbonHorizontal") || this.getType().equals("BonbonVertical"))
+			return true;
+		else
+			return false;
+
+	}
 }
