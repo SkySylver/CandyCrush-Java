@@ -140,7 +140,7 @@ public class Application {
 		comb.detecter(1, 7, grille);
 		System.out.print("\nCombinaison en (2,7):");
 		comb.detecter(2, 7, grille);
-		System.out.println("Bonbon (2,4): " + grille.getType(2, 4));
+		System.out.println("\nBonbon (2,4): " + grille.getType(2, 4));
 		System.out.println("Bonbon (2,5): " + grille.getType(2, 5));
 		System.out.println("Bonbon (2,6): " + grille.getType(2, 6));
 		System.out.println("Bonbon (2,7): " + grille.getCouleur(2, 7) + " " + grille.getType(2, 7));

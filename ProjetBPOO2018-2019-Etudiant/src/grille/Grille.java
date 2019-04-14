@@ -150,10 +150,27 @@ public class Grille {
 		}
 	}
 
+	public void exploser(int l, int c) throws CandyException {
+		if (grille[l][c].getType().equals("Vide"))
+			throw new CandyException("Impossile d'exploser du vide");
+		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
+			throw new CandyException("Coordonnées incorrectes");
+		grille[l][c] = new Vide();
+	}
+
+	public void tomber(int l, int c) throws CandyException {
+		if (!grille[l][c].getType().equals("Vide"))
+			throw new CandyException("On ne peut pas faire tomber dans une case pleine");
+		while (l > 0 && grille[l - 1][c].getType().equals("Vide")) {
+			
+		}
+
+	}
+
 	// Fait tomber les bonbons de chaque colonnes + recomplete ce qu'il manque
 	public void Tomber() {
 		for (int i = 0; i < TAILLE; i++) { // Pour x de 0 a 9 (chaque colonne)
-			for (int j = TAILLE-1 ; j >=0; j--) { // Pour chaque case dans la colonne
+			for (int j = TAILLE - 1; j >= 0; j--) { // Pour chaque case dans la colonne
 				while (grille[i][j].getType().equals("Vide")) { // Tant que la case est vide
 					for (int c = j; c < TAILLE; c++)
 						grille[i][c] = grille[i][c + 1];
@@ -171,7 +188,6 @@ public class Grille {
 			throw new CandyException("Coordonnées incorrectes");
 		if ((Math.abs(ls - lt) + Math.abs(cs - ct)) != 1)
 			throw new CandyException("Case inaccessible");
-
 		if (getType(ls, cs).equals("Meringue") || getType(lt, ct).equals("Meringue"))
 			throw new CandyException("Echange avec Meringue");
 		if (getType(ls, cs).equals("Vide") || getType(lt, ct).equals("Vide"))
@@ -195,5 +211,17 @@ public class Grille {
 			grille[lt][ct] = temp;
 			throw new CandyException("Aucune combinaison apres echange");
 		}
+	}
+	
+	public void vider(int l, int c) throws CandyException {
+		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
+			throw new CandyException("Coordonnées incorrectes");
+		grille[l][c] = new Vide();
+	}
+	
+	public void putBonbonHorizontal(int l, int c, String coul) throws CandyException {
+		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
+			throw new CandyException("Coordonnées incorrectes");
+		grille[l][c] = new BonbonHorizontal(coul);
 	}
 }
