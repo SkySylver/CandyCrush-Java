@@ -11,7 +11,6 @@ public class BonbonSimple extends Bonbon{
 
 	}
 
-
 	public String getType() {
 		return "BonbonSimple";
 	}

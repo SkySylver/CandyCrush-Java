@@ -153,13 +153,13 @@ public class Grille {
 	// Fait tomber les bonbons de chaque colonnes + recomplete ce qu'il manque
 	public void Tomber() {
 		for (int i = 0; i < TAILLE; i++) { // Pour x de 0 a 9 (chaque colonne)
-			for (int j = 0; j < TAILLE; j++) { // Pour chaque case dans la colonne
+			for (int j = TAILLE-1 ; j >=0; j--) { // Pour chaque case dans la colonne
 				while (grille[i][j].getType().equals("Vide")) { // Tant que la case est vide
 					for (int c = j; c < TAILLE; c++)
 						grille[i][c] = grille[i][c + 1];
 
-					if (grille[i][TAILLE - 1].getType().equals("Vide"))
-						grille[i][TAILLE - 1] = new BonbonSimple();
+					if (grille[i][0].getType().equals("Vide"))
+						grille[i][0] = new BonbonSimple();
 				}
 			}
 		}
