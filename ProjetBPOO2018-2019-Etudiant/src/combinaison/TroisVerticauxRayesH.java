@@ -1,7 +1,5 @@
 package combinaison;
 
-import java.util.Arrays;
-
 import exceptions.CandyException;
 import grille.Grille;
 
@@ -9,10 +7,7 @@ import grille.Grille;
 public class TroisVerticauxRayesH extends Combinaison {
 
 	private int debutLigne;
-	private int ligne;
 	private int colonne;
-	private int lignesARayer[] = { -1, -1, -1 };
-	private boolean rayeTrouve = false;
 
 	public TroisVerticauxRayesH(Combinaison comb) {
 		super(comb);
@@ -32,13 +27,9 @@ public class TroisVerticauxRayesH extends Combinaison {
 			if (l < 8) {
 				if (grille.getCouleur(l + 1, c).equals(coul) && grille.getCouleur(l + 2, c).equals(coul)) {
 					for (int i = 0; i < 3; i++) {
-						if (grille.getType(l+i, c).equals("BonbonHorizontal")) {
-							rayeTrouve = true;
-							lignesARayer[i] = l + i;
+						if (grille.getType(l + i, c).equals("BonbonHorizontal")) {
+							return true;
 						}
-					}
-					if (rayeTrouve) {
-						return true;
 					}
 				}
 			}
@@ -50,15 +41,23 @@ public class TroisVerticauxRayesH extends Combinaison {
 	public void reponse(Grille grille) throws CandyException {
 		System.out.println("3 bonbons " + grille.getCouleur(debutLigne, colonne) + " dont un rayé à l'horizontale");
 	}
-	
-	public void executerCombinaison(Grille grille) throws CandyException {
 
+	public void executerCombinaison(Grille grille) throws CandyException {
+		for (int i = debutLigne; i < debutLigne + 3; i++) {
+			if (grille.getType(i, colonne).equals("BonbonSimple")) {
+				// si le bonbon n'est pas à rayé, on explose juste le bonbon
+				grille.exploser(i, colonne);
+			} else {
+				// sinon on explose toute la colonne
+				for (int j = 0; j < TAILLE - 1; j++)
+					grille.exploser(i, j);
+			}
+		}
 
 	}
 
 	@Override
 	public String toString() {
-		return "TroisVerticauxRayesH [debutLigne=" + debutLigne + ", colonne=" + colonne + ", lignesARayer="
-				+ Arrays.toString(lignesARayer) + ", rayeTrouve=" + rayeTrouve + "]";
+		return "TroisVerticauxRayesH [debutLigne=" + debutLigne + ", colonne=" + colonne + ", lignesARayer=" + "]";
 	}
 }
