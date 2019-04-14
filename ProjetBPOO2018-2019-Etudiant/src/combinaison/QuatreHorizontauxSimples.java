@@ -45,7 +45,6 @@ public class QuatreHorizontauxSimples extends Combinaison{
 		System.out.println("4 bonbons " + grille.getCouleur(ligne, debutColonne));
 	}
 
-	@Override
 	public String toString() {
 		return "QuatreHorizontauxSimples [debutColonne=" + debutColonne + ", ligne=" + ligne + "]";
 	}
