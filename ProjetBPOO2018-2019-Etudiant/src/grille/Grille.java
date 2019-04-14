@@ -134,17 +134,17 @@ public class Grille {
 	public void Exploser(int x, int y) {
 		switch (grille[x][y].getType()) {
 		case "BonbonSimple":
-			grille[x][y] = new Vide();
+			grille[x][y] = null;
 			break;
 
 		case "BonbonHorizontal":
 			for (int i = 0; i < TAILLE; i++) {
-				grille[i][y] = new Vide();
+				Exploser(i, y);
 			}
 			break;
 		case "BonbonVertical":
 			for (int i = 0; i < TAILLE; i++) {
-				grille[x][i] = new Vide();
+				Exploser(x, i);
 			}
 			break;
 		}
