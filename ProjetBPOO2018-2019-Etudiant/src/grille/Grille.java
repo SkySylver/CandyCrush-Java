@@ -1,10 +1,8 @@
 package grille;
 
-import java.lang.Math;
 import bonbon.*;
 import combinaison.Combinaison;
 import exceptions.CandyException;
-import combinaison.*;
 
 public class Grille {
 	private final static int TAILLE = 10;
@@ -131,25 +129,6 @@ public class Grille {
 		return grille[x][y].isRaye();
 	}
 
-	public void Exploser(int x, int y) {
-		switch (grille[x][y].getType()) {
-		case "BonbonSimple":
-			grille[x][y] = null;
-			break;
-
-		case "BonbonHorizontal":
-			for (int i = 0; i < TAILLE; i++) {
-				Exploser(i, y);
-			}
-			break;
-		case "BonbonVertical":
-			for (int i = 0; i < TAILLE; i++) {
-				Exploser(x, i);
-			}
-			break;
-		}
-	}
-
 	public void exploser(int l, int c) throws CandyException {
 		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
 			throw new CandyException("Coordonnées incorrectes");
@@ -182,12 +161,14 @@ public class Grille {
 		}
 	}
 
-	// remplacer 9 par MAX et 0 par MIN
 	public void echange(int ls, int cs, int lt, int ct) throws CandyException {
 		if (ls >= TAILLE || cs >= TAILLE || lt >= TAILLE || ct >= TAILLE || ls < 0 || cs < 0 || lt < 0 || ct < 0)
 			throw new CandyException("Coordonnées incorrectes");
+		/*
+		 * ça fait la même chose qu'en bas
 		if ((Math.abs(ls - lt) + Math.abs(cs - ct)) != 1)
 			throw new CandyException("Case inaccessible");
+		*/
 		if (getType(ls, cs).equals("Meringue") || getType(lt, ct).equals("Meringue"))
 			throw new CandyException("Echange avec Meringue");
 		if (getType(ls, cs).equals("Vide") || getType(lt, ct).equals("Vide"))
