@@ -16,17 +16,16 @@ public abstract class Combinaison {
 	public abstract boolean	combinaisonExiste(int l, int c, Grille grille) throws CandyException;
 	public abstract void executerCombinaison(Grille grille) throws CandyException;
 	
-	public boolean detecter(int l, int c, Grille grille) throws CandyException{
+	public Combinaison detecter(int l, int c, Grille grille) throws CandyException{
 		if (combinaisonExiste(l, c, grille)) {
 			executerCombinaison(grille);
-			return true;
+			return this;
 		}
 		else if (suivante != null) {
 			return suivante.detecter(l, c, grille);
 		}
 		else {
-			System.out.println("Aucune");
-			return false;
+			return null;
 		}
 	}
 	
