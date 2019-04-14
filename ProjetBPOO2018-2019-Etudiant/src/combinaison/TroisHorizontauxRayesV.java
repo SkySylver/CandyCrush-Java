@@ -1,7 +1,5 @@
 package combinaison;
 
-import java.util.Arrays;
-
 import exceptions.CandyException;
 import grille.Grille;
 
@@ -10,9 +8,6 @@ public class TroisHorizontauxRayesV extends Combinaison {
 
 	private int debutColonne;
 	private int ligne;
-	private int colonne;
-	private int colonnesARayer[]= {-1,-1,-1};
-	private boolean rayeTrouve = false;
 
 	public TroisHorizontauxRayesV(Combinaison comb) {
 		super(comb);
@@ -32,34 +27,36 @@ public class TroisHorizontauxRayesV extends Combinaison {
 
 			if (c < 8) {
 				if (grille.getCouleur(l, c + 1).equals(coul) && grille.getCouleur(l, c + 2).equals(coul)) {
-					for(int i = 0;i<3;i++) {
-						if(grille.getType(l, c+i).equals("BonbonVertical")) {
-							rayeTrouve = true;
-							colonnesARayer[i]=c+i;
+					for (int i = 0; i < 3; i++) {
+						if (grille.getType(l, c + i).equals("BonbonVertical")) {
+							return true;
 						}
-					}
-					if(rayeTrouve) {
-						return true;
 					}
 				}
 			}
 		}
-
 		return false;
 	}
-	
+
 	public void reponse(Grille grille) throws CandyException {
 		System.out.println("3 bonbons " + grille.getCouleur(ligne, debutColonne) + " dont un rayé à la verticale");
 	}
 
 	public void executerCombinaison(Grille grille) throws CandyException {
-
-
+		for (int i = debutColonne; i < debutColonne + 3; i++) {
+			if (grille.getType(ligne, i).equals("BonbonSimple")) {
+				// si bonbon non rayé, on explose juste le bonbon
+				grille.exploser(ligne, i);
+			} else {
+				// sinon on explose toute la colonne
+				for (int j = 0; j < TAILLE - 1; j++)
+					grille.exploser(j, i);
+			}
+		}
 	}
 
 	@Override
 	public String toString() {
-		return "TroisHorizontauxRayesV [debutColonne=" + debutColonne + ", ligne=" + ligne + ", colonnesARayer="
-				+ Arrays.toString(colonnesARayer) + ", rayeTrouve=" + rayeTrouve + "]";
+		return "TroisHorizontauxRayesV [debutColonne=" + debutColonne + ", ligne=" + ligne + ", colonnesARayer=" + "]";
 	}
 }
