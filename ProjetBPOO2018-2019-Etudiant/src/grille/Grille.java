@@ -132,21 +132,18 @@ public class Grille {
 	}
 
 	public void Exploser(int x, int y) {
-		switch (grille[x][y].getType()) {
-		case "BonbonSimple":
-			grille[x][y] = null;
-			break;
+		String t = grille[x][y].getType();
+		grille[x][y] = new Vide();
 
-		case "BonbonHorizontal":
+		if (t.equals("BonbonHorizontal")) {
+
 			for (int i = 0; i < TAILLE; i++) {
 				Exploser(i, y);
 			}
-			break;
-		case "BonbonVertical":
+		} else if (t.equals("BonbonHorizontal")) {
 			for (int i = 0; i < TAILLE; i++) {
 				Exploser(x, i);
 			}
-			break;
 		}
 	}
 
@@ -162,7 +159,7 @@ public class Grille {
 		if (!grille[l][c].getType().equals("Vide"))
 			throw new CandyException("On ne peut pas faire tomber dans une case pleine");
 		while (l > 0 && grille[l - 1][c].getType().equals("Vide")) {
-			
+
 		}
 
 	}
@@ -174,6 +171,7 @@ public class Grille {
 				while (grille[i][j].getType().equals("Vide")) { // Tant que la case est vide
 					for (int c = j; c < TAILLE; c++)
 						grille[i][c] = grille[i][c + 1];
+					
 
 					if (grille[i][0].getType().equals("Vide"))
 						grille[i][0] = new BonbonSimple();
@@ -212,7 +210,7 @@ public class Grille {
 			throw new CandyException("Aucune combinaison apres echange");
 		}
 	}
-	
+
 	public void putBonbonHorizontal(int l, int c, String coul) throws CandyException {
 		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
 			throw new CandyException("Coordonnées incorrectes");
