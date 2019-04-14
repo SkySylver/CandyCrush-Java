@@ -6,7 +6,6 @@ import java.util.Random;
 
 public abstract class Bonbon {
 
-	private boolean Remplissable;
 	private String couleur;
 	ArrayList<String> lesCouleurs = new ArrayList<String>(
 			Arrays.asList("Bleu", "Vert", "Jaune", "Violet", "Vide", "Meringue"));
@@ -67,13 +66,5 @@ public abstract class Bonbon {
 		} else if (!lesCouleurs.equals(other.lesCouleurs))
 			return false;
 		return true;
-	}
-
-	public boolean isRemplissable() {
-		return Remplissable;
-	}
-
-	public void setIgnorerRemplissage(boolean ignorerRemplissage) {
-		this.Remplissable = ignorerRemplissage;
 	}
 }
