@@ -1,10 +1,8 @@
 package grille;
 
-import java.lang.Math;
 import bonbon.*;
 import combinaison.Combinaison;
 import exceptions.CandyException;
-import combinaison.*;
 
 public class Grille {
 	private final static int TAILLE = 10;
@@ -130,24 +128,7 @@ public class Grille {
 	public boolean isRaye(int x, int y) {
 		return grille[x][y].isRaye();
 	}
-
-	public void Exploser(int l, int c) throws CandyException {
-		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
-			throw new CandyException("Coordonnées incorrectes");
-		String t = grille[l][c].getType();
-		grille[l][c] = new Vide();
-
-		if (t.equals("BonbonHorizontal")) {
-
-			for (int i = 0; i < TAILLE; i++) {
-				Exploser(i, c);
-			}
-		} else if (t.equals("BonbonHorizontal")) {
-			for (int i = 0; i < TAILLE; i++) {
-				Exploser(l, i);
-			}
-		}
-	}
+	
 
 	public void exploser(int l, int c) throws CandyException {
 		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
@@ -155,41 +136,34 @@ public class Grille {
 		grille[l][c] = new Vide();
 	}
 
-	public void tomber(int l, int c) throws CandyException {
-		if (!grille[l][c].getType().equals("Vide"))
-			throw new CandyException("On ne peut pas faire tomber dans une case pleine");
-		while (l > 0 && grille[l - 1][c].getType().equals("Vide")) {
-
-			grille[l][c] = grille[l - 1][c];
-			l--;
-		}
-		grille[l][c] = new BonbonSimple();
-
-	}
-
 	// Fait tomber les bonbons de chaque colonnes + recomplete ce qu'il manque
-	public void Tomber() {
+	public void tomber() {
+		int a;
 		for (int i = 0; i < TAILLE; i++) { // Pour x de 0 a 9 (chaque colonne)
 			for (int j = TAILLE - 1; j >= 0; j--) { // Pour chaque case dans la colonne
-				while (grille[j][i].getType().equals("Vide")) { // Tant que la case est vide
+				a=0;
+				while (grille[j][i].getType().equals("Vide") && a<TAILLE-j) { // Tant que la case est vide
 						// Descend tous les elements de la colonne de 1
+					a++;
 					for (int c = j; c > 0; c--)
 						grille[c][i] = grille[c-1][i];
 					
 						// Si le haut de la colonne est vide, le remplit
-					if (grille[0][i].getType().equals("Vide"))
-						grille[0][i] = new BonbonSimple();// A remplacer par vide() quand on ne fait pas les tests
+					//if (grille[0][i].getType().equals("Vide"))
+						//grille[0][i] = new BonbonSimple();// A remplacer par vide() quand on ne fait pas les tests
 				}
 			}
 		}
 	}
 
-	// remplacer 9 par MAX et 0 par MIN
 	public void echange(int ls, int cs, int lt, int ct) throws CandyException {
 		if (ls >= TAILLE || cs >= TAILLE || lt >= TAILLE || ct >= TAILLE || ls < 0 || cs < 0 || lt < 0 || ct < 0)
 			throw new CandyException("Coordonnées incorrectes");
+		/*
+		 * ça fait la même chose qu'en bas
 		if ((Math.abs(ls - lt) + Math.abs(cs - ct)) != 1)
 			throw new CandyException("Case inaccessible");
+		*/
 		if (getType(ls, cs).equals("Meringue") || getType(lt, ct).equals("Meringue"))
 			throw new CandyException("Echange avec Meringue");
 		if (getType(ls, cs).equals("Vide") || getType(lt, ct).equals("Vide"))

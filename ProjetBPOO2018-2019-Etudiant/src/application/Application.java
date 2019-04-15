@@ -153,7 +153,7 @@ public class Application {
 		// Test des chutes
 		System.out.println("\n\t Test des chutes: \n");
 
-		grille.Tomber();
+		grille.tomber();
 		System.out.println("Bonbon en (9,0): " + grille.getType(9, 0));
 		System.out.println("Bonbon en (9,7): " + grille.getCouleur(9, 7) + grille.getType(9, 7));
 		System.out.println("Bonbon en (8,7): " + grille.getCouleur(8, 7));
