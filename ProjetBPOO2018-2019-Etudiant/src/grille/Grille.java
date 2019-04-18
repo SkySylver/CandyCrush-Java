@@ -141,7 +141,7 @@ public class Grille {
 		for (int i = 0; i < TAILLE; i++) { // Pour x de 0 a 9 (chaque colonne)
 			for (int j = TAILLE - 1; j >= 0; j--) { // Pour chaque case dans la colonne
 				a=0;
-				while (grille[j][i].getType().equals("Vide") && a<TAILLE) { // Tant que la case est vide
+				while (grille[j][i].getType().equals("Vide") && a<TAILLE-j) { // Tant que la case est vide
 						// Descend tous les elements de la colonne de 1
 					a++;
 					for (int c = j; c > 0; c--)
