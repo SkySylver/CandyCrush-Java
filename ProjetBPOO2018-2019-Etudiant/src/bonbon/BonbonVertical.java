@@ -11,10 +11,6 @@ public class BonbonVertical extends Bonbon {
 
 	}
 
-	public void explose() {
-
-	}
-
 	public String getType() {
 		return "BonbonVertical";
 	}

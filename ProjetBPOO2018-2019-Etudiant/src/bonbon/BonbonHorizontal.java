@@ -1,7 +1,5 @@
 package bonbon;
 
-import java.util.Random;
-
 public class BonbonHorizontal extends Bonbon {
 
 	public BonbonHorizontal() {
@@ -12,9 +10,6 @@ public class BonbonHorizontal extends Bonbon {
 		super(couleur);
 	}
 
-	public void explose() {
-
-	}
 
 	public String getType() {
 		return "BonbonHorizontal";
