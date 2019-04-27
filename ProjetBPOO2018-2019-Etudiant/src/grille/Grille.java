@@ -140,34 +140,38 @@ public class Grille {
 		int a;
 		for (int i = 0; i < TAILLE; i++) { // Pour x de 0 a 9 (chaque colonne)
 			for (int j = TAILLE - 1; j >= 0; j--) { // Pour chaque case dans la colonne
-				a=0;
-				while (grille[j][i].getType().equals("Vide") && a<TAILLE-j) { // Tant que la case est vide
-						// Descend tous les elements de la colonne de 1
+				a = 0;
+				while (grille[j][i].getType().equals("Vide") && a < TAILLE - j) { // Tant que la case est vide
+					// Descend tous les elements de la colonne de 1
 					a++;
 					for (int c = j; c > 0; c--)
-						grille[c][i] = grille[c-1][i];
-					
-						// Si le haut de la colonne est vide, le remplit
-					//if (grille[0][i].getType().equals("Vide"))
-						//grille[0][i] = new BonbonSimple();// A remplacer par vide() quand on ne fait pas les tests
+						grille[c][i] = grille[c - 1][i];
+
+					// Si le haut de la colonne est vide, le remplit
+					// if (grille[0][i].getType().equals("Vide"))
+					// grille[0][i] = new BonbonSimple();// A remplacer par vide() quand on ne fait
+					// pas les tests
 				}
 			}
 		}
 	}
 
+	public void completer() {
+		for (int i = 0; i < TAILLE; i++)
+			for (int j = 0; j < TAILLE; j++)
+				while (grille[i][j].getType().equals("Vide"))
+					grille[i][j] = new BonbonSimple();
+	}
+
 	public void echange(int ls, int cs, int lt, int ct) throws CandyException {
 		if (ls >= TAILLE || cs >= TAILLE || lt >= TAILLE || ct >= TAILLE || ls < 0 || cs < 0 || lt < 0 || ct < 0)
 			throw new CandyException("Coordonnées incorrectes");
-		/*
-		 * ça fait la même chose qu'en bas
 		if ((Math.abs(ls - lt) + Math.abs(cs - ct)) != 1)
 			throw new CandyException("Case inaccessible");
-		*/
 		if (getType(ls, cs).equals("Meringue") || getType(lt, ct).equals("Meringue"))
 			throw new CandyException("Echange avec Meringue");
 		if (getType(ls, cs).equals("Vide") || getType(lt, ct).equals("Vide"))
 			throw new CandyException("Echange avec Vide");
-		
 
 		// On echange les bonbons
 		Bonbon temp = grille[ls][cs];
@@ -191,7 +195,7 @@ public class Grille {
 			throw new CandyException("Coordonnées incorrectes");
 		grille[l][c] = new BonbonHorizontal(coul);
 	}
-	
+
 	public void putBonbonVertical(int l, int c, String coul) throws CandyException {
 		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
 			throw new CandyException("Coordonnées incorrectes");

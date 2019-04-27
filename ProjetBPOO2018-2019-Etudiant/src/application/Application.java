@@ -1,5 +1,7 @@
 package application;
 
+import java.util.Scanner;
+
 import combinaison.Combinaison;
 import exceptions.CandyException;
 import grille.Grille;
@@ -166,10 +168,73 @@ public class Application {
 		System.out.println("Bonbon en (1,7): " + grille.getCouleur(1, 7));
 		System.out.println("Bonbon en (0,7): " + grille.getCouleur(0, 7));
 
+		grille.completer();
+		System.out.println("Bonbon en (9,0): " + grille.getType(9, 0));
+		System.out.println("Bonbon en (9,7): " + grille.getCouleur(9, 7) + grille.getType(9, 7));
+		System.out.println("Bonbon en (8,7): " + grille.getCouleur(8, 7));
+		System.out.println("Bonbon en (7,7): " + grille.getCouleur(7, 7));
+		System.out.println("Bonbon en (6,7): " + grille.getCouleur(6, 7));
+		System.out.println("Bonbon en (5,7): " + grille.getCouleur(5, 7));
+		System.out.println("Bonbon en (4,7): " + grille.getCouleur(4, 7));
+		System.out.println("Bonbon en (3,7): " + grille.getCouleur(3, 7));
+		System.out.println("Bonbon en (2,7): " + grille.getCouleur(2, 7));
+		System.out.println("Bonbon en (1,7): " + grille.getCouleur(1, 7));
+		System.out.println("Bonbon en (0,7): " + grille.getCouleur(0, 7));
 
+		Scanner sc = new Scanner(System.in);
 
+		int x1, y1, x2, y2;
+		int choix = -1;
+		while (choix != 0) {
+			try {
+				switch (choix) {
 
+				case 0:
+					System.out.println("Bye bye");
+					System.exit(0);
+				case 1:
+					x1 = sc.nextInt();
+					y1 = sc.nextInt();
+					System.out.println("Grille [" + x1 + "][" + y1 + "]\n   Couleur = " + grille.getCouleur(x1, y1)
+							+ "\n   Type = " + grille.getType(x1, y1));
+					if (grille.isRaye(x1, y1))
+						System.out.println("Bonbon rayé");
+				case 2:
 
+					x1 = sc.nextInt();
+					y1 = sc.nextInt();
+					System.out.print("Combinaison en [" + x1 + ";" + y1 + "]:");
+					mesComb.detecter(x1, y1, grille);
+				case 3:
+					x1 = sc.nextInt();
+					y1 = sc.nextInt();
+					x2 = sc.nextInt();
+					y2 = sc.nextInt();
+					System.out.print("Echange [" + x1 + ";" + y1 + "]et [" + x2 + ";" + y2 + "]");
+					try {
+						grille.echange(x1, y1, x2, y2);
+					} catch (CandyException e) {
+						e.printStackTrace();
+					}
+				case 4:
+					grille.tomber();
+				case 5:
+					grille.completer();
+				default:
+					System.out.println(
+							"Veuillez choisir le test : \n" + "  1 - Consulter couleur et type en coordonnée [x,y]\n"
+									+ "  2 - Detecter combinaison en coordonnée [x,y]\n"
+									+ "  3 - Echanger en coordonnée [x1,y1] et [x2,y2]\n"
+									+ "  4 - Faire tomber les bonbons\n"
+									+ "  5 - Completer la grille\n");
+					choix = sc.nextInt();
+				}
+			} catch (CandyException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		sc.close();
 		System.exit(0);
 
 	}
