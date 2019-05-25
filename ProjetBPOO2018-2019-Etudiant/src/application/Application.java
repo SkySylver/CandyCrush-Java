@@ -22,14 +22,21 @@ public class Application {
 		Grille grille = new Grille(true);
 
 		try {
-			jouer(grille);
+			start(grille);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		// }
 	}
+	
+	private static void start(Grille g) {
+		
+		
+		
+	}
 
-	private static void jouer(Grille grille) throws Exception {
+	@SuppressWarnings("unused")
+	private static void tests(Grille grille) throws Exception {
 
 		// Test consultations de base
 		System.out.println("\tConsultations de base: \n");
