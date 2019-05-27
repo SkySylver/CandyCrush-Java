@@ -5,33 +5,37 @@ import java.util.Scanner;
 import combinaison.Combinaison;
 import exceptions.CandyException;
 import grille.Grille;
+import interf.Controller;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-public class Application {
+public class Main extends Application{
 	private static Combinaison mesComb = null;
 
 	public static void main(String[] args) {
-
+		try {
+//			start(grille);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}  
+		//greg }
+	}
+	
+	@Override
+	public void start(Stage primaryStage) {
+		Controller c = new Controller(primaryStage);
+		
 		mesComb = Combinaison.initCombinaisons();
 		if (mesComb == null) {
 			System.out.println("Aucune Combinaison disponible !");
 			System.exit(0);
 		}
-
+		
 		// while (true) {
 		// grille test
 		Grille grille = new Grille(true);
 
-		try {
-			start(grille);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		// }
-	}
-	
-	private static void start(Grille g) {
-		
-		
+
 		
 	}
 
