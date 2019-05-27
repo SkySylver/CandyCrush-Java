@@ -5,8 +5,6 @@ import grille.Grille;
 
 // TROIS BONBONS ALIGNES HORIZONTALEMENT DONT UN RAYE A L'HORIZONTALE
 public class TroisHorizontauxRayesH extends Combinaison {
-		private int ligne;
-
 	public TroisHorizontauxRayesH(int l) {
 		ligne = l;
 	}

@@ -6,9 +6,6 @@ import grille.Grille;
 // TROIS BONBONS ALIGNES VERTICALEMENT DONT UN RAYE A L'HORIZONTALE
 public class TroisVerticauxRayesH extends Combinaison {
 
-	private int debutLigne;
-	private int colonne;
-
 	public TroisVerticauxRayesH(int dL, int c) {
 		debutLigne = dL;
 		colonne = c;

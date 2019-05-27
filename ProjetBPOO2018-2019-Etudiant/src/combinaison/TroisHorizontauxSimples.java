@@ -6,9 +6,6 @@ import grille.Grille;
 // TROIS BONBONS SIMPLES ALIGNES HORIZONTALEMENT
 public class TroisHorizontauxSimples extends Combinaison {
 
-	private int debutColonne;
-	private int ligne;
-
 	public TroisHorizontauxSimples(int dC, int l) {
 		debutColonne = dC;
 		ligne = l;

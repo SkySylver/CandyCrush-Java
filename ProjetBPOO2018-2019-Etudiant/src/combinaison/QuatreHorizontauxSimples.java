@@ -5,10 +5,6 @@ import grille.Grille;
 
 //QUATRE BONBONS SIMPLES ALIGNES HORIZONTALEMENT
 public class QuatreHorizontauxSimples extends Combinaison{
-	private int debutColonne;
-	private int ligne;
-	private int colonne;
-
 	public QuatreHorizontauxSimples(int dC, int l, int c) {
 		debutColonne = dC;
 		ligne = l;

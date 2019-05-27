@@ -5,10 +5,6 @@ import grille.Grille;
 
 //QUATRE BONBONS SIMPLES ALIGNES VERTICALEMENT
 public class QuatreVerticauxSimples extends Combinaison {
-	private int debutLigne;
-	private int ligne;
-	private int colonne;
-
 	public QuatreVerticauxSimples(int dL, int l, int c) {
 		debutLigne = dL;
 		ligne = l;

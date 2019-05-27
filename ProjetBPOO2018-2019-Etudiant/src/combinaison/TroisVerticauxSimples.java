@@ -5,9 +5,7 @@ import grille.Grille;
 
 //TROIS BONBONS SIMPLES ALIGNES VERTICALEMENT
 public class TroisVerticauxSimples extends Combinaison {
-	private int debutLigne;
-	private int colonne;
-	
+
 	public TroisVerticauxSimples(int dL, int c) {
 		debutLigne = dL;
 		colonne = c;
