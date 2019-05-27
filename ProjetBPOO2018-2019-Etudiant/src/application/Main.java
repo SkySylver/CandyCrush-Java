@@ -3,6 +3,7 @@ package application;
 import java.util.Scanner;
 
 import combinaison.Combinaison;
+import detecteur.Detecteur;
 import exceptions.CandyException;
 import grille.Grille;
 //import interf.Controller;
@@ -10,37 +11,41 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class Main extends Application{
-	private static Combinaison mesComb = null;
+	private static Detecteur mesComb = null;
 
 	public static void main(String[] args) {
 		try {
-//			start(grille);
+			//start(grille);
+			mesComb = Detecteur.initDetecteurs();
+			if (mesComb == null) {
+				System.out.println("Aucune Combinaison disponible !");
+				System.exit(0);
+			}
+			Grille grille = new Grille(true);
+			tests(grille);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}  
+<<<<<<< HEAD
 		//greg }
 		//testfzef
+=======
+>>>>>>> branch 'master' of https://gitlab.com/nsUsta/candy.git
 	}
 	
 	@Override
 	public void start(Stage primaryStage) {
+<<<<<<< HEAD
 //		Controller c = new Controller(primaryStage);
+=======
+		//Controller c = new Controller(primaryStage);
+>>>>>>> branch 'master' of https://gitlab.com/nsUsta/candy.git
 		
-		mesComb = Combinaison.initCombinaisons();
-		if (mesComb == null) {
-			System.out.println("Aucune Combinaison disponible !");
-			System.exit(0);
-		}
-		
-		// while (true) {
-		// grille test
-		Grille grille = new Grille(true);
-
-
-		
+				
 	}
 
-	@SuppressWarnings("unused")
+//	@SuppressWarnings("unused")
 	private static void tests(Grille grille) throws Exception {
 
 		// Test consultations de base

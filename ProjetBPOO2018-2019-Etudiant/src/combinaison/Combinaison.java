@@ -5,51 +5,12 @@ import grille.Grille;
 
 public abstract class Combinaison {
 	protected final static int TAILLE = 10;
-	private Combinaison suivante = null;
-
-	public Combinaison(Combinaison comb) {
-		suivante = comb;
-	}
-	public Combinaison getSuivante() {
-		return suivante;
-	}
+	protected int debutLigne;
+	protected int debutColonne;
+	protected int ligne;
+	protected int colonne;
 	
-	public abstract boolean	combinaisonExiste(int l, int c, Grille grille) throws CandyException;
-	public abstract void executerCombinaison(Grille grille) throws CandyException;
-	public abstract void reponse(Grille grille) throws CandyException;
-
+	public Combinaison() {}
 	
-	public Combinaison detecter(int l, int c, Grille grille) throws CandyException{
-		if (combinaisonExiste(l, c, grille)) {
-			reponse(grille); //reponse pour le test
-			//executerCombinaison(grille);
-			return this;
-		}
-		else if (suivante != null) {
-			return suivante.detecter(l, c, grille);
-		}
-		else {
-			return null;
-		}
-	}
-	
-	public static Combinaison initCombinaisons() {
-		Combinaison maComb = null;
-		maComb = new TroisHorizontauxSimples(maComb);
-		maComb = new TroisVerticauxSimples(maComb);
-		maComb = new QuatreHorizontauxSimples(maComb);
-		maComb = new QuatreVerticauxSimples(maComb);
-		maComb = new TroisHorizontauxRayesH(maComb);
-		maComb = new TroisVerticauxRayesH(maComb);
-		maComb = new TroisHorizontauxRayesV(maComb);
-		maComb = new TroisVerticauxRayesV(maComb);
-
-		return maComb;
-	}
-	
-	@Override
-	public String toString() {
-		return "Combinaison [suivante=" + suivante + "]";
-	}
-		
+	public abstract void executerCombinaison(Grille grille) throws CandyException;	
 }
