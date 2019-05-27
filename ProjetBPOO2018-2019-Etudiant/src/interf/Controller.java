@@ -128,7 +128,7 @@ public class Controller {
 
 			initImagesCandies();
 
-			BorderPane root = new BorderPane(grillePane);
+			root = new BorderPane(grillePane);
 			initGrille();
 			initChrono();
 
@@ -140,7 +140,7 @@ public class Controller {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 
-			demarrerPartie();
+			this.demarrerPartie();
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -169,7 +169,8 @@ public class Controller {
 	void initGrille() {
 
 		grillePane = new Canvas(640, 640);
-		((BorderPane) root).setCenter(grillePane);
+		
+		//root.setCenter(grillePane);
 
 		gc = grillePane.getGraphicsContext2D();
 

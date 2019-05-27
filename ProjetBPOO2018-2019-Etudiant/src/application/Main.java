@@ -6,43 +6,30 @@ import combinaison.Combinaison;
 import detecteur.Detecteur;
 import exceptions.CandyException;
 import grille.Grille;
-//import interf.Controller;
+import interf.Controller;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class Main extends Application{
+public class Main extends Application {
 	private static Detecteur mesComb = null;
 
 	public static void main(String[] args) {
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage primaryStage) {
 		try {
-			//start(grille);
 			mesComb = Detecteur.initDetecteurs();
 			if (mesComb == null) {
 				System.out.println("Aucune Combinaison disponible !");
 				System.exit(0);
 			}
-			Grille grille = new Grille(true);
-			tests(grille);
-			
 		} catch (Exception e) {
 			e.printStackTrace();
-		}  
-<<<<<<< HEAD
-		//greg }
-		//testfzef
-=======
->>>>>>> branch 'master' of https://gitlab.com/nsUsta/candy.git
-	}
-	
-	@Override
-	public void start(Stage primaryStage) {
-<<<<<<< HEAD
-//		Controller c = new Controller(primaryStage);
-=======
-		//Controller c = new Controller(primaryStage);
->>>>>>> branch 'master' of https://gitlab.com/nsUsta/candy.git
-		
-				
+		}
+		Controller c = new Controller(primaryStage);
+
 	}
 
 //	@SuppressWarnings("unused")
@@ -242,15 +229,14 @@ public class Main extends Application{
 							"Veuillez choisir le test : \n" + "  1 - Consulter couleur et type en coordonnée [x,y]\n"
 									+ "  2 - Detecter combinaison en coordonnée [x,y]\n"
 									+ "  3 - Echanger en coordonnée [x1,y1] et [x2,y2]\n"
-									+ "  4 - Faire tomber les bonbons\n"
-									+ "  5 - Completer la grille\n");
+									+ "  4 - Faire tomber les bonbons\n" + "  5 - Completer la grille\n");
 					choix = sc.nextInt();
 				}
 			} catch (CandyException e) {
 				e.printStackTrace();
 			}
 		}
-		
+
 		sc.close();
 		System.exit(0);
 
