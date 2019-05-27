@@ -5,7 +5,7 @@ import java.util.Scanner;
 import combinaison.Combinaison;
 import exceptions.CandyException;
 import grille.Grille;
-import interf.Controller;
+//import interf.Controller;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -19,11 +19,12 @@ public class Main extends Application{
 			e.printStackTrace();
 		}  
 		//greg }
+		//testfzef
 	}
 	
 	@Override
 	public void start(Stage primaryStage) {
-		Controller c = new Controller(primaryStage);
+//		Controller c = new Controller(primaryStage);
 		
 		mesComb = Combinaison.initCombinaisons();
 		if (mesComb == null) {
