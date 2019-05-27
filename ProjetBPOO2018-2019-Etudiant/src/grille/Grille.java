@@ -2,6 +2,7 @@ package grille;
 
 import bonbon.*;
 import combinaison.Combinaison;
+import detecteur.Detecteur;
 import exceptions.CandyException;
 
 public class Grille {
@@ -180,9 +181,9 @@ public class Grille {
 
 		// Si aucune combinaison n'est détectée on remet les bonbons à leurs places et
 		// on jette une exception
-		Combinaison comb = null;
-		comb = Combinaison.initCombinaisons();
-		if (comb.detecter(ls, cs, this) == null && comb.detecter(lt, ct, this) == null) {
+		Detecteur d = null;
+		d = Detecteur.initDetecteurs();
+		if (d.detecter(ls, cs, this) == null && d.detecter(lt, ct, this) == null) {
 			temp = grille[ls][cs];
 			grille[ls][cs] = grille[lt][ct];
 			grille[lt][ct] = temp;
