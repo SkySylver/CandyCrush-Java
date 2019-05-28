@@ -51,67 +51,11 @@ public class Controller {
 	 * projet...
 	 */
 	private int[][] grille = new int[10][10];
-
-	public int[][] getGrille() {
-		return grille;
-	}
-
-	public void setGrille(int[][] grille) {
-		this.grille = grille;
-	}
-
 	/**
 	 * Le tableau contenant les images des bonbons
 	 */
 	private Image[] candies;
-
-	public Image[] getCandies() {
-		return candies;
-	}
-
-	public void setCandies(Image[] candies) {
-		this.candies = candies;
-	}
-
-	public int getXd() {
-		return xd;
-	}
-
-	public void setXd(int xd) {
-		this.xd = xd;
-	}
-
-	public int getYd() {
-		return yd;
-	}
-
-	public void setYd(int yd) {
-		this.yd = yd;
-	}
-
-	public int getXf() {
-		return xf;
-	}
-
-	public void setXf(int xf) {
-		this.xf = xf;
-	}
-
-	public int getYf() {
-		return yf;
-	}
-
-	public void setYf(int yf) {
-		this.yf = yf;
-	}
-
-	public Canvas getGrillePane() {
-		return grillePane;
-	}
-
-	public void setGrillePane(Canvas grillePane) {
-		this.grillePane = grillePane;
-	}
+	
 
 	private Timeline timeline;
 
@@ -208,25 +152,13 @@ public class Controller {
 	}
 
 	private void initTimelineJeu() {
-		final KeyFrame keyframe1 = new KeyFrame(Duration.seconds(0), new KeyFrame1(this)); // Cette KF sera affichÃ©e tout
-																						// de suite et restera jusqu'Ã 
-																						// la prochaine KF
-		final KeyFrame keyframe2 = new KeyFrame(Duration.seconds(TEMPS_AFFICHAGE_KEYFRAME1), new KeyFrame2(this)); // Cette
-																												// KF2
-																												// sera
-																												// affichÃ©e
-																												// aprÃ¨s
-																												// 0.1s,
-																												// c'est-Ã -dire
-																												// la
-																												// durÃ©e
-																												// que
-																												// l'on
-																												// a
-																												// dÃ©fini
-																												// pour
-																												// la KF
-																												// 1
+		final KeyFrame keyframe1 = new KeyFrame(Duration.seconds(0), new KeyFrame1(this));
+		// Cette KF sera affichee tout de suite et restera jusqu'� la prochaine KF
+
+		final KeyFrame keyframe2 = new KeyFrame(Duration.seconds(TEMPS_AFFICHAGE_KEYFRAME1), new KeyFrame2(this)); 
+			// Cette KF2 sera affichee apr�s 0.1s c-�-d la duree que l'on a defini pour la KF1
+
+		
 		timeline = new Timeline(keyframe1, keyframe2);
 		timeline.setCycleCount(Animation.INDEFINITE); // L'animation va Ã©galement boucler Ã  l'infinie
 	}
@@ -262,5 +194,77 @@ public class Controller {
 	}
 
 
+	
+	
+	/*
+	 *	----+-------------------+ 
+	 *	|	GETTERS / SETTERS	|
+	 *	+-----------------------+
+	 *
+	 */
+	
+	public int[][] getGrille() {
+		return grille;
+	}
+
+	public void setGrille(int[][] grille) {
+		this.grille = grille;
+	}
+
+	public Image[] getCandies() {
+		return candies;
+	}
+
+	public void setCandies(Image[] candies) {
+		this.candies = candies;
+	}
+
+	public int getXd() {
+		return xd;
+	}
+
+	public void setXd(int xd) {
+		this.xd = xd;
+	}
+
+	public int getYd() {
+		return yd;
+	}
+
+	public void setYd(int yd) {
+		this.yd = yd;
+	}
+
+	public int getXf() {
+		return xf;
+	}
+
+	public void setXf(int xf) {
+		this.xf = xf;
+	}
+
+	public int getYf() {
+		return yf;
+	}
+
+	public void setYf(int yf) {
+		this.yf = yf;
+	}
+
+	public Canvas getGrillePane() {
+		return grillePane;
+	}
+
+	public void setGrillePane(Canvas grillePane) {
+		this.grillePane = grillePane;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
