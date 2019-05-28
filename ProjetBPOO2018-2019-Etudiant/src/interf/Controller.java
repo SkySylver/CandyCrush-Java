@@ -10,11 +10,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.Dragboard;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TransferMode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -35,14 +30,10 @@ public class Controller {
 	private Scene scene;
 	private Pane root;
 
-	/**
-	 * CoordonnÃ©es des pixels de dÃ©part et de fin du DnD
-	 */
+	// CoordonnÃ©es des pixels de dÃ©part et de fin du DnD
 	private int xd, yd, xf, yf;
 
-	/**
-	 * Un canvas pour affiche rdu graphisme (ici, des images
-	 */
+	//Un canvas pour affiche rdu graphisme (ici, des images
 	private Canvas grillePane;
 	private GraphicsContext gc;
 	/**

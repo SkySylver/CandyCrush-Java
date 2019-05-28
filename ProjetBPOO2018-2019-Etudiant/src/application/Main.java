@@ -7,6 +7,7 @@ import detecteur.Detecteur;
 import exceptions.CandyException;
 import grille.Grille;
 import interf.Controller;
+import interf.MenuController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -28,11 +29,16 @@ public class Main extends Application {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Controller c = new Controller(primaryStage);
-
+		MenuController Menu = new MenuController(primaryStage);
+		Menu.start();
 	}
 
-//	@SuppressWarnings("unused")
+	
+	
+	
+	
+	
+	@SuppressWarnings("unused")
 	private static void tests(Grille grille) throws Exception {
 
 		// Test consultations de base
