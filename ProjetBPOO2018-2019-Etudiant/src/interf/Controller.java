@@ -75,7 +75,7 @@ public class Controller {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 
-			this.demarrerPartie();
+			demarrerPartie();
 
 		} catch (Exception e) {
 			e.printStackTrace();
