@@ -1,5 +1,11 @@
 package interf;
 
-public class ModeTimer {
+import javafx.stage.Stage;
+
+public class ModeTimer extends Controller{
+
+	public ModeTimer(Stage primaryStage) {
+		super(primaryStage);
+	}
 
 }

@@ -1,5 +1,6 @@
 package interf;
 
+import grille.Grille;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -41,7 +42,7 @@ public class Controller {
 	 * (0-->Candy_0, 1-->Candy_1,...) Faudra faire mieux Ã©videmment dans le
 	 * projet...
 	 */
-	private int[][] grille = new int[10][10];
+	private Grille grille = new Grille();
 	/**
 	 * Le tableau contenant les images des bonbons
 	 */
@@ -138,8 +139,7 @@ public class Controller {
 		timelineChrono = new Timeline(k);
 		// La timeline va boucler Ã  l'infinie. Donc la keyframe k sera bien dclenchÃ©e
 		// toutes les secondes
-		timelineChrono.setCycleCount(Animation.INDEFINITE);
-		timelineChrono.play();
+		timelineChrono.setCycleCount(Animation.INDEFINITE); 
 	}
 
 	private void initTimelineJeu() {
@@ -154,6 +154,12 @@ public class Controller {
 		timeline.setCycleCount(Animation.INDEFINITE); // L'animation va Ã©galement boucler Ã  l'infinie
 	}
 
+	@SuppressWarnings("unused")
+	private int getCandie() {
+		return secondesEcoulees;
+		
+	}
+	
 	public void dessinerPlateau() {
 
 		for (int l = 0; l < 10; l++) {
@@ -168,9 +174,6 @@ public class Controller {
 		return gc;
 	}
 
-	public void setGc(GraphicsContext gc) {
-		this.gc = gc;
-	}
 
 	private void initImagesCandies() {
 		candies = new Image[NOMBRE_DE_CANDIES];
