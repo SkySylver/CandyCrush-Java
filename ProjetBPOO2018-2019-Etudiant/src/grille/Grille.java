@@ -12,6 +12,11 @@ public class Grille {
 	private Bonbon[][] grille = new Bonbon[TAILLE][TAILLE];
 
 	public Grille() {
+		for (int i = 0; i <= TAILLE - 1; i++) {
+			for (int j = 0; j <= TAILLE - 1; j++) {
+				grille[i][j] = new BonbonSimple();
+			}
+		}
 	}
 
 	// grille pour le test, celle qui est décrite dans ui > CandyCrush.java

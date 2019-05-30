@@ -10,12 +10,14 @@ public class BonbonHorizontal extends Bonbon {
 
 	public BonbonHorizontal(String couleur) {
 		super(couleur);
-		img = new Image(this.getCouleur()+"H.png");
-	}
 
+	}
 
 	public String getType() {
 		return "BonbonHorizontal";
 	}
 
+	public Image getImage() {
+		return new Image(this.getCouleur() + "H.png");
+	}
 }

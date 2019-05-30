@@ -10,11 +10,14 @@ public class BonbonVertical extends Bonbon {
 
 	public BonbonVertical(String couleur) {
 		super(couleur);
-		img = new Image(this.getCouleur()+"V.png");
 
 	}
 
 	public String getType() {
 		return "BonbonVertical";
+	}
+	
+	public Image getImage() {
+		return new Image(this.getCouleur() + "V.png");
 	}
 }

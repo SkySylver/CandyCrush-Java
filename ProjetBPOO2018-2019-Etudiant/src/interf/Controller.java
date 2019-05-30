@@ -32,20 +32,23 @@ public class Controller {
 	private Scene scene;
 	private Pane root;
 
-	// CoordonnÃ©es des pixels de dÃ©part et de fin du DnD
+	// Coordonn�es pixel DnD
 	private int xd, yd, xf, yf;
 
 	//Un canvas pour affiche rdu graphisme (ici, des images
 	private Canvas grillePane;
 	private GraphicsContext gc;
-	/**
-	 * Tableau 2D d'entiers. Chaque entier correspond Ã  l'indice d'une image
-	 * (0-->Candy_0, 1-->Candy_1,...) Faudra faire mieux Ã©videmment dans le
-	 * projet...
-	 */
+
+	
+	/*
+	 * 
+	 **/
 	private Grille grille = new Grille();
+	
+	
 	/**
 	 * Le tableau contenant les images des bonbons
+	 * useless : On met directement l'image dans la classe du bonbon
 	 */
 	private Image[] candies;
 	
@@ -63,7 +66,7 @@ public class Controller {
 		try {
 			primaryStage.setTitle("Candy Crush");
 
-			initImagesCandies();
+			//initImagesCandies();
 
 			root = new BorderPane(grillePane);
 			initGrille();
@@ -107,7 +110,7 @@ public class Controller {
 
 		grillePane = new Canvas(640, 640);
 		
-		//root.setCenter(grillePane);
+		((BorderPane) root).setCenter(grillePane);
 
 		gc = grillePane.getGraphicsContext2D();
 
@@ -178,14 +181,14 @@ public class Controller {
 
 	private void initImagesCandies() {
 		candies = new Image[NOMBRE_DE_CANDIES];
-
+/*
 		try {
 			for (int i = 0; i < candies.length; i++) {
 				candies[i] = new Image(getClass().getResourceAsStream("/Candy_" + i + ".png"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 

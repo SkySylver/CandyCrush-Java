@@ -10,7 +10,7 @@ public abstract class Bonbon {
 
 	private String couleur;
 	private final static int NBBONBONS = 3;
-	protected Image img;
+	
 
 	ArrayList<String> lesCouleurs = new ArrayList<String>(
 			Arrays.asList("Bleu", "Vert", "Jaune", "Violet", "Meringue", "Vide"));
@@ -39,9 +39,7 @@ public abstract class Bonbon {
 
 	public abstract String getType();
 
-	public Image getImage() {
-		return img;
-	}
+	public abstract Image getImage();
 
 	public boolean isRaye() {
 		if (this.getType().equals("BonbonHorizontal") || this.getType().equals("BonbonVertical"))
