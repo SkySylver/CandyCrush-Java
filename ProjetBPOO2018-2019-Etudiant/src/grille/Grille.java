@@ -27,7 +27,7 @@ public class Grille {
 				grille[i][j] = new Vide();
 			}
 		}
-
+ 
 		/**
 		 * On ajoute 3 bonbons bleus alignés horizontalement et commençant en (2,4)
 		 */

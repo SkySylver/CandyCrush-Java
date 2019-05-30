@@ -43,7 +43,7 @@ public class Controller {
 	/*
 	 * 
 	 **/
-	private Grille grille = new Grille();
+	private Grille grille = new Grille(false);
 	
 	
 	/**
