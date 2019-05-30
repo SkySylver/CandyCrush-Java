@@ -11,8 +11,10 @@ public class Vide extends Bonbon{
 	public String getType() {
 		return "Vide";
 	}
-	
+
 	public Image getImage() {
 		return new Image(this.getCouleur() + ".png");
 	}
 }
+
+
