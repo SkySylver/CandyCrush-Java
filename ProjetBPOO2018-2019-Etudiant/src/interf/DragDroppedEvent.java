@@ -1,5 +1,6 @@
 package interf;
 
+import exceptions.CandyException;
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
 
@@ -21,12 +22,16 @@ public final class DragDroppedEvent implements EventHandler<DragEvent> {
 		con.setXf((int) event.getX());
 		con.setYf((int) event.getY());
 
-		echangerSourceTarget();
+		try {
+			echangerSourceTarget();
+		} catch (CandyException e) {
+			e.printStackTrace();
+		}
 
 		event.consume();
 	}
 
-	private void echangerSourceTarget() {
+	private void echangerSourceTarget() throws CandyException {
 		int ls = 0, cs = 0, lt = 0, ct = 0;
 
 		/** coordonnÃ©es de la case de dÃ©part (s comme source) */
@@ -37,9 +42,11 @@ public final class DragDroppedEvent implements EventHandler<DragEvent> {
 		lt = con.getYf() / 64;
 		ct = con.getXf() / 64;
 
+		
+		con.getGrille().echange(ls, cs, lt, ct);
 		/** On Ã©change les deux entiers, c'est tout ce que l'on fait dans la dÃ©mo */
-		int temp = con.getGrille()[ls][cs];
+		/*int temp = con.getGrille()[ls][cs];
 		con.getGrille()[ls][cs] = con.getGrille()[lt][ct];
-		con.getGrille()[lt][ct] = temp;
+		con.getGrille()[lt][ct] = temp;*/
 	}
 }

@@ -1,5 +1,7 @@
 package bonbon;
 
+import javafx.scene.image.Image;
+
 public class BonbonHorizontal extends Bonbon {
 
 	public BonbonHorizontal() {
@@ -8,6 +10,7 @@ public class BonbonHorizontal extends Bonbon {
 
 	public BonbonHorizontal(String couleur) {
 		super(couleur);
+		img = new Image(this.getCouleur()+"H.png");
 	}
 
 

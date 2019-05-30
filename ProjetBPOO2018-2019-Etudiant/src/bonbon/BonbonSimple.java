@@ -1,5 +1,7 @@
 package bonbon;
 
+import javafx.scene.image.Image;
+
 public class BonbonSimple extends Bonbon{
 
 	public BonbonSimple() {
@@ -9,6 +11,7 @@ public class BonbonSimple extends Bonbon{
 	public BonbonSimple(String couleur) {
 		super(couleur);
 
+		img = new Image(this.getCouleur()+".png");
 	}
 
 	public String getType() {

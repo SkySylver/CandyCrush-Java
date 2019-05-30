@@ -1,5 +1,7 @@
 package bonbon;
 
+import javafx.scene.image.Image;
+
 public class BonbonVertical extends Bonbon {
 
 	public BonbonVertical() {
@@ -8,6 +10,7 @@ public class BonbonVertical extends Bonbon {
 
 	public BonbonVertical(String couleur) {
 		super(couleur);
+		img = new Image(this.getCouleur()+"V.png");
 
 	}
 

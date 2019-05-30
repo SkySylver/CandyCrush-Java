@@ -4,6 +4,7 @@ import bonbon.*;
 import combinaison.Combinaison;
 import detecteur.Detecteur;
 import exceptions.CandyException;
+import javafx.scene.image.Image;
 
 public class Grille {
 	private final static int TAILLE = 10;
@@ -114,6 +115,12 @@ public class Grille {
 
 	}
 
+	public Image getImage(int l, int c) throws CandyException {
+		if (l > 9 || l < 0 || c > 9 || c < 0)
+			throw new CandyException("Bonbon hors de grille !");
+		return grille[l][c].getImage();
+	}
+	
 	public String getCouleur(int l, int c) throws CandyException {
 		if (l > 9 || l < 0 || c > 9 || c < 0)
 			throw new CandyException("Bonbon hors de grille !");

@@ -1,5 +1,6 @@
 package interf;
 
+import exceptions.CandyException;
 import grille.Grille;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -91,7 +92,7 @@ public class Controller {
 
 	}
 
-	private void demarrerPartie() {
+	private void demarrerPartie() throws CandyException {
 		dessinerPlateau();
 
 		timeline.play();
@@ -160,12 +161,12 @@ public class Controller {
 		
 	}
 	
-	public void dessinerPlateau() {
+	public void dessinerPlateau() throws CandyException {
 
 		for (int l = 0; l < 10; l++) {
 			for (int c = 0; c < 10; c++) {
 
-				gc.drawImage(candies[grille[l][c]], c * 64, l * 64);
+				gc.drawImage(grille.getImage(l, c), c * 64, l * 64);
 			}
 		}
 	}
@@ -197,12 +198,12 @@ public class Controller {
 	 *
 	 */
 	
-	public int[][] getGrille() {
+	public Grille getGrille() {
 		return grille;
 	}
 
-	public void setGrille(int[][] grille) {
-		this.grille = grille;
+	public void setGrille(Grille g) {
+		grille = g;
 	}
 
 	public Image[] getCandies() {

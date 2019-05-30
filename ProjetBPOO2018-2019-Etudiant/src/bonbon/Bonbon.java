@@ -4,17 +4,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
+import javafx.scene.image.Image;
+
 public abstract class Bonbon {
 
 	private String couleur;
-	ArrayList<String> lesCouleurs = new ArrayList<String>(Arrays.asList("Bleu", "Vert", "Jaune", "Violet", "Vide", "Meringue"));
-	
+	private final static int NBBONBONS = 3;
+	protected Image img;
+
+	ArrayList<String> lesCouleurs = new ArrayList<String>(
+			Arrays.asList("Bleu", "Vert", "Jaune", "Violet", "Meringue", "Vide"));
 
 	public Bonbon() {
-		
+
 		Random random = new Random();
 
-		this.setCouleur(lesCouleurs.get(random.nextInt(lesCouleurs.size())));
+		this.setCouleur(lesCouleurs.get(random.nextInt(NBBONBONS)));
 	}
 
 	public Bonbon(String couleur) {
@@ -33,6 +38,10 @@ public abstract class Bonbon {
 	}
 
 	public abstract String getType();
+
+	public Image getImage() {
+		return img;
+	}
 
 	public boolean isRaye() {
 		if (this.getType().equals("BonbonHorizontal") || this.getType().equals("BonbonVertical"))

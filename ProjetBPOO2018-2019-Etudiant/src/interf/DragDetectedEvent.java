@@ -1,5 +1,6 @@
 package interf;
 
+import exceptions.CandyException;
 import javafx.event.EventHandler;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
@@ -33,7 +34,11 @@ public class DragDetectedEvent implements EventHandler<MouseEvent> {
 		/**
 		 * On dÃ©finit l'image qui va suivre la souris pendant le DnD
 		 */
-		db.setDragView(con.getCandies()[con.getGrille()[l][c]]);
+		try {
+			db.setDragView(con.getGrille().getImage(l, c));
+		} catch (CandyException e) {
+			e.printStackTrace();
+		}
 
 		ClipboardContent content = new ClipboardContent();
 		content.putString("");
