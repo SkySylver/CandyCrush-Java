@@ -6,7 +6,6 @@ import combinaison.Combinaison;
 import detecteur.Detecteur;
 import exceptions.CandyException;
 import grille.Grille;
-import interf.Controller;
 import interf.MenuController;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -20,22 +19,9 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		try {
-			mesComb = Detecteur.initDetecteurs();
-			if (mesComb == null) {
-				System.out.println("Aucune Combinaison disponible !");
-				System.exit(0);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		MenuController Menu = new MenuController(primaryStage);
 		Menu.start();
 	}
-
-	
-	
-	
 	
 	
 	@SuppressWarnings("unused")

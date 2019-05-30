@@ -7,7 +7,4 @@ public class ModeEchange extends Controller{
 	public ModeEchange(Stage primaryStage) {
 		super(primaryStage);
 	}
-	
-
-	
 }

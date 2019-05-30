@@ -176,7 +176,7 @@ public class Grille {
 					grille[i][j] = new BonbonSimple();
 	}
 
-	public void echange(int ls, int cs, int lt, int ct) throws CandyException {
+	public boolean echange(int ls, int cs, int lt, int ct) throws CandyException {
 		if (ls >= TAILLE || cs >= TAILLE || lt >= TAILLE || ct >= TAILLE || ls < 0 || cs < 0 || lt < 0 || ct < 0)
 			throw new CandyException("Coordonnées incorrectes");
 		if ((Math.abs(ls - lt) + Math.abs(cs - ct)) != 1)
@@ -199,8 +199,10 @@ public class Grille {
 			temp = grille[ls][cs];
 			grille[ls][cs] = grille[lt][ct];
 			grille[lt][ct] = temp;
-			throw new CandyException("Aucune combinaison apres echange");
+			return false;
+			//throw new CandyException("Aucune combinaison apres echange");
 		}
+		return true;
 	}
 
 	public void putBonbonHorizontal(int l, int c, String coul) throws CandyException {

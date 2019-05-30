@@ -1,5 +1,7 @@
 package interf;
 
+import combinaison.Combinaison;
+import detecteur.Detecteur;
 import exceptions.CandyException;
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
@@ -33,6 +35,9 @@ public final class DragDroppedEvent implements EventHandler<DragEvent> {
 
 	private void echangerSourceTarget() throws CandyException {
 		int ls = 0, cs = 0, lt = 0, ct = 0;
+		Combinaison comb1, comb2;
+		Detecteur combDet = Detecteur.initDetecteurs();
+
 
 		/** coordonnÃ©es de la case de dÃ©part (s comme source) */
 		ls = con.getYd() / 64;
@@ -43,10 +48,15 @@ public final class DragDroppedEvent implements EventHandler<DragEvent> {
 		ct = con.getXf() / 64;
 
 		try {
-			con.getGrille().echange(ls, cs, lt, ct);
+			if(con.getGrille().echange(ls, cs, lt, ct)) {
+				comb1 = combDet.detecter(lt, ct, con.getGrille());
+				if(comb1 != null) comb1.executerCombinaison(con.getGrille());
+				comb2 = combDet.detecter(ls, cs, con.getGrille());
+				if(comb2 != null)comb2.executerCombinaison(con.getGrille());
+				//con.getGrille().tomber();
+			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-
 		}
 
 		/**

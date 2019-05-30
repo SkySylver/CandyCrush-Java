@@ -30,7 +30,7 @@ public class DTroisHorizontauxRayesV extends Detecteur {
 				if (grille.getCouleur(l, c + 1).equals(coul) && grille.getCouleur(l, c + 2).equals(coul)) {
 					for (int i = 0; i < 3; i++) {
 						if (grille.getType(l, c + i).equals("BonbonVertical")) {
-							//debutColonne = c+i;
+							debutColonne = c+i;
 							return new TroisHorizontauxRayesV(debutColonne, ligne);
 						}
 					}
