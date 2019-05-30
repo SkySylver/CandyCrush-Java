@@ -6,12 +6,38 @@ import java.util.Random;
 
 import javafx.scene.image.Image;
 
+
+/** 
+ * Bonbon est la classe mère de tout bonbon généré.
+ * Tout type de bonbon hérite de cette classe.
+ * @version 1.0
+ */
 public abstract class Bonbon {
 
+	/**
+	 * La couleur du bonbon, toujours définie
+	 * @see Bonbon#getCouleur()
+	 * @see Bonbon#setCouleur(String)
+	 */
 	private String couleur;
+	
+	/**
+	 * NBBONBONS définit les NBBONBONS+1 premières couleurs pouvant être générés aléatoirement dans la liste lesCouleurs
+	 * Ici, seuls les 4 premières couleurs sont celle générées aléatoirement dans Bonbon()
+	 *
+	 * @see Bonbon#lesCouleurs
+	 * @see Bonbon#Bonbon()
+	 */
 	private final static int NBBONBONS = 3;
 	
-
+/*
+ * Cette liste correspond à celle des couleurs possibles des bonbons
+ * Si le bonbon peut être généré par défaut dans Bonbon:
+ * 	- incrémenter NBBONBONS
+ * 	- l'ajouter en début de liste
+ * 	sinon juste le mettre en fin de liste
+ * 
+ */
 	ArrayList<String> lesCouleurs = new ArrayList<String>(
 			Arrays.asList("Bleu", "Vert", "Jaune", "Violet", "Meringue", "Vide"));
 
