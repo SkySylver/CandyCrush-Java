@@ -35,23 +35,20 @@ public class Controller {
 	// Coordonn�es pixel DnD
 	private int xd, yd, xf, yf;
 
-	//Un canvas pour affiche rdu graphisme (ici, des images
+	// Un canvas pour affiche rdu graphisme (ici, des images
 	private Canvas grillePane;
 	private GraphicsContext gc;
 
-	
 	/*
 	 * 
 	 **/
 	private Grille grille = new Grille(false);
-	
-	
+
 	/**
-	 * Le tableau contenant les images des bonbons
-	 * useless : On met directement l'image dans la classe du bonbon
+	 * Le tableau contenant les images des bonbons useless : On met directement
+	 * l'image dans la classe du bonbon
 	 */
 	private Image[] candies;
-	
 
 	private Timeline timeline;
 
@@ -66,7 +63,7 @@ public class Controller {
 		try {
 			primaryStage.setTitle("Candy Crush");
 
-			//initImagesCandies();
+			// initImagesCandies();
 
 			root = new BorderPane(grillePane);
 			initGrille();
@@ -109,7 +106,7 @@ public class Controller {
 	void initGrille() {
 
 		grillePane = new Canvas(640, 640);
-		
+
 		((BorderPane) root).setCenter(grillePane);
 
 		gc = grillePane.getGraphicsContext2D();
@@ -141,19 +138,20 @@ public class Controller {
 		});
 
 		timelineChrono = new Timeline(k);
-		// La timeline va boucler Ã  l'infinie. Donc la keyframe k sera bien dclenchÃ©e
+		// La timeline va boucler Ã  l'infinie. Donc la keyframe k sera bien
+		// dclenchÃ©e
 		// toutes les secondes
-		timelineChrono.setCycleCount(Animation.INDEFINITE); 
+		timelineChrono.setCycleCount(Animation.INDEFINITE);
 	}
 
 	private void initTimelineJeu() {
 		final KeyFrame keyframe1 = new KeyFrame(Duration.seconds(0), new KeyFrame1(this));
 		// Cette KF sera affichee tout de suite et restera jusqu'� la prochaine KF
 
-		final KeyFrame keyframe2 = new KeyFrame(Duration.seconds(TEMPS_AFFICHAGE_KEYFRAME1), new KeyFrame2(this)); 
-			// Cette KF2 sera affichee apr�s 0.1s c-�-d la duree que l'on a defini pour la KF1
+		final KeyFrame keyframe2 = new KeyFrame(Duration.seconds(TEMPS_AFFICHAGE_KEYFRAME1), new KeyFrame2(this));
+		// Cette KF2 sera affichee apr�s 0.1s c-�-d la duree que l'on a defini pour la
+		// KF1
 
-		
 		timeline = new Timeline(keyframe1, keyframe2);
 		timeline.setCycleCount(Animation.INDEFINITE); // L'animation va Ã©galement boucler Ã  l'infinie
 	}
@@ -161,9 +159,8 @@ public class Controller {
 	@SuppressWarnings("unused")
 	private int getCandie() {
 		return secondesEcoulees;
-		
 	}
-	
+
 	public void dessinerPlateau() throws CandyException {
 
 		for (int l = 0; l < 10; l++) {
@@ -178,29 +175,21 @@ public class Controller {
 		return gc;
 	}
 
-
+	@SuppressWarnings("unused")
 	private void initImagesCandies() {
 		candies = new Image[NOMBRE_DE_CANDIES];
-/*
-		try {
-			for (int i = 0; i < candies.length; i++) {
-				candies[i] = new Image(getClass().getResourceAsStream("/Candy_" + i + ".png"));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}*/
+		/*
+		 * try { for (int i = 0; i < candies.length; i++) { candies[i] = new
+		 * Image(getClass().getResourceAsStream("/Candy_" + i + ".png")); } } catch
+		 * (Exception e) { e.printStackTrace(); }
+		 */
 	}
 
-
-	
-	
 	/*
-	 *	----+-------------------+ 
-	 *	|	GETTERS / SETTERS	|
-	 *	+-----------------------+
+	 * ----+-------------------+ | GETTERS / SETTERS | +-----------------------+
 	 *
 	 */
-	
+
 	public Grille getGrille() {
 		return grille;
 	}
@@ -256,13 +245,5 @@ public class Controller {
 	public void setGrillePane(Canvas grillePane) {
 		this.grillePane = grillePane;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

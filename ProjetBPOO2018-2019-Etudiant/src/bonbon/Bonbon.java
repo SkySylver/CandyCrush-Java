@@ -6,41 +6,51 @@ import java.util.Random;
 
 import javafx.scene.image.Image;
 
-
-/** 
- * Bonbon est la classe mère de tout bonbon généré.
- * Tout type de bonbon hérite de cette classe.
+/**
+ * Bonbon est la classe mère de tout bonbon généré. Tout type de bonbon hérite
+ * de cette classe.
+ * 
  * @version 1.0
  */
 public abstract class Bonbon {
 
 	/**
 	 * La couleur du bonbon, toujours définie
+	 * 
 	 * @see Bonbon#getCouleur()
 	 * @see Bonbon#setCouleur(String)
 	 */
 	private String couleur;
-	
+
 	/**
-	 * NBBONBONS définit les NBBONBONS+1 premières couleurs pouvant être générés aléatoirement dans la liste lesCouleurs
-	 * Ici, seuls les 4 premières couleurs sont celle générées aléatoirement dans Bonbon()
+	 * NBBONBONS définit les NBBONBONS+1 premières couleurs pouvant être générés
+	 * aléatoirement dans la liste lesCouleurs Ici, seuls les 4 premières couleurs
+	 * sont celle générées aléatoirement dans Bonbon()
 	 *
 	 * @see Bonbon#lesCouleurs
 	 * @see Bonbon#Bonbon()
 	 */
 	private final static int NBBONBONS = 3;
-	
-/*
- * Cette liste correspond à celle des couleurs possibles des bonbons
- * Si le bonbon peut être généré par défaut dans Bonbon:
- * 	- incrémenter NBBONBONS
- * 	- l'ajouter en début de liste
- * 	sinon juste le mettre en fin de liste
- * 
- */
+
+	/**
+	 * Cette liste correspond à celle des couleurs possibles des bonbons Si le
+	 * bonbon peut être généré par défaut dans Bonbon:
+	 * 	+ incrémenter NBBONBONS
+	 * 	+ l'ajouter en début de liste
+	 * Sinon juste le mettre en fin de liste
+	 * 
+	 * @see Bonbon#NBBONBONS
+	 */
 	ArrayList<String> lesCouleurs = new ArrayList<String>(
 			Arrays.asList("Bleu", "Vert", "Jaune", "Violet", "Meringue", "Vide"));
 
+	
+	/**
+	 * Génère un Bonbon
+	 * 
+	 * La couleur sera générée automatiquement depuis la liste lesCouleurs
+	 * @see Bonbon#lesCouleurs
+	 */
 	public Bonbon() {
 
 		Random random = new Random();
@@ -48,14 +58,31 @@ public abstract class Bonbon {
 		this.setCouleur(lesCouleurs.get(random.nextInt(NBBONBONS)));
 	}
 
+	
+	/**
+	 * Génère un bonbon avec un couleur définie
+	 * 
+	 * @param couleur
+	 * 		La couleur du bonbon
+	 */
 	public Bonbon(String couleur) {
 		this.setCouleur(couleur);
 	}
 
+	/**
+	 * Retourne la couleur de ce Bonbon
+	 * 
+	 * @return la couleur du bonbon
+	 */
 	public String getCouleur() {
 		return this.couleur;
 	}
 
+	/**
+	 * 
+	 * @param couleur
+	 *		La couleur par la quelle on veut remplacer le Bonbon
+	 */
 	public void setCouleur(String couleur) {
 		if (!lesCouleurs.contains(couleur))
 			throw new IllegalArgumentException("Couleur incorrecte");
@@ -63,8 +90,15 @@ public abstract class Bonbon {
 			this.couleur = couleur;
 	}
 
+	/**
+	 * @return le type du Bonbon
+	 */
 	public abstract String getType();
 
+	/**
+	 * 
+	 * @return l'image associé au Bonbon
+	 */
 	public abstract Image getImage();
 
 	public boolean isRaye() {
