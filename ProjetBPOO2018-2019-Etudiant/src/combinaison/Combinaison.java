@@ -3,6 +3,10 @@ package combinaison;
 import exceptions.CandyException;
 import grille.Grille;
 
+/**
+ * Combinaison est la classe mère de toute combinaison.
+ * 
+ */
 public abstract class Combinaison {
 	protected final static int TAILLE = 10;
 	protected int debutLigne = -1;

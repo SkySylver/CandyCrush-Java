@@ -24,6 +24,12 @@ import ui.CandyCrush.DragOverEvent;
 import ui.CandyCrush.KeyFrame1;
 import ui.CandyCrush.KeyFrame2;
 */
+
+
+/**
+ * Controller de la fenêtre.
+ * 
+ */
 public class Controller {
 	private static final double TEMPS_AFFICHAGE_KEYFRAME1 = 0.5;
 	private static final double TEMPS_AFFICHAGE_KEYFRAME2 = 1;

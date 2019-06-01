@@ -4,6 +4,10 @@ import combinaison.Combinaison;
 import exceptions.CandyException;
 import grille.Grille;
 
+/**
+ * Detecteur est la classe mère de tout détecteur de combinaison, forme une chaine de responsabilité.
+ * 
+ */
 public abstract class Detecteur {
 	protected final static int TAILLE = 10;
 	private Detecteur suivante = null;
