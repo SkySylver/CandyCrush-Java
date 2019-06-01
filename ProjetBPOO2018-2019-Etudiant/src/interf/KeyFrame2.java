@@ -12,7 +12,6 @@ public final class KeyFrame2 implements EventHandler<ActionEvent> {
 	}
 
 	public void handle(ActionEvent event) {
-		
 
 		con.getGrille().tomber();
 		con.getGc().clearRect(0, 0, 640, 640);

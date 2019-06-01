@@ -26,7 +26,7 @@ import ui.CandyCrush.KeyFrame2;
 */
 public class Controller {
 	private static final double TEMPS_AFFICHAGE_KEYFRAME1 = 0.5;
-	private static final double TEMPS_AFFICHAGE_KEYFRAME2 = 0.5;
+	private static final double TEMPS_AFFICHAGE_KEYFRAME2 = 1;
 
 	private static final int NOMBRE_DE_CANDIES = 10;
 
@@ -156,7 +156,7 @@ public class Controller {
 		// KF1
 		final KeyFrame keyframe3 = new KeyFrame(Duration.seconds(TEMPS_AFFICHAGE_KEYFRAME2), new KeyFrame3(this));
 
-		timeline = new Timeline(keyframe1, keyframe2);
+		timeline = new Timeline(keyframe1, keyframe2, keyframe3);
 		timeline.setCycleCount(Animation.INDEFINITE); // L'animation va Ã©galement boucler Ã  l'infinie
 	}
 
