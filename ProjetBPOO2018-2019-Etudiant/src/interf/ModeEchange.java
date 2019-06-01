@@ -7,5 +7,11 @@ public class ModeEchange extends Controller{
 	public ModeEchange(Stage primaryStage) {
 		super(primaryStage);
 	}
+
+	@Override
+	public boolean isFin() {
+		
+		return false;
+	}
 	
 }

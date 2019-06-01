@@ -8,4 +8,10 @@ public class ModeMeringue extends Controller {
 		super(primaryStage);
 	}
 
+	@Override
+	public boolean isFin() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

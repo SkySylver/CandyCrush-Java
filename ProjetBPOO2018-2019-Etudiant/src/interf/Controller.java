@@ -24,7 +24,7 @@ import ui.CandyCrush.DragOverEvent;
 import ui.CandyCrush.KeyFrame1;
 import ui.CandyCrush.KeyFrame2;
 */
-public class Controller {
+public abstract class Controller {
 	private static final double TEMPS_AFFICHAGE_KEYFRAME1 = 0.5;
 	private static final double TEMPS_AFFICHAGE_KEYFRAME2 = 1;
 
@@ -65,7 +65,6 @@ public class Controller {
 	public Controller(Stage primaryStage) {
 		try {
 			primaryStage.setTitle("Candy Crush");
-
 
 			root = new BorderPane(grillePane);
 			initGrille();
@@ -188,6 +187,8 @@ public class Controller {
 		 * (Exception e) { e.printStackTrace(); }
 		 */
 	}
+
+	public abstract boolean isFin();
 
 	/*
 	 * ----+-------------------+ | GETTERS / SETTERS | +-----------------------+
