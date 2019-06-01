@@ -7,6 +7,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -17,22 +18,19 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-/*import ui.CandyCrush.DragDetectedEvent;
-import ui.CandyCrush.DragDroppedEvent;
-import ui.CandyCrush.DragOverEvent;
-import ui.CandyCrush.KeyFrame1;
-import ui.CandyCrush.KeyFrame2;
-*/
-
 /**
- * Controller de la fen�tre.
- * 
+ * Controller des modes de jeu.
  */
 public abstract class Controller {
 	private static final double TEMPS_AFFICHAGE_KEYFRAME1 = 0.5;
 	private static final double TEMPS_AFFICHAGE_KEYFRAME2 = 1;
 
 	private static final int NOMBRE_DE_CANDIES = 10;
+
+	private int score, nbEchanges;
+
+	private HBox hBScore = new HBox(), hBChrono = new HBox(), hBNbEchanges = new HBox();
+	private Label lScore, lNbEchanges;
 
 	private Scene scene;
 	private BorderPane root;
@@ -73,6 +71,10 @@ public abstract class Controller {
 			root = new BorderPane(grillePane);
 			initGrille();
 			initChrono();
+			initScore();
+			initNbEchanges();
+			root.setBottom(new HBox(hBChrono, hBScore,hBNbEchanges));
+			root.getBottom().setStyle("-fx-display: flex;");
 
 			scene = new Scene(root);
 
@@ -87,14 +89,6 @@ public abstract class Controller {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	private void initChrono() {
-		HBox hbox = new HBox();
-		lChrono = new Label();
-		hbox.getChildren().add(lChrono);
-		root.setBottom(hbox);
-
 	}
 
 	private void demarrerPartie() throws CandyException {
@@ -124,6 +118,32 @@ public abstract class Controller {
 
 	}
 
+	/*
+	 * +----------------+ | SCORE | +----------------+
+	 */
+	private void initScore() {
+		lScore = new Label("Score : 0\t");
+		hBScore.getChildren().add(lScore);
+		hBScore.setAlignment(Pos.BOTTOM_RIGHT);
+	}
+
+	/*
+	 * +----------------+ | ECHANGES | +----------------+
+	 */
+	private void initNbEchanges() {
+		lNbEchanges = new Label("Echanges : 0\t");
+		hBNbEchanges.getChildren().add(lNbEchanges);
+		hBNbEchanges.setAlignment(Pos.BOTTOM_RIGHT);
+	}
+
+	/*
+	 * +----------------+ | CHRONO | +----------------+
+	 */
+	private void initChrono() {
+		lChrono = new Label("");
+		hBChrono.getChildren().add(lChrono);
+	}
+
 	private void initTimelineChrono() {
 		// Cette KeyFrame apparaÃ®t 1s aprÃ¨s le dÃ©but de la timeline
 		KeyFrame k = new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
@@ -139,7 +159,7 @@ public abstract class Controller {
 
 				m = secondesEcoulees / 60;
 				s = secondesEcoulees % 60;
-				lChrono.setText("" + m + "m " + s + "s");
+				lChrono.setText("" + m + "m " + s + "s\t");
 			}
 		});
 
@@ -150,6 +170,9 @@ public abstract class Controller {
 		timelineChrono.setCycleCount(Animation.INDEFINITE);
 	}
 
+	/*
+	 * +----------------+ | ANIMATIONS GRILLE | +----------------+
+	 */
 	private void initTimelineJeu() {
 		final KeyFrame keyframe1 = new KeyFrame(Duration.seconds(0), new KeyFrame1(this));
 		// Cette KF sera affichee tout de suite et restera jusqu'� la prochaine KF
@@ -162,6 +185,10 @@ public abstract class Controller {
 		timeline = new Timeline(keyframe1, keyframe2, keyframe3);
 		timeline.setCycleCount(Animation.INDEFINITE); // L'animation va Ã©galement boucler Ã  l'infinie
 	}
+
+	/*
+	 * +----------------+ | DESSINS | +----------------+
+	 */
 
 	@SuppressWarnings("unused")
 	private int getCandie() {
@@ -291,6 +318,24 @@ public abstract class Controller {
 
 	public void setCt(int ct) {
 		this.ct = ct;
+	}
+
+	public int getNbEchanges() {
+		return nbEchanges;
+	}
+
+	public void setNbEchanges(int nbEchanges) {
+		this.nbEchanges = nbEchanges;
+		lNbEchanges.setText("Echanges : " + nbEchanges + "\t");
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+		lScore.setText("Score : " + score + "\t");
 	}
 
 }

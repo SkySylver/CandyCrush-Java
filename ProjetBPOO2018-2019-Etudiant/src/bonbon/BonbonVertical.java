@@ -2,6 +2,11 @@ package bonbon;
 
 import javafx.scene.image.Image;
 
+/**
+ * Hérite de la classe Bonbon
+ * 
+ * @see Bonbon
+ */
 public class BonbonVertical extends Bonbon {
 
 	public BonbonVertical() {
@@ -16,7 +21,7 @@ public class BonbonVertical extends Bonbon {
 	public String getType() {
 		return "BonbonVertical";
 	}
-	
+
 	public Image getImage() {
 		return new Image(this.getCouleur() + "V.png");
 	}

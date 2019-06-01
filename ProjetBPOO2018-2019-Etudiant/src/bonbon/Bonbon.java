@@ -34,37 +34,32 @@ public abstract class Bonbon {
 
 	/**
 	 * Cette liste correspond à celle des couleurs possibles des bonbons Si le
-	 * bonbon peut être généré par défaut dans Bonbon:
-	 * 	+ incrémenter NBBONBONS
-	 * 	+ l'ajouter en début de liste
-	 * Sinon juste le mettre en fin de liste
+	 * bonbon peut être généré par défaut dans Bonbon: + incrémenter NBBONBONS +
+	 * l'ajouter en début de liste Sinon juste le mettre en fin de liste
 	 * 
 	 * @see Bonbon#NBBONBONS
 	 */
 	ArrayList<String> lesCouleurs = new ArrayList<String>(
 			Arrays.asList("Bleu", "Vert", "Jaune", "Violet", "Meringue", "Vide"));
-	
+
 	Random random = new Random();
 
-	
 	/**
 	 * Génère un Bonbon
 	 * 
 	 * La couleur sera générée automatiquement depuis la liste lesCouleurs
+	 * 
 	 * @see Bonbon#lesCouleurs
 	 */
 	public Bonbon() {
 
-
 		this.setCouleur(lesCouleurs.get(random.nextInt(NBBONBONS)));
 	}
 
-	
 	/**
 	 * Génère un bonbon avec un couleur définie
 	 * 
-	 * @param couleur
-	 * 		La couleur du bonbon
+	 * @param couleur La couleur du bonbon
 	 */
 	public Bonbon(String couleur) {
 		this.setCouleur(couleur);
@@ -81,8 +76,7 @@ public abstract class Bonbon {
 
 	/**
 	 * 
-	 * @param couleur
-	 *		La couleur par la quelle on veut remplacer le Bonbon
+	 * @param couleur La couleur par la quelle on veut remplacer le Bonbon
 	 */
 	public void setCouleur(String couleur) {
 		if (!lesCouleurs.contains(couleur))
@@ -92,16 +86,19 @@ public abstract class Bonbon {
 	}
 
 	/**
-	 * @return le type du Bonbon
+	 * @return le type du Bonbon (Horizontal / Vertical / Rayé)
 	 */
 	public abstract String getType();
 
 	/**
-	 * 
 	 * @return l'image associé au Bonbon
 	 */
 	public abstract Image getImage();
 
+	/**
+	 * 
+	 * @return vrai si le bonbon est rayé
+	 */
 	public boolean isRaye() {
 		if (this.getType().equals("BonbonHorizontal") || this.getType().equals("BonbonVertical"))
 			return true;
@@ -109,10 +106,12 @@ public abstract class Bonbon {
 			return false;
 	}
 
+	@Override
 	public String toString() {
 		return "Bonbon [couleur=" + couleur + ", lesCouleurs=" + lesCouleurs + "]";
 	}
 
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;

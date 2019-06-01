@@ -2,7 +2,12 @@ package bonbon;
 
 import javafx.scene.image.Image;
 
-public class Vide extends Bonbon{
+/**
+ * Hérite de la classe Bonbon
+ * 
+ * @see Bonbon
+ */
+public class Vide extends Bonbon {
 	public Vide() {
 		super();
 		setCouleur("Vide");
@@ -16,5 +21,3 @@ public class Vide extends Bonbon{
 		return new Image(this.getCouleur() + ".png");
 	}
 }
-
-

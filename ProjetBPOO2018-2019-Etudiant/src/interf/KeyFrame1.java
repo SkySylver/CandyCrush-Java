@@ -24,13 +24,15 @@ public final class KeyFrame1 implements EventHandler<ActionEvent> {
 			Detecteur combDet = Detecteur.initDetecteurs();
 
 			comb1 = combDet.detecter(con.getLt(), con.getCt(), con.getGrille());
+			
+			
 			if (comb1 != null) {
-				// score += comb1.executerCombinaison(con.getGrille());
+				con.setScore(comb1.executerCombinaison(con.getGrille()) + con.getScore());
 			}
 				
 			comb2 = combDet.detecter(con.getLs(), con.getCs(), con.getGrille());
 			if (comb2 != null) {
-				// score += comb2.executerCombinaison(con.getGrille());
+				con.setScore(comb2.executerCombinaison(con.getGrille()) + con.getScore());
 			}
 				con.dessinerPlateau();
 		} catch (CandyException e) {

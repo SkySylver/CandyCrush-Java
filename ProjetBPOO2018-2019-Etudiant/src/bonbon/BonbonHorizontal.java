@@ -2,6 +2,10 @@ package bonbon;
 
 import javafx.scene.image.Image;
 
+/**
+ * Hérite de la classe Bonbon
+ * @see Bonbon
+ */
 public class BonbonHorizontal extends Bonbon {
 
 	public BonbonHorizontal() {

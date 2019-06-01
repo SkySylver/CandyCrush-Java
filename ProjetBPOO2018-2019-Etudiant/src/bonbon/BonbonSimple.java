@@ -3,7 +3,11 @@ package bonbon;
 import javafx.scene.image.Image;
 
 public class BonbonSimple extends Bonbon {
-
+	
+	/**
+	 * Hérite de la classe Bonbon
+	 * @see Bonbon
+	 */
 	public BonbonSimple() {
 		super();
 	}

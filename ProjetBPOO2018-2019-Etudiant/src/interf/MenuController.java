@@ -1,6 +1,14 @@
 package interf;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 import exceptions.CandyException;
 import javafx.event.ActionEvent;
@@ -33,6 +41,39 @@ public class MenuController {
 
 	}
 
+	/**
+	 * Open and read a file, and return the lines in the file as a list
+	 * of Strings.
+	 * (Demonstrates Java FileReader, BufferedReader, and Java5.)
+	 */
+	private List<String> readFile(String src)
+	{
+	  List<String> records = new ArrayList<String>();
+	  try
+	  {
+	    BufferedReader reader = new BufferedReader(new FileReader(src));
+	    String line;
+	    while ((line = reader.readLine()) != null)
+	    {
+	      records.add(line);
+	    }
+	    reader.close();
+	    return records;
+	  }
+	  catch (Exception e)
+	  {
+	    System.err.format("Exception occurred trying to read '%s'.", src);
+	    e.printStackTrace();
+	    return null;
+	  }
+	}
+	
+	
+	@SuppressWarnings("unused")
+	private void StartFichier(String src) {
+		ArrayList<String> fichier = (ArrayList<String>)readFile(src);
+	}
+	
 	@FXML
 	private void clic(ActionEvent e) throws CandyException{
 		Button b = (Button) e.getSource();

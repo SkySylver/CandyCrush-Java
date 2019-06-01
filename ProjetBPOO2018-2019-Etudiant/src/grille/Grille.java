@@ -16,6 +16,9 @@ public class Grille {
 
 	private Bonbon[][] grille = new Bonbon[TAILLE][TAILLE];
 
+	/**
+	 * Crée une Grille avec des bonbons générés aléatoirement
+	 */
 	public Grille() {
 		for (int i = 0; i <= TAILLE - 1; i++) {
 			for (int j = 0; j <= TAILLE - 1; j++) {
@@ -24,9 +27,11 @@ public class Grille {
 		}
 	}
 
-	// grille pour le test, celle qui est décrite dans ui > CandyCrush.java
+	/**
+	 * Grille par défaut pour les tests (dans ui > CandyCrush.java)
+	 * @param test : 
+	 */
 	public Grille(boolean test) {
-
 		for (int i = 0; i <= TAILLE - 1; i++) {
 			for (int j = 0; j <= TAILLE - 1; j++) {
 				grille[i][j] = new Vide();
@@ -125,12 +130,28 @@ public class Grille {
 
 	}
 
+	/**
+	 * Permet d'obtenir la couleur du Bonbon dans la Grille au coordonnées l, c
+	 * 
+	 * @param l : Numéro de ligne du Bonbon
+	 * @param c : Numéro de colonne du Bonbon
+	 * @return l'image lié à la position l, c dans Grille
+	 * @throws CandyException : si les coordonnées ne sont pas dans la Grille
+	 */
 	public Image getImage(int l, int c) throws CandyException {
 		if (l > 9 || l < 0 || c > 9 || c < 0)
 			throw new CandyException("Bonbon hors de grille !");
 		return grille[l][c].getImage();
 	}
 	
+	/**
+	 * Permet d'obtenir la couleur du Bonbon dans la Grille au coordonnées l, c
+	 * 
+	 * @param l : Numéro de ligne du Bonbon
+	 * @param c : Numéro de colonne du Bonbon
+	 * @return l'image lié à la position l, c dans Grille
+	 * @throws CandyException : si les coordonnées ne sont pas dans la Grille
+	 */
 	public String getCouleur(int l, int c) throws CandyException {
 		if (l > 9 || l < 0 || c > 9 || c < 0)
 			throw new CandyException("Bonbon hors de grille !");
