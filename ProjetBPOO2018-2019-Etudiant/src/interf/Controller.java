@@ -25,7 +25,8 @@ import ui.CandyCrush.KeyFrame1;
 import ui.CandyCrush.KeyFrame2;
 */
 public class Controller {
-	private static final double TEMPS_AFFICHAGE_KEYFRAME1 = 0.1;
+	private static final double TEMPS_AFFICHAGE_KEYFRAME1 = 0.5;
+	private static final double TEMPS_AFFICHAGE_KEYFRAME2 = 0.5;
 
 	private static final int NOMBRE_DE_CANDIES = 10;
 
@@ -38,6 +39,8 @@ public class Controller {
 	// Un canvas pour affiche rdu graphisme (ici, des images
 	private Canvas grillePane;
 	private GraphicsContext gc;
+
+	private int ls, cs, lt, ct;
 
 	/*
 	 * 
@@ -151,6 +154,7 @@ public class Controller {
 		final KeyFrame keyframe2 = new KeyFrame(Duration.seconds(TEMPS_AFFICHAGE_KEYFRAME1), new KeyFrame2(this));
 		// Cette KF2 sera affichee apr�s 0.1s c-�-d la duree que l'on a defini pour la
 		// KF1
+		final KeyFrame keyframe3 = new KeyFrame(Duration.seconds(TEMPS_AFFICHAGE_KEYFRAME2), new KeyFrame3(this));
 
 		timeline = new Timeline(keyframe1, keyframe2);
 		timeline.setCycleCount(Animation.INDEFINITE); // L'animation va Ã©galement boucler Ã  l'infinie
@@ -244,6 +248,42 @@ public class Controller {
 
 	public void setGrillePane(Canvas grillePane) {
 		this.grillePane = grillePane;
+	}
+
+	public Timeline getTimeline() {
+		return timeline;
+	}
+
+	public int getLs() {
+		return ls;
+	}
+
+	public void setLs(int ls) {
+		this.ls = ls;
+	}
+
+	public int getCs() {
+		return cs;
+	}
+
+	public void setCs(int cs) {
+		this.cs = cs;
+	}
+
+	public int getLt() {
+		return lt;
+	}
+
+	public void setLt(int lt) {
+		this.lt = lt;
+	}
+
+	public int getCt() {
+		return ct;
+	}
+
+	public void setCt(int ct) {
+		this.ct = ct;
 	}
 
 }
