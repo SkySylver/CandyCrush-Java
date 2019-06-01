@@ -159,11 +159,6 @@ public class Grille {
 					a++;
 					for (int c = j; c > 0; c--)
 						grille[c][i] = grille[c - 1][i];
-
-					// Si le haut de la colonne est vide, le remplit
-					// if (grille[0][i].getType().equals("Vide"))
-					// grille[0][i] = new BonbonSimple();// A remplacer par vide() quand on ne fait
-					// pas les tests
 				}
 			}
 		}

@@ -43,6 +43,8 @@ public abstract class Bonbon {
 	 */
 	ArrayList<String> lesCouleurs = new ArrayList<String>(
 			Arrays.asList("Bleu", "Vert", "Jaune", "Violet", "Meringue", "Vide"));
+	
+	Random random = new Random();
 
 	
 	/**
@@ -53,7 +55,6 @@ public abstract class Bonbon {
 	 */
 	public Bonbon() {
 
-		Random random = new Random();
 
 		this.setCouleur(lesCouleurs.get(random.nextInt(NBBONBONS)));
 	}

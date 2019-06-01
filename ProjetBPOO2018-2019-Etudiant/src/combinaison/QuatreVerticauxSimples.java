@@ -20,6 +20,8 @@ public class QuatreVerticauxSimples extends Combinaison {
 
 	@Override
 	public String toString() {
-		return "QuatreVerticauxSimples [debutLigne=" + debutLigne + ", colonne=" + colonne + "]";
+		return "QuatreVerticauxSimples [debutLigne=" + debutLigne + ", debutColonne=" + debutColonne + ", ligne="
+				+ ligne + ", colonne=" + colonne + "]";
 	}
+
 }

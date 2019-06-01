@@ -17,6 +17,8 @@ public class TroisHorizontauxRayesH extends Combinaison {
 
 	@Override
 	public String toString() {
-		return "TroisHorizontauxRayesH [ligne=" + ligne + "]";
+		return "TroisHorizontauxRayesH [debutLigne=" + debutLigne + ", debutColonne=" + debutColonne + ", ligne="
+				+ ligne + ", colonne=" + colonne + "]";
 	}
+
 }

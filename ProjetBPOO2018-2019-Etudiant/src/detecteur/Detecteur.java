@@ -47,10 +47,4 @@ public abstract class Detecteur {
 
 		return combDet;
 	}
-	
-	@Override
-	public String toString() {
-		return "Detecteur [suivante=" + suivante + "]";
-	}
-		
 }

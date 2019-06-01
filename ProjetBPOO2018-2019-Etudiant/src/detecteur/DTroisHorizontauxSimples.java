@@ -51,6 +51,6 @@ public class DTroisHorizontauxSimples extends Detecteur {
 	
 	@Override
 	public String toString() {
-		return "TroisHorizontauxSimples [debutColonne=" + debutColonne + ", ligne=" + ligne + "]";
+		return "DTroisHorizontauxSimples [debutColonne=" + debutColonne + ", ligne=" + ligne + "]";
 	}
 }

@@ -22,11 +22,12 @@ public class TroisVerticauxRayesH extends Combinaison {
 					grille.exploser(i, j);
 			}
 		}
-
 	}
 
 	@Override
 	public String toString() {
-		return "TroisVerticauxRayesH [debutLigne=" + debutLigne + ", colonne=" + colonne + ", lignesARayer=" + "]";
+		return "TroisVerticauxRayesH [debutLigne=" + debutLigne + ", debutColonne=" + debutColonne + ", ligne=" + ligne
+				+ ", colonne=" + colonne + "]";
 	}
+
 }

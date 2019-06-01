@@ -52,6 +52,6 @@ public class DQuatreVerticauxSimples extends Detecteur {
 
 	@Override
 	public String toString() {
-		return "QuatreVerticauxSimples [debutLigne=" + debutLigne + ", colonne=" + colonne + "]";
+		return "DQuatreVerticauxSimples [debutLigne=" + debutLigne + ", ligne=" + ligne + ", colonne=" + colonne + "]";
 	}
 }

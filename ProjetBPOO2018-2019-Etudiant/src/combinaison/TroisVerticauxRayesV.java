@@ -18,6 +18,7 @@ public class TroisVerticauxRayesV extends Combinaison {
 
 	@Override
 	public String toString() {
-		return "TroisVerticauxRayesV [colonne=" + colonne + "]";
+		return "TroisVerticauxRayesV [debutLigne=" + debutLigne + ", debutColonne=" + debutColonne + ", ligne=" + ligne
+				+ ", colonne=" + colonne + "]";
 	}
 }

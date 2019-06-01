@@ -44,6 +44,6 @@ public class DTroisVerticauxSimples extends Detecteur {
 
 	@Override
 	public String toString() {
-		return "TroisVerticauxSimples [debutLigne=" + debutLigne + ", colonne=" + colonne + "]";
+		return "DTroisVerticauxSimples [debutLigne=" + debutLigne + ", colonne=" + colonne + "]";
 	}
 }

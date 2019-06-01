@@ -20,7 +20,7 @@ public class QuatreHorizontauxSimples extends Combinaison{
 
 	@Override
 	public String toString() {
-		return "QuatreHorizontauxSimples [debutColonne=" + debutColonne + ", ligne=" + ligne + ", colonne=" + colonne
-				+ "]";
+		return "QuatreHorizontauxSimples [debutLigne=" + debutLigne + ", debutColonne=" + debutColonne + ", ligne="
+				+ ligne + ", colonne=" + colonne + "]";
 	}
 }

@@ -5,10 +5,10 @@ import grille.Grille;
 
 public abstract class Combinaison {
 	protected final static int TAILLE = 10;
-	protected int debutLigne;
-	protected int debutColonne;
-	protected int ligne;
-	protected int colonne;
+	protected int debutLigne = -1;
+	protected int debutColonne = -1;
+	protected int ligne = -1;
+	protected int colonne = -1;
 	
 	public Combinaison() {}
 	

@@ -46,6 +46,6 @@ public class DTroisHorizontauxRayesV extends Detecteur {
 
 	@Override
 	public String toString() {
-		return "TroisHorizontauxRayesV [debutColonne=" + colonne + ", ligne=" + ligne + ", colonnesARayer=" + "]";
+		return "DTroisHorizontauxRayesV [colonne=" + colonne + ", ligne=" + ligne + "]";
 	}
 }

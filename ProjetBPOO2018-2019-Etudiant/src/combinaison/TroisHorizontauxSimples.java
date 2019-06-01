@@ -19,6 +19,7 @@ public class TroisHorizontauxSimples extends Combinaison {
 
 	@Override
 	public String toString() {
-		return "TroisHorizontauxSimples [debutColonne=" + debutColonne + ", ligne=" + ligne + "]";
+		return "TroisHorizontauxSimples [debutLigne=" + debutLigne + ", debutColonne=" + debutColonne + ", ligne="
+				+ ligne + ", colonne=" + colonne + "]";
 	}
 }
