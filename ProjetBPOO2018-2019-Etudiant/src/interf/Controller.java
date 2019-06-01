@@ -31,7 +31,7 @@ public class Controller {
 	private static final int NOMBRE_DE_CANDIES = 10;
 
 	private Scene scene;
-	private Pane root;
+	private BorderPane root;
 
 	// Coordonn�es pixel DnD
 	private int xd, yd, xf, yf;
@@ -66,7 +66,6 @@ public class Controller {
 		try {
 			primaryStage.setTitle("Candy Crush");
 
-			// initImagesCandies();
 
 			root = new BorderPane(grillePane);
 			initGrille();
@@ -91,7 +90,7 @@ public class Controller {
 		HBox hbox = new HBox();
 		lChrono = new Label();
 		hbox.getChildren().add(lChrono);
-		((BorderPane) root).setBottom(hbox);
+		root.setBottom(hbox);
 
 	}
 
@@ -99,6 +98,7 @@ public class Controller {
 		dessinerPlateau();
 
 		timeline.play();
+		timelineChrono.play();
 
 		/**
 		 * Si on veut suspendre le dÃ©roulement d'une timeline --> timeline.pause() Si
