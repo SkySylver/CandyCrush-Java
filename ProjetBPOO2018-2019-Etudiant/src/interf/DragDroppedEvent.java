@@ -1,7 +1,5 @@
 package interf;
 
-import combinaison.Combinaison;
-import detecteur.Detecteur;
 import exceptions.CandyException;
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;

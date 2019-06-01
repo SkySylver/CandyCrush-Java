@@ -7,7 +7,7 @@ import grille.Grille;
 
 // TROIS BONBONS ALIGNES HORIZONTALEMENT DONT UN RAYE A L'HORIZONTALE
 public class DTroisHorizontauxRayesV extends Detecteur {
-	private int debutColonne;
+	private int colonne; //juste pour reponse
 	private int ligne;
 
 	public DTroisHorizontauxRayesV(Detecteur d) {
@@ -25,13 +25,13 @@ public class DTroisHorizontauxRayesV extends Detecteur {
 			while (c > 0 && grille.getCouleur(l, c - 1).equals(coul)) {
 				c--;
 			}
-
+			ligne = l;
+			colonne = c;
 			if (c < 8) {
 				if (grille.getCouleur(l, c + 1).equals(coul) && grille.getCouleur(l, c + 2).equals(coul)) {
 					for (int i = 0; i < 3; i++) {
 						if (grille.getType(l, c + i).equals("BonbonVertical")) {
-							debutColonne = c+i;
-							return new TroisHorizontauxRayesV(debutColonne, ligne);
+							return new TroisHorizontauxRayesV(c, l);
 						}
 					}
 				}
@@ -41,11 +41,11 @@ public class DTroisHorizontauxRayesV extends Detecteur {
 	}
 
 	public void reponse(Grille grille) throws CandyException {
-		System.out.println("3 bonbons " + grille.getCouleur(ligne, debutColonne) + " dont un rayé à la verticale");
+		System.out.println("3 bonbons " + grille.getCouleur(ligne, colonne) + " dont un rayé à la verticale");
 	}
 
 	@Override
 	public String toString() {
-		return "TroisHorizontauxRayesV [debutColonne=" + debutColonne + ", ligne=" + ligne + ", colonnesARayer=" + "]";
+		return "TroisHorizontauxRayesV [debutColonne=" + colonne + ", ligne=" + ligne + ", colonnesARayer=" + "]";
 	}
 }
