@@ -189,6 +189,7 @@ public abstract class Controller {
 	}
 
 	public abstract boolean isFin();
+	public abstract void afficherFin();
 
 	/*
 	 * ----+-------------------+ | GETTERS / SETTERS | +-----------------------+

@@ -13,5 +13,11 @@ public class ModeEchange extends Controller{
 		
 		return false;
 	}
+
+	@Override
+	public void afficherFin() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
