@@ -11,10 +11,11 @@ public class TroisVerticauxSimples extends Combinaison {
 		colonne = c;
 	}
 
-	public void executerCombinaison(Grille grille) throws CandyException {
+	public int executerCombinaison(Grille grille) throws CandyException {
 		for(int i = debutLigne; i<debutLigne+3; i++) {
 			grille.exploser(i, colonne);
 		}
+		return 30;
 	}
 
 	@Override

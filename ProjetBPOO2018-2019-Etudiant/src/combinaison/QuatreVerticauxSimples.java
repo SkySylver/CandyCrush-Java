@@ -11,11 +11,13 @@ public class QuatreVerticauxSimples extends Combinaison {
 		colonne = c;
 	}
 
-	public void executerCombinaison(Grille grille) throws CandyException {
+	public int executerCombinaison(Grille grille) throws CandyException {
 		String coul = grille.getCouleur(ligne, colonne);
 		for (int i = debutLigne; i < debutLigne + 4; i++)
 			grille.exploser(i, colonne);
 		grille.putBonbonVertical(ligne, colonne, coul);
+		
+		return 60;
 	}
 
 	@Override

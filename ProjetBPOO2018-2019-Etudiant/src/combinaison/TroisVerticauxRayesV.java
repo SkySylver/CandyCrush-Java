@@ -10,10 +10,11 @@ public class TroisVerticauxRayesV extends Combinaison {
 		colonne = c;
 	}
 
-	public void executerCombinaison(Grille grille) throws CandyException {
+	public int executerCombinaison(Grille grille) throws CandyException {
 		for(int i = 0; i<TAILLE; i++) {
 			grille.exploser(i, colonne);
 		}
+		return 120;
 	}
 
 	@Override

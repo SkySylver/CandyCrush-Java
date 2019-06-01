@@ -25,10 +25,10 @@ public final class KeyFrame1 implements EventHandler<ActionEvent> {
 
 			comb1 = combDet.detecter(con.getLt(), con.getCt(), con.getGrille());
 			if (comb1 != null)
-				comb1.executerCombinaison(con.getGrille());
+			//	score += comb1.executerCombinaison(con.getGrille());
 			comb2 = combDet.detecter(con.getLs(), con.getCs(), con.getGrille());
 			if (comb2 != null)
-				comb2.executerCombinaison(con.getGrille()); // con.getGrille().tomber();
+			//	score += comb2.executerCombinaison(con.getGrille());
 			con.dessinerPlateau();
 		} catch (CandyException e) {
 			e.printStackTrace();

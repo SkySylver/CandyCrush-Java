@@ -16,5 +16,5 @@ public abstract class Combinaison {
 	
 	public Combinaison() {}
 	
-	public abstract void executerCombinaison(Grille grille) throws CandyException;	
+	public abstract int executerCombinaison(Grille grille) throws CandyException;	
 }

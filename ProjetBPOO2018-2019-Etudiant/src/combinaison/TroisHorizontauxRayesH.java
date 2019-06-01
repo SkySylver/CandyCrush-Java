@@ -9,10 +9,12 @@ public class TroisHorizontauxRayesH extends Combinaison {
 		ligne = l;
 	}
 	
-	public void executerCombinaison(Grille grille) throws CandyException {
+	public int executerCombinaison(Grille grille) throws CandyException {
 		for(int i = 0; i<TAILLE; i++) {
 			grille.exploser(ligne, i);
 		}
+		
+		return 120;
 	}
 
 	@Override
