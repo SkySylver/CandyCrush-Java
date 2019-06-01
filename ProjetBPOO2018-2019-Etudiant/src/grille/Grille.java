@@ -6,6 +6,11 @@ import detecteur.Detecteur;
 import exceptions.CandyException;
 import javafx.scene.image.Image;
 
+
+/**
+ * Grille de bonbons du jeu.
+ * 
+ */
 public class Grille {
 	private final static int TAILLE = 10;
 

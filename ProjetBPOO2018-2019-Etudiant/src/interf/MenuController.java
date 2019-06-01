@@ -36,6 +36,7 @@ public class MenuController {
 	@FXML
 	private void clic(ActionEvent e) throws CandyException{
 		Button b = (Button) e.getSource();
+		@SuppressWarnings("unused")
 		Controller m;
 		switch (b.getId()) {
 

@@ -11,10 +11,12 @@ public class TroisHorizontauxSimples extends Combinaison {
 		ligne = l;
 	}
 	
-	public void executerCombinaison(Grille grille) throws CandyException {
+	public int executerCombinaison(Grille grille) throws CandyException {
 		for(int i = debutColonne; i<debutColonne+3; i++) {
 			grille.exploser(ligne, i);
 		}
+		
+		return 30;
 	}
 
 	@Override

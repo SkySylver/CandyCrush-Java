@@ -11,7 +11,7 @@ public class TroisHorizontauxRayesV extends Combinaison {
 		ligne = l;
 	}
 
-	public void executerCombinaison(Grille grille) throws CandyException {
+	public int executerCombinaison(Grille grille) throws CandyException {
 		for (int i = debutColonne; i < debutColonne + 3; i++) {
 			if (grille.getType(ligne, i).equals("BonbonSimple")) {
 				// si bonbon non rayé, on explose juste le bonbon
@@ -23,6 +23,7 @@ public class TroisHorizontauxRayesV extends Combinaison {
 				}
 			}
 		}
+		return 120;
 	}
 
 	@Override

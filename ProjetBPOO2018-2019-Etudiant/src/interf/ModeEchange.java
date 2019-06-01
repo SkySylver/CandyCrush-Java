@@ -16,7 +16,6 @@ public class ModeEchange extends Controller{
 
 	@Override
 	public void afficherFin() {
-		// TODO Auto-generated method stub
 		
 	}
 	

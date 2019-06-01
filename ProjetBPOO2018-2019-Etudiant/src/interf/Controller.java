@@ -14,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -24,6 +23,11 @@ import ui.CandyCrush.DragOverEvent;
 import ui.CandyCrush.KeyFrame1;
 import ui.CandyCrush.KeyFrame2;
 */
+
+/**
+ * Controller de la fenêtre.
+ * 
+ */
 public abstract class Controller {
 	private static final double TEMPS_AFFICHAGE_KEYFRAME1 = 0.5;
 	private static final double TEMPS_AFFICHAGE_KEYFRAME2 = 1;
@@ -189,6 +193,7 @@ public abstract class Controller {
 	}
 
 	public abstract boolean isFin();
+
 	public abstract void afficherFin();
 
 	/*
