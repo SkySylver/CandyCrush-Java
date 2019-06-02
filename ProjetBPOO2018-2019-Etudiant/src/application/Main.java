@@ -15,8 +15,6 @@ public class Main extends Application {
 
 	public static void main(String[] args) throws Exception {
 		launch(args);
-		// Grille g = new
-		// Grille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
 	}
 
 	@Override
