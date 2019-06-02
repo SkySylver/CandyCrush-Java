@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.util.Scanner;
 
 import combinaison.Combinaison;
@@ -19,11 +20,10 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		MenuController Menu = new MenuController(primaryStage);
+		MenuController Menu = new MenuController(primaryStage, "C:\\Users\\Enes\\git\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\");
 		Menu.start();
 	}
-	
-	
+
 	@SuppressWarnings("unused")
 	private static void tests(Grille grille) throws Exception {
 

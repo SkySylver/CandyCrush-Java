@@ -14,16 +14,32 @@ public class ModeEchange extends Controller{
 		this.nbEchange = nbEchange;
 	}
 
-	public ModeEchange(Stage primaryStage) {
+	int nbEchangesMax;
+	
+	public ModeEchange(Stage primaryStage, String tab[][]) {
+		
 		super(primaryStage);
+		primaryStage.setTitle("Candy Crush - Echanges limités");
 	}
 
 	@Override
 	public boolean isFin() {
-		
-		return false;
+		if(getNbEchanges() >= getNbEchangesMax())
+			return true;
+		else
+			return false;
 	}
 
+	private void setNbEchangesMax(int n) {
+		nbEchangesMax = n;
+		
+	}
+	
+	private int getNbEchangesMax() {
+		return nbEchangesMax;
+		
+	}
+	
 	@Override
 	public void afficherFin() {
 		
