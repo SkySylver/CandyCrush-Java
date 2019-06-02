@@ -35,9 +35,12 @@ public class Grille {
 	 */
 	public Grille(List<String> input) throws Exception {
 		/**
-		 * LE FICHIER .csv doit être agencé de cette manière: ModeDeJeu, entier TAILLE,
-		 * entier entier, entier, ..., entier entier, entier, ..., entier ... entier,
-		 * entier, ..., entier
+		 * LE FICHIER .csv doit être agencé de cette manière: ModeDeJeu, entier 
+		 * TAILLE, entier 
+		 * entier, entier, ..., entier 
+		 * entier, entier, ..., entier 
+		 * ... 
+		 * entier, entier, ..., entier
 		 */
 
 		String mode[] = input.get(0).split(";");

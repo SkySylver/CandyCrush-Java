@@ -1,7 +1,5 @@
 package interf;
 
-import java.util.List;
-
 import javafx.stage.Stage;
 
 public class ModeEchange extends Controller {

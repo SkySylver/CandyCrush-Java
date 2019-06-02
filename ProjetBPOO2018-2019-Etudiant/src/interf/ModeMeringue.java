@@ -1,6 +1,5 @@
 package interf;
 
-import java.util.List;
 
 import exceptions.CandyException;
 import javafx.stage.Stage;
