@@ -1,28 +1,34 @@
 package interf;
 
-import java.util.List;
-
 import javafx.stage.Stage;
 
 public class ModeTimer extends Controller {
 
-	private int temps;
+	private int secondesEcouleesMax, scoreMax;
 
-	public ModeTimer(Stage primaryStage, List<String> data) {
-		super(primaryStage, data);
+	public ModeTimer(Stage primaryStage, MenuController m) {
+		super(primaryStage, m);
+		secondesEcouleesMax = Integer.parseInt(m.getData().get(0).split(";")[3]);
+		scoreMax = Integer.parseInt(m.getData().get(0).split(";")[2]);
+
 	}
 
 	public int getTemps() {
-		return temps;
+		return secondesEcouleesMax;
 	}
 
 	public void setTemps(int temps) {
-		this.temps = temps;
+		secondesEcouleesMax = temps;
 	}
 
 	@Override
 	public boolean isFin() {
-		// TODO Auto-generated method stub
+		if (secondesEcouleesMax < getSecondesEcoulees()) {
+			return true;
+		}
+		if (getScore() > scoreMax)
+			return true;
+		
 		return false;
 	}
 
@@ -32,4 +38,7 @@ public class ModeTimer extends Controller {
 
 	}
 
+	public int getScoreMax() {
+		return scoreMax;
+	}
 }

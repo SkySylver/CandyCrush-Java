@@ -21,6 +21,9 @@ import javafx.stage.Stage;
 public class MenuController {
 	private Stage stage;
 	private File dossier;
+	private List<String> data;
+
+	private Controller jeu;
 
 	public MenuController(Stage s, String src) {
 		stage = s;
@@ -45,22 +48,20 @@ public class MenuController {
 	}
 
 	@FXML
-	private void clic(ActionEvent e) throws CandyException {
+	private void clic(ActionEvent e) throws CandyException, InterruptedException {
 		String tab[] = null;
-		// setGrille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
-
+		
 		if (dossier.isDirectory()) {
-			System.out.println("C'est un dossier");
 			File[] list = dossier.listFiles();
 			if (list != null) {
 				for (File f : list) {
 					String src = f.getAbsolutePath();
-					List<String> records = new ArrayList<String>();
+					data = new ArrayList<String>();
 					try {
 						BufferedReader reader = new BufferedReader(new FileReader(src));
 						String line;
 						while ((line = reader.readLine()) != null) {
-							records.add(line);
+							data.add(line);
 						}
 						reader.close();
 					} catch (Exception e1) {
@@ -68,22 +69,22 @@ public class MenuController {
 						e1.printStackTrace();
 					}
 
-					tab = records.get(0).split(";");
-					
-					
-					Controller m;
+					tab = data.get(0).split(";");
+
 					switch (tab[0]) {
 					case "SANS_OBJECTIF":
 						System.out.println("sans objectif");
 						break;
-					case "DEPLACEMENT_LIMITE":						
-						m = new ModeEchange(stage, records);
+					case "DEPLACEMENT_LIMITE":
+						System.out.println("DEPLACEMENT_LIMITE");
+						jeu = new ModeEchange(stage, this);
 						break;
 					case "TEMPS_LIMITE":
-						m = new ModeTimer(stage, records);
+						System.out.println("TEMPS_LIMITE");
+						jeu = new ModeTimer(stage, this);
 						break;
 					case "ELIMINER_MERINGUE":
-						m = new ModeMeringue(stage, records);
+						jeu = new ModeMeringue(stage, this);
 						break;
 					default:
 						throw new CandyException("Mode de jeu inexistant");
@@ -95,5 +96,14 @@ public class MenuController {
 			}
 		} else
 			System.out.println("Pas un dossier");
+	}
+
+	public void ViderJeu() {
+		jeu = null;
+		
+	}
+	
+	public List<String> getData() {
+		return data;
 	}
 }

@@ -34,6 +34,11 @@ public abstract class Controller {
 	private HBox hBScore = new HBox(), hBChrono = new HBox(), hBNbEchanges = new HBox();
 	private Label lScore, lNbEchanges;
 
+	private MenuController menu;
+	public MenuController getMenu() {
+		return menu;
+	}
+
 	private Scene scene;
 	private BorderPane root;
 
@@ -64,12 +69,14 @@ public abstract class Controller {
 	 */
 	private Label lChrono;
 	private int secondesEcoulees = 0;
+
 	private Timeline timelineChrono;
 
-	public Controller(Stage primaryStage, List<String> data) {
+	public Controller(Stage primaryStage, MenuController m) {
 		try {
-			grille = new Grille(data);
-			
+			menu = m;
+			grille = new Grille(menu.getData());
+
 			primaryStage.setTitle("Candy Crush");
 
 			root = new BorderPane(grillePane);
@@ -107,7 +114,7 @@ public abstract class Controller {
 	}
 
 	void initGrille() throws Exception {
-		//setGrille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
+		// setGrille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
 		grillePane = new Canvas(640, 640);
 
 		((BorderPane) root).setCenter(grillePane);
@@ -222,9 +229,13 @@ public abstract class Controller {
 		 */
 	}
 
-	public abstract boolean isFin();
+	public abstract boolean isFin() throws CandyException;
 
 	public abstract void afficherFin();
+	
+	public void FinController() {
+	
+	}
 
 	/*
 	 * ----+-------------------+ | GETTERS / SETTERS | +-----------------------+
@@ -343,5 +354,9 @@ public abstract class Controller {
 
 	public void setGrille(List<String> input) throws Exception {
 		grille = new Grille(input);
+	}
+
+	public int getSecondesEcoulees() {
+		return secondesEcoulees;
 	}
 }

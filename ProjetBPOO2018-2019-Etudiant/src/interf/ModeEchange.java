@@ -7,10 +7,10 @@ import javafx.stage.Stage;
 public class ModeEchange extends Controller {
 	int nbEchangesMax, scoreMax;
 
-	public ModeEchange(Stage primaryStage, List<String> data) {
-		super(primaryStage, data);
+	public ModeEchange(Stage primaryStage, MenuController m) {
+		super(primaryStage, m);
 
-		String[] options = data.get(0).split(";");
+		String[] options = getMenu().getData().get(0).split(";");
 		setScoreMax(Integer.parseInt(options[2]));
 		setNbEchangesMax(Integer.parseInt(options[3]));
 		primaryStage.setTitle("Candy Crush - Echanges limités");
@@ -18,7 +18,7 @@ public class ModeEchange extends Controller {
 
 	@Override
 	public boolean isFin() {
-		if (getNbEchanges() >= getNbEchangesMax() || getScore()>getScoreMax())
+		if (getNbEchanges() >= getNbEchangesMax() || getScore() > getScoreMax())
 			return true;
 		else
 			return false;
@@ -34,7 +34,7 @@ public class ModeEchange extends Controller {
 
 	@Override
 	public void afficherFin() {
-
+			getMenu().ViderJeu();
 	}
 
 	public int getScoreMax() {

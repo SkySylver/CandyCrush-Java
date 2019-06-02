@@ -2,24 +2,40 @@ package interf;
 
 import java.util.List;
 
+import exceptions.CandyException;
 import javafx.stage.Stage;
 
 public class ModeMeringue extends Controller {
 
-	public ModeMeringue(Stage primaryStage, List<String> data) {
-		super(primaryStage, data);
+	private int secondesEcouleesMax;
+
+	public ModeMeringue(Stage primaryStage, MenuController m) {
+		super(primaryStage, m);
+		secondesEcouleesMax = Integer.parseInt(m.getData().get(0).split(";")[2]);
+
 	}
 
 	@Override
-	public boolean isFin() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isFin() throws CandyException {
+		if (getSecondesEcoulees() > secondesEcouleesMax)
+			return true;
+		
+		for (int i = 0; i < getGrille().getTaille(); i++)
+			for (int j = 0; j < getGrille().getTaille(); j++)
+				if (getGrille().getCouleur(i, j).equals("Meringue"))
+					return false;
+
+		
+		return true;
 	}
 
 	@Override
 	public void afficherFin() {
 		// TODO Auto-generated method stub
-		
+	}
+
+	public int getSecondesEcouleesMax() {
+		return secondesEcouleesMax;
 	}
 
 }

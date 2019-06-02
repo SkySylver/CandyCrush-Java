@@ -1,5 +1,6 @@
 package interf;
 
+import exceptions.CandyException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
@@ -11,8 +12,12 @@ public final class KeyFrame4 implements EventHandler<ActionEvent> {
 	}
 
 	public void handle(ActionEvent event) {
-		if (con.isFin()) {
-			con.afficherFin();
+		try {
+			if (con.isFin()) {
+				con.afficherFin();
+			}
+		} catch (CandyException e) {
+			e.printStackTrace();
 		}
 		con.getGc().clearRect(0, 0, 640, 640);
 

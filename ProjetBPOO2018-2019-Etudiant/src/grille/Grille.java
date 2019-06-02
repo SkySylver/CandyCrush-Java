@@ -61,10 +61,8 @@ public class Grille {
 		 */
 
 		for (int i = 0; i <= TAILLE - 1; i++) {
-			System.out.println(lines.get(1));
 			String[] values = lines.get(i).split(";");
 
-			System.out.println("test : " + values[0]);
 			for (int j = 0; j <= TAILLE - 1; j++) {
 				switch (Integer.parseInt(values[j])) {
 				case 0:
