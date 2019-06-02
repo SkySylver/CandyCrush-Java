@@ -104,7 +104,7 @@ public abstract class Controller {
 	}
 
 	void initGrille() throws Exception{
-		grille = new Grille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
+		grille =// new Grille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
 		grillePane = new Canvas(640, 640);
 
 		((BorderPane) root).setCenter(grillePane);
