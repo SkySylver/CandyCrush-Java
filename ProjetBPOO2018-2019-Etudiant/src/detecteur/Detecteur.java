@@ -9,7 +9,6 @@ import grille.Grille;
  * 
  */
 public abstract class Detecteur {
-	protected int TAILLE = 10;
 	private Detecteur suivante = null;
 
 	public Detecteur(Detecteur d) {
@@ -26,7 +25,7 @@ public abstract class Detecteur {
 	public Combinaison detecter(int l, int c, Grille grille) throws CandyException{
 		Combinaison comb = combinaisonExiste(l, c, grille);
 		if (comb!=null) {
-			reponse(grille); //reponse pour le test
+			//reponse(grille); //reponse pour le test
 			//executerCombinaison(grille);
 			return comb;
 		}
@@ -50,9 +49,5 @@ public abstract class Detecteur {
 		combDet = new DTroisVerticauxRayesV(combDet);
 
 		return combDet;
-	}
-	
-	public void setTaille(int n) {
-		TAILLE = n;
 	}
 }

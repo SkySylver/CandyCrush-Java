@@ -27,7 +27,7 @@ public class DTroisHorizontauxRayesH extends Detecteur {
 				c--;
 			}
 
-			if (c < 8) {
+			if (c < grille.getTaille()-2) {
 				if (grille.getCouleur(l, c + 1).equals(coul) && grille.getCouleur(l, c + 2).equals(coul)) {
 					if (grille.getType(l, c).equals("BonbonHorizontal")
 							|| grille.getType(l, c + 1).equals("BonbonHorizontal")

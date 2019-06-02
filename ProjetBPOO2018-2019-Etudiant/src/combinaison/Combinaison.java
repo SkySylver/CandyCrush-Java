@@ -8,7 +8,6 @@ import grille.Grille;
  * 
  */
 public abstract class Combinaison {
-	protected int TAILLE = 10;
 	protected int debutLigne = -1;
 	protected int debutColonne = -1;
 	protected int ligne = -1;
@@ -17,8 +16,4 @@ public abstract class Combinaison {
 	public Combinaison() {}
 	
 	public abstract int executerCombinaison(Grille grille) throws CandyException;	
-	
-	public void setTaille(int n) {
-		TAILLE = n;
-	}
 }

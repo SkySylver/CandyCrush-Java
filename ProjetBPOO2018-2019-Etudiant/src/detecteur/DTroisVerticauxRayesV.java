@@ -26,7 +26,7 @@ public class DTroisVerticauxRayesV extends Detecteur {
 				l--;
 			}
 
-			if (l < 8) {
+			if (l < grille.getTaille()-2) {
 				if (grille.getCouleur(l + 1, c).equals(coul) && grille.getCouleur(l + 2, c).equals(coul)) {
 					if (grille.getType(l, c).equals("BonbonVertical")
 							|| grille.getType(l + 1, c).equals("BonbonVertical")

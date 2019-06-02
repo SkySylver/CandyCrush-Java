@@ -10,7 +10,7 @@ public class TroisHorizontauxRayesH extends Combinaison {
 	}
 	
 	public int executerCombinaison(Grille grille) throws CandyException {
-		for(int i = 0; i<TAILLE; i++) {
+		for(int i = 0; i<grille.getTaille(); i++) {
 			grille.exploser(ligne, i);
 		}
 		

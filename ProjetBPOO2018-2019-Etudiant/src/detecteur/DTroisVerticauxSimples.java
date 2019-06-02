@@ -26,7 +26,7 @@ public class DTroisVerticauxSimples extends Detecteur {
 			while (l > 0 && grille.getCouleur(l - 1, c).equals(coul) && grille.getType(l - 1, c).equals(t))
 				l--;
 
-			if (l < 8) {
+			if (l < grille.getTaille()-2) {
 				if (grille.getCouleur(l + 1, c).equals(coul) && grille.getCouleur(l + 2, c).equals(coul)) {
 					if (grille.getType(l + 1, c).equals(t) && grille.getType(l + 2, c).equals(t)) {
 						debutLigne = l;

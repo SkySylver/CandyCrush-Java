@@ -31,7 +31,7 @@ public class DQuatreVerticauxSimples extends Detecteur {
 				l--;
 			}
 
-			if (l < 8) {
+			if (l < grille.getTaille()-3) {
 				if (grille.getCouleur(l + 1, c).equals(coul) && grille.getCouleur(l + 2, c).equals(coul)
 						&& grille.getCouleur(l + 3, c).equals(coul)) {
 					if (grille.getType(l + 1, c).equals(t) && grille.getType(l + 2, c).equals(t)

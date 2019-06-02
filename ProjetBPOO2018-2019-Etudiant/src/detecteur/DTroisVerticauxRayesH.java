@@ -27,7 +27,7 @@ public class DTroisVerticauxRayesH extends Detecteur {
 			ligne = l;
 			colonne = c;
 
-			if (l < 8) {
+			if (l < grille.getTaille()-2) {
 				if (grille.getCouleur(l + 1, c).equals(coul) && grille.getCouleur(l + 2, c).equals(coul)) {
 					for (int i = 0; i < 3; i++) {
 						if (grille.getType(l + i, c).equals("BonbonHorizontal")) {

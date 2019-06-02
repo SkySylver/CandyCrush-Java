@@ -30,7 +30,7 @@ public class DQuatreHorizontauxSimples extends Detecteur{
 				c--;
 			}
 
-			if (c < 8) {
+			if (c < grille.getTaille()-3) {
 				if (grille.getCouleur(l, c + 1).equals(coul) && grille.getCouleur(l, c + 2).equals(coul)
 						&& grille.getCouleur(l, c + 3).equals(coul)) {
 					if (grille.getType(l, c + 1).equals(t) && grille.getType(l, c + 2).equals(t) 
