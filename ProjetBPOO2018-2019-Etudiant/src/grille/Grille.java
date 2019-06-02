@@ -1,5 +1,12 @@
 package grille;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import bonbon.*;
 import combinaison.Combinaison;
 import detecteur.Detecteur;
@@ -12,7 +19,7 @@ import javafx.scene.image.Image;
  * 
  */
 public class Grille {
-	private final static int TAILLE = 10;
+	private int TAILLE = 10;
 
 	private Bonbon[][] grille = new Bonbon[TAILLE][TAILLE];
 
@@ -23,6 +30,99 @@ public class Grille {
 		for (int i = 0; i <= TAILLE - 1; i++) {
 			for (int j = 0; j <= TAILLE - 1; j++) {
 				grille[i][j] = new BonbonSimple();
+			}
+		}
+	}
+	
+	/**
+	 * Crée une Grille avec des bonbons qui sont décrits dans un fichier .csv
+	 * @throws Exception 
+	 */
+	public Grille(String input) throws Exception {
+		/* LE FICHIER .csv doit être agencé de cette manière:
+		 * ModeDeJeu, entier
+		 * TAILLE, entier
+		 * entier, entier, ..., entier
+		 * entier, entier, ..., entier
+		 * ...
+		 * entier, entier, ..., entier
+		 */
+		try (BufferedReader br = new BufferedReader(new FileReader(input))) {
+		    String line;
+		    line = br.readLine();
+		    String[] mode = line.split(",");
+		    if(mode[1].equals("ModeEchange")) {
+		    	// traiter param des modes de jeu ici
+		    }else if(mode[1].equals("ModeMeringue")) {
+		    	// traiter param des modes de jeu ici
+		    }else if(mode[1].equals("ModeTimer")) {
+		    	// traiter param des modes de jeu ici
+		    }
+		    line = br.readLine();
+		    String[] taille = line.split(",");
+		    TAILLE = Integer.parseInt(taille[1]);
+		    ArrayList<String> lines = new ArrayList<String>();
+		    while ((line = br.readLine()) != null) {
+		    	lines.add(line);
+		    }
+		    linesToGrille(lines);
+		}
+	}
+	
+	/*
+	 * Génère la grille à partir d'entiers
+	 */
+	public void linesToGrille(ArrayList<String> lines) {
+		/*
+		 * 0: Vide
+		 * 1: Meringue
+		 * 2: Bleu simple
+		 * 3: Bleu Horizontal
+		 * 4: Bleu Vertical
+		 * 5: Vert simple
+		 * 6: Vert Horizontal
+		 * 7: Vert Vertical
+		 * 8: Jaune simple
+		 * 9: Jaune Horizontal
+		 * 10: Jaune Vertical
+		 * 11: Violet simple
+		 * 12: Violet Horizontal
+		 * 13: Viole Vertical
+		 */
+		
+		for (int i = 0; i <= TAILLE - 1; i++) {
+			String[] values = lines.get(i).split(",");
+			for (int j = 0; j <= TAILLE - 1; j++) {
+				switch(Integer.parseInt(values[i])) {
+				case 0:
+					grille[i][j] = new Vide();
+				case 1:
+					grille[i][j] = new Meringue();
+				case 2:
+					grille[i][j] = new BonbonSimple("Bleu");
+				case 3:
+					grille[i][j] = new BonbonHorizontal("Bleu");
+				case 4:
+					grille[i][j] = new BonbonVertical("Bleu");
+				case 5:
+					grille[i][j] = new BonbonSimple("Vert");
+				case 6:
+					grille[i][j] = new BonbonHorizontal("Vert");
+				case 7:
+					grille[i][j] = new BonbonVertical("Vert");
+				case 8:
+					grille[i][j] = new BonbonSimple("Jaune");
+				case 9:
+					grille[i][j] = new BonbonHorizontal("Jaune");
+				case 10:
+					grille[i][j] = new BonbonVertical("Jaune");
+				case 11:
+					grille[i][j] = new BonbonSimple("Violet");
+				case 12:
+					grille[i][j] = new BonbonHorizontal("Violet");
+				case 13:
+					grille[i][j] = new BonbonVertical("Violet");
+				}
 			}
 		}
 	}
@@ -193,7 +293,7 @@ public class Grille {
 	public void completer() {
 		for (int i = 0; i < TAILLE; i++)
 			for (int j = 0; j < TAILLE; j++)
-				while (grille[i][j].getType().equals("Vide"))
+				if (grille[i][j].getType().equals("Vide"))
 					grille[i][j] = new BonbonSimple();
 	}
 
@@ -237,4 +337,13 @@ public class Grille {
 			throw new CandyException("Coordonnées incorrectes");
 		grille[l][c] = new BonbonVertical(coul);
 	}
+	
+	public void setTaille(int n) {
+		TAILLE = n;
+	}
+	
+	public int getTaille() {
+		return TAILLE;
+	}
+	
 }

@@ -9,7 +9,7 @@ import grille.Grille;
  * 
  */
 public abstract class Detecteur {
-	protected final static int TAILLE = 10;
+	protected int TAILLE = 10;
 	private Detecteur suivante = null;
 
 	public Detecteur(Detecteur d) {
@@ -50,5 +50,9 @@ public abstract class Detecteur {
 		combDet = new DTroisVerticauxRayesV(combDet);
 
 		return combDet;
+	}
+	
+	public void setTaille(int n) {
+		TAILLE = n;
 	}
 }
