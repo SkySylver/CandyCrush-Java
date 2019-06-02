@@ -47,7 +47,7 @@ public abstract class Controller {
 	/*
 	 * 
 	 **/
-	private Grille grille; //= new Grille(false);
+	private Grille grille = new Grille(false);
 
 	/**
 	 * Le tableau contenant les images des bonbons useless : On met directement
@@ -73,7 +73,7 @@ public abstract class Controller {
 			initChrono();
 			initScore();
 			initNbEchanges();
-			root.setBottom(new HBox(hBChrono, hBScore,hBNbEchanges));
+			root.setBottom(new HBox(hBChrono, hBScore, hBNbEchanges));
 			root.getBottom().setStyle("-fx-display: flex;");
 
 			scene = new Scene(root);
@@ -103,8 +103,8 @@ public abstract class Controller {
 		 */
 	}
 
-	void initGrille() throws Exception{
-		grille =// new Grille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
+	void initGrille() throws Exception {
+		setGrille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
 		grillePane = new Canvas(640, 640);
 
 		((BorderPane) root).setCenter(grillePane);
@@ -338,4 +338,7 @@ public abstract class Controller {
 		lScore.setText("Score : " + score + "\t");
 	}
 
+	public void setGrille(String input) throws Exception {
+		grille = new Grille(input);
+	}
 }
