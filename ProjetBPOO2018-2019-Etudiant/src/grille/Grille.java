@@ -50,7 +50,7 @@ public class Grille {
 		try (BufferedReader br = new BufferedReader(new FileReader(input))) {
 		    String line;
 		    line = br.readLine();
-		    String[] mode = line.split(",");
+		    String[] mode = line.split(";");
 		    if(mode[1].equals("ModeEchange")) {
 		    	// traiter param des modes de jeu ici
 		    }else if(mode[1].equals("ModeMeringue")) {
@@ -59,7 +59,7 @@ public class Grille {
 		    	// traiter param des modes de jeu ici
 		    }
 		    line = br.readLine();
-		    String[] taille = line.split(",");
+		    String[] taille = line.split(";");
 		    TAILLE = Integer.parseInt(taille[1]);
 		    ArrayList<String> lines = new ArrayList<String>();
 		    while ((line = br.readLine()) != null) {
@@ -72,7 +72,7 @@ public class Grille {
 	/*
 	 * Génère la grille à partir d'entiers
 	 */
-	public void linesToGrille(ArrayList<String> lines) {
+	public void linesToGrille(ArrayList<String> lines) throws CandyException{
 		/*
 		 * 0: Vide
 		 * 1: Meringue
@@ -91,37 +91,54 @@ public class Grille {
 		 */
 		
 		for (int i = 0; i <= TAILLE - 1; i++) {
-			String[] values = lines.get(i).split(",");
+			String[] values = lines.get(i).split(";");
 			for (int j = 0; j <= TAILLE - 1; j++) {
-				switch(Integer.parseInt(values[i])) {
+				switch(Integer.parseInt(values[j])) {
 				case 0:
 					grille[i][j] = new Vide();
+					break;
 				case 1:
 					grille[i][j] = new Meringue();
+					break;
 				case 2:
 					grille[i][j] = new BonbonSimple("Bleu");
+					break;
 				case 3:
 					grille[i][j] = new BonbonHorizontal("Bleu");
+					break;
 				case 4:
 					grille[i][j] = new BonbonVertical("Bleu");
+					break;
 				case 5:
 					grille[i][j] = new BonbonSimple("Vert");
+					break;
 				case 6:
 					grille[i][j] = new BonbonHorizontal("Vert");
+					break;
 				case 7:
 					grille[i][j] = new BonbonVertical("Vert");
+					break;
 				case 8:
 					grille[i][j] = new BonbonSimple("Jaune");
+					break;
 				case 9:
 					grille[i][j] = new BonbonHorizontal("Jaune");
+					break;
 				case 10:
 					grille[i][j] = new BonbonVertical("Jaune");
+					break;
 				case 11:
 					grille[i][j] = new BonbonSimple("Violet");
+					break;
 				case 12:
 					grille[i][j] = new BonbonHorizontal("Violet");
+					break;
 				case 13:
 					grille[i][j] = new BonbonVertical("Violet");
+					break;
+				default:
+					grille[i][j] = new BonbonSimple();
+					break;
 				}
 			}
 		}

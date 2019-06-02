@@ -1,6 +1,5 @@
 package application;
 
-import java.io.File;
 import java.util.Scanner;
 
 import combinaison.Combinaison;
@@ -14,8 +13,9 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	private static Detecteur mesComb = null;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		launch(args);
+		//Grille g = new Grille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
 	}
 
 	@Override

@@ -47,7 +47,7 @@ public abstract class Controller {
 	/*
 	 * 
 	 **/
-	private Grille grille = new Grille(false);
+	private Grille grille; //= new Grille(false);
 
 	/**
 	 * Le tableau contenant les images des bonbons useless : On met directement
@@ -103,8 +103,8 @@ public abstract class Controller {
 		 */
 	}
 
-	void initGrille() {
-
+	void initGrille() throws Exception{
+		grille = new Grille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
 		grillePane = new Canvas(640, 640);
 
 		((BorderPane) root).setCenter(grillePane);
