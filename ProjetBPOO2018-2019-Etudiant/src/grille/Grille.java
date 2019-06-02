@@ -1,18 +1,12 @@
 package grille;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import bonbon.*;
-import combinaison.Combinaison;
 import detecteur.Detecteur;
 import exceptions.CandyException;
 import javafx.scene.image.Image;
-
 
 /**
  * Grille de bonbons du jeu.
@@ -33,69 +27,46 @@ public class Grille {
 			}
 		}
 	}
-	
+
 	/**
 	 * Crée une Grille avec des bonbons qui sont décrits dans un fichier .csv
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	public Grille(List<String> input) throws Exception {
-		/* LE FICHIER .csv doit être agencé de cette manière:
-		 * ModeDeJeu, entier
-		 * TAILLE, entier
-		 * entier, entier, ..., entier
-		 * entier, entier, ..., entier
-		 * ...
-		 * entier, entier, ..., entier
+		/**
+		 * LE FICHIER .csv doit être agencé de cette manière: ModeDeJeu, entier TAILLE,
+		 * entier entier, entier, ..., entier entier, entier, ..., entier ... entier,
+		 * entier, ..., entier
 		 */
-		
+
 		String mode[] = input.get(0).split(";");
-//		try (BufferedReader br = new BufferedReader(new FileReader(input))) {
-		    String line;
-		    line = br.readLine();
-		    String[] mode = line.split(";");
-		    if(mode[1].equals("ModeEchange")) {
-		    	// traiter param des modes de jeu ici
-		    }else if(mode[1].equals("ModeMeringue")) {
-		    	// traiter param des modes de jeu ici
-		    }else if(mode[1].equals("ModeTimer")) {
-		    	// traiter param des modes de jeu ici
-		    }
-		    line = br.readLine();
-		    String[] taille = line.split(";");
-		    TAILLE = Integer.parseInt(taille[1]);
-		    ArrayList<String> lines = new ArrayList<String>();
-		    while ((line = br.readLine()) != null) {
-		    	lines.add(line);
-		    }
-		    linesToGrille(lines);
-		}
-//	}
-	
+		TAILLE = Integer.parseInt(mode[1]);
+		grille = new Bonbon[TAILLE][TAILLE];
+		
+		input.remove(0);
+
+		linesToGrille((ArrayList<String>) input);
+	}
+
 	/*
 	 * Génère la grille à partir d'entiers
 	 */
-	public void linesToGrille(ArrayList<String> lines) throws CandyException{
+	public void linesToGrille(ArrayList<String> lines) throws CandyException {
 		/*
-		 * 0: Vide
-		 * 1: Meringue
-		 * 2: Bleu simple
-		 * 3: Bleu Horizontal
-		 * 4: Bleu Vertical
-		 * 5: Vert simple
-		 * 6: Vert Horizontal
-		 * 7: Vert Vertical
-		 * 8: Jaune simple
-		 * 9: Jaune Horizontal
-		 * 10: Jaune Vertical
-		 * 11: Violet simple
-		 * 12: Violet Horizontal
-		 * 13: Viole Vertical
+		 * 0: Vide 1: Meringue 2: Bleu simple 3: Bleu Horizontal 4: Bleu Vertical 5:
+		 * Vert simple 6: Vert Horizontal 7: Vert Vertical 8: Jaune simple 9: Jaune
+		 * Horizontal 10: Jaune Vertical 11: Violet simple 12: Violet Horizontal 13:
+		 * Viole Vertical
 		 */
-		
+
 		for (int i = 0; i <= TAILLE - 1; i++) {
+			System.out.println(lines.get(1));
 			String[] values = lines.get(i).split(";");
+
+			System.out.println("test : " + values[0]);
 			for (int j = 0; j <= TAILLE - 1; j++) {
-				switch(Integer.parseInt(values[j])) {
+				switch (Integer.parseInt(values[j])) {
 				case 0:
 					grille[i][j] = new Vide();
 					break;
@@ -148,7 +119,8 @@ public class Grille {
 
 	/**
 	 * Grille par défaut pour les tests (dans ui > CandyCrush.java)
-	 * @param test : 
+	 * 
+	 * @param test :
 	 */
 	public Grille(boolean test) {
 		for (int i = 0; i <= TAILLE - 1; i++) {
@@ -156,7 +128,7 @@ public class Grille {
 				grille[i][j] = new Vide();
 			}
 		}
- 
+
 		/**
 		 * On ajoute 3 bonbons bleus alignÃ©s horizontalement et commenÃ§ant en (2,4)
 		 */
@@ -262,7 +234,7 @@ public class Grille {
 			throw new CandyException("Bonbon hors de grille !");
 		return grille[l][c].getImage();
 	}
-	
+
 	/**
 	 * Permet d'obtenir la couleur du Bonbon dans la Grille au coordonnées l, c
 	 * 
@@ -340,7 +312,7 @@ public class Grille {
 			grille[ls][cs] = grille[lt][ct];
 			grille[lt][ct] = temp;
 			return false;
-			//throw new CandyException("Aucune combinaison apres echange");
+			// throw new CandyException("Aucune combinaison apres echange");
 		}
 		return true;
 	}
@@ -356,13 +328,13 @@ public class Grille {
 			throw new CandyException("Coordonnées incorrectes");
 		grille[l][c] = new BonbonVertical(coul);
 	}
-	
+
 	public void setTaille(int n) {
 		TAILLE = n;
 	}
-	
+
 	public int getTaille() {
 		return TAILLE;
 	}
-	
+
 }
