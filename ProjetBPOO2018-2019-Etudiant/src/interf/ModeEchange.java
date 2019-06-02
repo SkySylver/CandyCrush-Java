@@ -1,9 +1,17 @@
 package interf;
 
+import java.util.List;
+
 import javafx.stage.Stage;
 
-public class ModeEchange extends Controller{
-	
+public class ModeEchange extends Controller {
+
+	public ModeEchange(Stage primaryStage, List<String> data) {
+
+		super(primaryStage, data);
+		primaryStage.setTitle("Candy Crush - Echanges limités");
+	}
+
 	private int nbEchange;
 
 	public int getNbEchange() {
@@ -15,16 +23,10 @@ public class ModeEchange extends Controller{
 	}
 
 	int nbEchangesMax;
-	
-	public ModeEchange(Stage primaryStage, String tab[][]) {
-		
-		super(primaryStage);
-		primaryStage.setTitle("Candy Crush - Echanges limités");
-	}
 
 	@Override
 	public boolean isFin() {
-		if(getNbEchanges() >= getNbEchangesMax())
+		if (getNbEchanges() >= getNbEchangesMax())
 			return true;
 		else
 			return false;
@@ -32,17 +34,17 @@ public class ModeEchange extends Controller{
 
 	private void setNbEchangesMax(int n) {
 		nbEchangesMax = n;
-		
+
 	}
-	
+
 	private int getNbEchangesMax() {
 		return nbEchangesMax;
-		
+
 	}
-	
+
 	@Override
 	public void afficherFin() {
-		
+
 	}
-	
+
 }

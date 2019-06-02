@@ -47,8 +47,10 @@ public class MenuController {
 	@FXML
 	private void clic(ActionEvent e) throws CandyException {
 		String tab[] = null;
+		// setGrille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
 
 		if (dossier.isDirectory()) {
+			System.out.println("C'est un dossier");
 			File[] list = dossier.listFiles();
 			if (list != null) {
 				for (File f : list) {
@@ -67,24 +69,25 @@ public class MenuController {
 					}
 
 					tab = records.get(0).split(";");
-
-					switch(tab[0]) {
-					case "SANS_OBJECTIF":
-						
-						break;
-					case "DEPLACEMENT_LIMITE":
 					
+					
+					Controller m;
+					switch (tab[0]) {
+					case "SANS_OBJECTIF":
+						System.out.println("sans objectif");
+						break;
+					case "DEPLACEMENT_LIMITE":						
+						m = new ModeEchange(stage, records);
 						break;
 					case "TEMPS_LIMITE":
-					
+						m = new ModeTimer(stage, records);
 						break;
 					case "ELIMINER_MERINGUE":
-					
+						m = new ModeMeringue(stage, records);
 						break;
+					default:
+						throw new CandyException("Mode de jeu inexistant");
 					}
-					
-						
-					
 
 				}
 			} else {
@@ -92,25 +95,5 @@ public class MenuController {
 			}
 		} else
 			System.out.println("Pas un dossier");
-
-		Button b = (Button) e.getSource();
-		@SuppressWarnings("unused")
-		Controller m;
-		switch (b.getId()) {
-
-		case "Meringue":
-			m = new ModeMeringue(stage);
-			break;
-		case "Timer":
-			m = new ModeTimer(stage);
-			break;
-		case "Echange":
-
-//			m = new ModeEchange(stage);
-			break;
-		default:
-			throw new CandyException("Mode de jeu inexistant");
-		}
-
 	}
 }

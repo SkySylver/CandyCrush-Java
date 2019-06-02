@@ -15,12 +15,13 @@ public class Main extends Application {
 
 	public static void main(String[] args) throws Exception {
 		launch(args);
-		//Grille g = new Grille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
+		// Grille g = new
+		// Grille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
 	}
 
 	@Override
 	public void start(Stage primaryStage) {
-		MenuController Menu = new MenuController(primaryStage, "C:\\Users\\Enes\\git\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\");
+		MenuController Menu = new MenuController(primaryStage, System.getProperty("user.dir") + "/plateaux/");
 		Menu.start();
 	}
 

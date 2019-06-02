@@ -1,5 +1,7 @@
 package interf;
 
+import java.util.List;
+
 import exceptions.CandyException;
 import grille.Grille;
 import javafx.animation.Animation;
@@ -47,7 +49,7 @@ public abstract class Controller {
 	/*
 	 * 
 	 **/
-	private Grille grille = new Grille(false);
+	private Grille grille;
 
 	/**
 	 * Le tableau contenant les images des bonbons useless : On met directement
@@ -64,8 +66,10 @@ public abstract class Controller {
 	private int secondesEcoulees = 0;
 	private Timeline timelineChrono;
 
-	public Controller(Stage primaryStage) {
+	public Controller(Stage primaryStage, List<String> data) {
 		try {
+			grille = new Grille(data);
+			
 			primaryStage.setTitle("Candy Crush");
 
 			root = new BorderPane(grillePane);
@@ -74,7 +78,6 @@ public abstract class Controller {
 			initScore();
 			initNbEchanges();
 			root.setBottom(new HBox(hBChrono, hBScore, hBNbEchanges));
-			root.getBottom().setStyle("-fx-display: flex;");
 
 			scene = new Scene(root);
 
@@ -104,7 +107,7 @@ public abstract class Controller {
 	}
 
 	void initGrille() throws Exception {
-		setGrille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
+		//setGrille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
 		grillePane = new Canvas(640, 640);
 
 		((BorderPane) root).setCenter(grillePane);
@@ -338,7 +341,7 @@ public abstract class Controller {
 		lScore.setText("Score : " + score + "\t");
 	}
 
-	public void setGrille(String input) throws Exception {
+	public void setGrille(List<String> input) throws Exception {
 		grille = new Grille(input);
 	}
 }

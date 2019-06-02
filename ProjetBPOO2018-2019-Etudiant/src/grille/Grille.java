@@ -21,7 +21,7 @@ import javafx.scene.image.Image;
 public class Grille {
 	private int TAILLE = 10;
 
-	private Bonbon[][] grille = new Bonbon[TAILLE][TAILLE];
+	private Bonbon[][] grille;
 
 	/**
 	 * Crée une Grille avec des bonbons générés aléatoirement
@@ -38,7 +38,7 @@ public class Grille {
 	 * Crée une Grille avec des bonbons qui sont décrits dans un fichier .csv
 	 * @throws Exception 
 	 */
-	public Grille(String input) throws Exception {
+	public Grille(List<String> input) throws Exception {
 		/* LE FICHIER .csv doit être agencé de cette manière:
 		 * ModeDeJeu, entier
 		 * TAILLE, entier
@@ -47,7 +47,9 @@ public class Grille {
 		 * ...
 		 * entier, entier, ..., entier
 		 */
-		try (BufferedReader br = new BufferedReader(new FileReader(input))) {
+		
+		String mode[] = input.get(0).split(";");
+//		try (BufferedReader br = new BufferedReader(new FileReader(input))) {
 		    String line;
 		    line = br.readLine();
 		    String[] mode = line.split(";");
@@ -67,7 +69,7 @@ public class Grille {
 		    }
 		    linesToGrille(lines);
 		}
-	}
+//	}
 	
 	/*
 	 * Génère la grille à partir d'entiers

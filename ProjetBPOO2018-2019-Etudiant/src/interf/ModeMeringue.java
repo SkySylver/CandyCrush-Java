@@ -1,11 +1,13 @@
 package interf;
 
+import java.util.List;
+
 import javafx.stage.Stage;
 
 public class ModeMeringue extends Controller {
 
-	public ModeMeringue(Stage primaryStage) {
-		super(primaryStage);
+	public ModeMeringue(Stage primaryStage, List<String> data) {
+		super(primaryStage, data);
 	}
 
 	@Override
