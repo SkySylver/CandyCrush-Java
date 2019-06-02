@@ -20,9 +20,13 @@ import javafx.stage.Stage;
 
 public class MenuController {
 	private Stage stage;
-	
-	public MenuController(Stage s) {
+	private File dossier;
+
+	public MenuController(Stage s, String src) {
 		stage = s;
+		dossier = new File(src);
+		int i = 0;
+		System.out.println(i);
 	}
 
 	public void start() {
@@ -33,49 +37,62 @@ public class MenuController {
 			sc = new Scene(l.load());
 			stage.setScene(sc);
 			stage.show();
-			
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 	}
 
-	/**
-	 * Open and read a file, and return the lines in the file as a list
-	 * of Strings.
-	 * (Demonstrates Java FileReader, BufferedReader, and Java5.)
-	 */
-	private List<String> readFile(String src)
-	{
-	  List<String> records = new ArrayList<String>();
-	  try
-	  {
-	    BufferedReader reader = new BufferedReader(new FileReader(src));
-	    String line;
-	    while ((line = reader.readLine()) != null)
-	    {
-	      records.add(line);
-	    }
-	    reader.close();
-	    return records;
-	  }
-	  catch (Exception e)
-	  {
-	    System.err.format("Exception occurred trying to read '%s'.", src);
-	    e.printStackTrace();
-	    return null;
-	  }
-	}
-	
-	
-	@SuppressWarnings("unused")
-	private void StartFichier(String src) {
-		ArrayList<String> fichier = (ArrayList<String>)readFile(src);
-	}
-	
 	@FXML
-	private void clic(ActionEvent e) throws CandyException{
+	private void clic(ActionEvent e) throws CandyException {
+		String tab[] = null;
+
+		if (dossier.isDirectory()) {
+			File[] list = dossier.listFiles();
+			if (list != null) {
+				for (File f : list) {
+					String src = f.getAbsolutePath();
+					List<String> records = new ArrayList<String>();
+					try {
+						BufferedReader reader = new BufferedReader(new FileReader(src));
+						String line;
+						while ((line = reader.readLine()) != null) {
+							records.add(line);
+						}
+						reader.close();
+					} catch (Exception e1) {
+						System.err.format("Exception occurred trying to read '%s'.", src);
+						e1.printStackTrace();
+					}
+
+					tab = records.get(0).split(";");
+
+					switch(tab[0]) {
+					case "SANS_OBJECTIF":
+						
+						break;
+					case "DEPLACEMENT_LIMITE":
+					
+						break;
+					case "TEMPS_LIMITE":
+					
+						break;
+					case "ELIMINER_MERINGUE":
+					
+						break;
+					}
+					
+						
+					
+
+				}
+			} else {
+				System.err.println(dossier + " : Erreur de lecture.");
+			}
+		} else
+			System.out.println("Pas un dossier");
+
 		Button b = (Button) e.getSource();
 		@SuppressWarnings("unused")
 		Controller m;
@@ -88,12 +105,12 @@ public class MenuController {
 			m = new ModeTimer(stage);
 			break;
 		case "Echange":
-			m = new ModeEchange(stage);
+
+//			m = new ModeEchange(stage);
 			break;
 		default:
 			throw new CandyException("Mode de jeu inexistant");
 		}
 
 	}
-
 }
