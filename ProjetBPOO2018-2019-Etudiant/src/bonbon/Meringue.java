@@ -14,10 +14,12 @@ public class Meringue extends Bonbon {
 		setCouleur("Meringue");
 	}
 
+	@Override
 	public String getType() {
 		return "Meringue";
 	}
 
+	@Override
 	public Image getImage() {
 		return new Image(this.getCouleur() + ".png");
 	}

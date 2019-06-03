@@ -17,20 +17,20 @@ import javafx.stage.Stage;
 public class MenuController {
 	// Stage dans lequel on affiche ce Menu
 	private Stage stage;
-	
+
 	// Dossier des plateaux
 	private File dossier;
-	
-	// List des 
+
 	private List<String> data;
 
+	@SuppressWarnings("unused")
 	private Controller jeu;
 	private File[] listNiveau;
 	private int lvl;
 
 	/**
 	 * 
-	 * @param s: Stage dans lequel afficher ce Menu
+	 * @param s:  Stage dans lequel afficher ce Menu
 	 * @param src : Dossier des plateaux
 	 */
 	public MenuController(Stage s, String src) {
@@ -39,7 +39,7 @@ public class MenuController {
 	}
 
 	/**
-	 * Load le Menu (fxml)
+	 * Load le Menu (fxml) et l'affiche
 	 */
 	public void start() {
 		FXMLLoader l = new FXMLLoader(getClass().getResource("Menu.fxml"));
@@ -56,13 +56,21 @@ public class MenuController {
 	}
 
 	/**
-	 * Passe au prochain niveau dans la listNiveau
+	 * Passe au prochain niveau dans la listNiveau et crée un nouveau mode de jeu
+	 * S'il n'y a plus de niveau : c'est gagné
+	 * Pas d'affichage pour dire que c'est gagné (il faudrait faire une nouvelle scene)
+	 * 
+	 * @see ModeEchange#ModeEchange(Stage, MenuController)
+	 * @see ModeMeringue#ModeMeringue(Stage, MenuController)
+	 * @see ModeSansObjectif#ModeSansObjectif(Stage, MenuController)
+	 * @see ModeTimer#ModeTimer(Stage, MenuController)
+	 * 
 	 * @throws CandyException
 	 */
 	public void getNextNiveau() throws CandyException {
 		String tab[] = null;
 		if (listNiveau.length <= lvl) {
-			System.out.println("Plus de niveaux");
+			System.out.println("Plus de niveaux : C'EST GAGNE");
 			return;
 		}
 		System.out.println("Level : " + lvl);
@@ -87,11 +95,11 @@ public class MenuController {
 		switch (tab[0]) {
 		case "SANS_OBJECTIF":
 			System.out.println("sans objectif");
+			jeu = new ModeSansObjectif(stage, this);
 			break;
 		case "DEPLACEMENT_LIMITE":
 			System.out.println("DEPLACEMENT_LIMITE");
 			jeu = new ModeEchange(stage, this);
-			System.out.println("skip");
 			break;
 		case "TEMPS_LIMITE":
 			System.out.println("TEMPS_LIMITE");
@@ -106,22 +114,27 @@ public class MenuController {
 		}
 	}
 
+	/**
+	 * Charge la listes des plateaux csv dans listNiveau
+	 * 
+	 * @see MenuController#getNextNiveau()
+	 * @throws CandyException
+	 * @throws InterruptedException
+	 */
 	@FXML
-	private void clic(ActionEvent e) throws CandyException, InterruptedException {
-
+	private void clic() throws CandyException, InterruptedException {
 		if (dossier.isDirectory()) {
 			listNiveau = dossier.listFiles();
 		} else
-			System.out.println("Pas un dossier");
-
+			throw new CandyException("La source des niveaux n'est pas un dossier");
+		
 		getNextNiveau();
 	}
 
-	public void ViderJeu() {
-		jeu = null;
-
-	}
-
+	/**
+	 * Retourne la liste des lignes du fichier csv en cour d'utilisation
+	 * @return data
+	 */
 	public List<String> getData() {
 		return data;
 	}

@@ -15,13 +15,14 @@ public class BonbonVertical extends Bonbon {
 
 	public BonbonVertical(String couleur) {
 		super(couleur);
-
 	}
 
+	@Override
 	public String getType() {
 		return "BonbonVertical";
 	}
 
+	@Override
 	public Image getImage() {
 		return new Image(this.getCouleur() + "V.png");
 	}

@@ -9,7 +9,6 @@ import javafx.scene.image.Image;
  */
 public class BonbonSimple extends Bonbon {
 	
-
 	public BonbonSimple() {
 		super();
 	}
@@ -18,10 +17,12 @@ public class BonbonSimple extends Bonbon {
 		super(couleur);
 	}
 
+	@Override
 	public String getType() {
 		return "BonbonSimple";
 	}
 
+	@Override
 	public Image getImage() {
 		return new Image(this.getCouleur() + ".png");
 	}

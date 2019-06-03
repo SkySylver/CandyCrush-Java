@@ -86,17 +86,19 @@ public abstract class Bonbon {
 	}
 
 	/**
+	 * Retourne le type du Bonbon
 	 * @return le type du Bonbon (Horizontal / Vertical / Rayé)
 	 */
 	public abstract String getType();
 
 	/**
+	 * REtourne l'image associée au Bonbon
 	 * @return l'image associé au Bonbon
 	 */
 	public abstract Image getImage();
 
 	/**
-	 * 
+	 * Indique si le bonbon est rayé
 	 * @return vrai si le bonbon est rayé
 	 */
 	public boolean isRaye() {
