@@ -11,11 +11,16 @@ public abstract class Combinaison {
 	protected int debutLigne = -1;
 	protected int debutColonne = -1;
 	protected int ligne = -1;
-
 	protected int colonne = -1;
 	
 	public Combinaison() {}
 	
+	/**
+	 * S'execute dans la grille en faisant disparaitre les bonbons
+	 * @param grille: grille de jeu où la combinaison doit être détectée
+	 * @throws CandyException
+	 * @return Retourne le score
+	 */
 	public abstract int executerCombinaison(Grille grille) throws CandyException;	
 	
 	@Override

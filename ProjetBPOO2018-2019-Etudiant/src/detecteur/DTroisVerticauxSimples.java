@@ -5,7 +5,10 @@ import combinaison.TroisVerticauxSimples;
 import exceptions.CandyException;
 import grille.Grille;
 
-//TROIS BONBONS SIMPLES ALIGNES VERTICALEMENT
+/**
+ * Détecte TROIS BONBONS SIMPLES ALIGNES VERTICALEMENT
+ * @see Detecteur
+ */
 public class DTroisVerticauxSimples extends Detecteur {
 
 	private int debutLigne;
@@ -15,6 +18,9 @@ public class DTroisVerticauxSimples extends Detecteur {
 		super(d);
 	}
 	
+	/**
+	 * @see Detecteur#combinaisonExiste(int, int, Grille)
+	 */
 	public Combinaison combinaisonExiste(int l, int c, Grille grille) throws CandyException{
 		// même principe que dans TroisHorizontauxSimples
 
