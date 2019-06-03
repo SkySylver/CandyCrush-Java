@@ -15,19 +15,32 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MenuController {
+	// Stage dans lequel on affiche ce Menu
 	private Stage stage;
+	
+	// Dossier des plateaux
 	private File dossier;
+	
+	// List des 
 	private List<String> data;
 
 	private Controller jeu;
 	private File[] listNiveau;
 	private int lvl;
 
+	/**
+	 * 
+	 * @param s: Stage dans lequel afficher ce Menu
+	 * @param src : Dossier des plateaux
+	 */
 	public MenuController(Stage s, String src) {
 		stage = s;
 		dossier = new File(src);
 	}
 
+	/**
+	 * Load le Menu (fxml)
+	 */
 	public void start() {
 		FXMLLoader l = new FXMLLoader(getClass().getResource("Menu.fxml"));
 		l.setController(this);
@@ -42,6 +55,10 @@ public class MenuController {
 
 	}
 
+	/**
+	 * Passe au prochain niveau dans la listNiveau
+	 * @throws CandyException
+	 */
 	public void getNextNiveau() throws CandyException {
 		String tab[] = null;
 		if (listNiveau.length <= lvl) {

@@ -7,15 +7,22 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
 
+/**
+ * Début du Drag And Drop
+ *
+ */
 public class DragDetectedEvent implements EventHandler<MouseEvent> {
 	private Controller con;
 	
+	/**
+	 * @param c : Controller qui fait appel à cet Evenement
+	 */
 	DragDetectedEvent(Controller c) {
 		con = c;
 	}
 
 	/**
-	 * DÃƒÂ©but du DnD (Drag and Drop)
+	 * Début du DnD (Drag and Drop)
 	 */
 	public void handle(MouseEvent event) {
 		

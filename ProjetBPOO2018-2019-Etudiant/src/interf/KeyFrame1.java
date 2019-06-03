@@ -6,19 +6,25 @@ import exceptions.CandyException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
+/**
+ * Premiere KeyFrame lanc�e apr�s chaque DragDetectedEvent
+ */
 public final class KeyFrame1 implements EventHandler<ActionEvent> {
 	Controller con;
-
+	
+	/**
+	 * @param c : Controller qui fait appel � cet Evenement
+	 */
 	public KeyFrame1(Controller c) {
 		con = c;
 	}
 
+	/**
+	 * Detecte les Combinaisons
+	 * Ajoute des points si combinaisons existent
+	 * Et redessine la grille avec les explosions
+	 */
 	public void handle(ActionEvent event) {
-
-		// Dans cette frame, pour la dÃ©mo, on redessine la grille et c'est tout
-		// Pour le projet, il y a sans doute des choses Ã  faire pour compter les
-		// points, faire apparaÃ®tre des bonbons spÃ©ciaux
-		// ou autre chose encore...
 		try {
 			Combinaison comb1, comb2;
 			Detecteur combDet = Detecteur.initDetecteurs();

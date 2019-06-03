@@ -23,6 +23,11 @@ public class Main extends Application {
 		Menu.start();
 	}
 
+	/**
+	 * Tests pour la soutenance 1
+	 * @param grille : Grille de tests (ui)
+	 * @throws Exception
+	 */
 	@SuppressWarnings("unused")
 	private static void tests(Grille grille) throws Exception {
 

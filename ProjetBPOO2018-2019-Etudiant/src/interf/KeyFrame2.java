@@ -4,13 +4,22 @@ import exceptions.CandyException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
+/**
+ * 2e KeyFrame
+ */
 public final class KeyFrame2 implements EventHandler<ActionEvent> {
 	private Controller con;
 
+	/**
+	 * @param c : Controller qui fait appel à cet Evenement
+	 */
 	public KeyFrame2(Controller c) {
 		con = c;
 	}
 
+	/**
+	 * On fait tomber les Bonbons
+	 */
 	public void handle(ActionEvent event) {
 
 		con.getGrille().tomber();

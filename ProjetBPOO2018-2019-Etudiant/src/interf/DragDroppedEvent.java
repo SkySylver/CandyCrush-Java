@@ -4,9 +4,15 @@ import exceptions.CandyException;
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
 
+/*
+ * Fin du Drag and Drop
+ */
 public final class DragDroppedEvent implements EventHandler<DragEvent> {
 	private Controller con;
 
+	/**
+	 * @param c : Controller qui fait appel à cet Evenement
+	 */
 	public DragDroppedEvent(Controller c) {
 		con = c;
 	}
