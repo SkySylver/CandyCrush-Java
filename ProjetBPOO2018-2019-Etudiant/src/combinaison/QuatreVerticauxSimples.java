@@ -3,7 +3,10 @@ package combinaison;
 import exceptions.CandyException;
 import grille.Grille;
 
-//QUATRE BONBONS SIMPLES ALIGNES VERTICALEMENT
+/**
+ * QUATRE BONBONS SIMPLES ALIGNES VERTICALEMENT
+ *
+ */
 public class QuatreVerticauxSimples extends Combinaison {
 	public QuatreVerticauxSimples(int dL, int l, int c) {
 		debutLigne = dL;
@@ -11,6 +14,9 @@ public class QuatreVerticauxSimples extends Combinaison {
 		colonne = c;
 	}
 
+	/**
+	 * @see Combinaison#executerCombinaison(Grille)
+	 */
 	public int executerCombinaison(Grille grille) throws CandyException {
 		String coul = grille.getCouleur(ligne, colonne);
 		for (int i = debutLigne; i < debutLigne + 4; i++)

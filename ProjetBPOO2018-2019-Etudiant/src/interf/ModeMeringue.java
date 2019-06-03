@@ -1,7 +1,6 @@
 package interf;
 
 import exceptions.CandyException;
-import javafx.animation.Timeline;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -10,10 +9,12 @@ public class ModeMeringue extends Controller {
 	private int secondesEcouleesMax;
 
 	/**
-	 * Génère un mode de jeu avec echanges limités
+	 * Mode de jeu, le joueur doit éliminer toutes les meringues présentes sur la grille
 	 * 
-	 * @param primaryStage : Stage dans lequel afficher ce mode
-	 * @param m            : Menu qui fait appel à ce mode de jeu
+	 * @see Controller
+	 * 
+	 * @param primaryStage : Fenêtre dans laquelle il faut afficher ce Controller
+	 * @param m : Menu qui a lancé ce Controller (pour récupérer principalement le fichier csv sous forme de List<String>)
 	 */
 	public ModeMeringue(Stage primaryStage, MenuController m) {
 		super(primaryStage, m);

@@ -5,7 +5,11 @@ import combinaison.TroisVerticauxRayesV;
 import exceptions.CandyException;
 import grille.Grille;
 
-// TROIS BONBONS ALIGNES VERTICALEMENT DONT UN RAYE A LA VERTICALE
+
+/**
+ * Détecte TROIS BONBONS ALIGNES VERTICALEMENT DONT UN RAYE A LA VERTICALE
+ * @see Detecteur
+ */
 public class DTroisVerticauxRayesV extends Detecteur {
 	private int debutLigne;
 	private int colonne;
@@ -15,6 +19,9 @@ public class DTroisVerticauxRayesV extends Detecteur {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @see Detecteur#combinaisonExiste(int, int, Grille)
+	 */
 	public Combinaison combinaisonExiste(int l, int c, Grille grille) throws CandyException {
 
 		String coul = grille.getCouleur(l, c);

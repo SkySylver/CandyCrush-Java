@@ -5,7 +5,10 @@ import combinaison.TroisHorizontauxSimples;
 import exceptions.CandyException;
 import grille.Grille;
 
-// TROIS BONBONS SIMPLES ALIGNES HORIZONTALEMENT
+/**
+ * Détecte TROIS BONBONS SIMPLES ALIGNES HORIZONTALEMENT
+ * @see Detecteur
+ */
 public class DTroisHorizontauxSimples extends Detecteur {
 
 	public DTroisHorizontauxSimples(Detecteur d) {
@@ -15,6 +18,9 @@ public class DTroisHorizontauxSimples extends Detecteur {
 	private int debutColonne;
 	private int ligne;
 
+	/**
+	 * @see Detecteur#combinaisonExiste(int, int, Grille)
+	 */
 	public Combinaison combinaisonExiste(int l, int c, Grille grille) throws CandyException {
 		// on sauvegarde la couleur et le type du bonbon concerné
 		// puis on décale d'un bonbon vers la gauche tant que le bonbon à gauche est de

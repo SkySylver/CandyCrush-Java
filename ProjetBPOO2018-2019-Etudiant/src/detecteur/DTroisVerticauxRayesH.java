@@ -5,7 +5,10 @@ import combinaison.TroisVerticauxRayesH;
 import exceptions.CandyException;
 import grille.Grille;
 
-// TROIS BONBONS ALIGNES VERTICALEMENT DONT UN RAYE A L'HORIZONTALE
+/**
+ * Détecte TROIS BONBONS ALIGNES VERTICALEMENT DONT UN RAYE A L'HORIZONTALE
+ * @see Detecteur
+ */
 public class DTroisVerticauxRayesH extends Detecteur {
 	private int ligne;
 	private int colonne;
@@ -14,6 +17,9 @@ public class DTroisVerticauxRayesH extends Detecteur {
 		super(d);
 	}
 
+	/**
+	 * @see Detecteur#combinaisonExiste(int, int, Grille)
+	 */
 	public Combinaison combinaisonExiste(int l, int c, Grille grille) throws CandyException {
 
 		String coul = grille.getCouleur(l, c);

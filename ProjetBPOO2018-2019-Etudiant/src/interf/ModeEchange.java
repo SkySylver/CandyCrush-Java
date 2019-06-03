@@ -32,7 +32,10 @@ public class ModeEchange extends Controller {
 	/**
 	 * Si score > scoremax met gagné à vrai SI NbEchanges > nbEchangesMax met gagné
 	 * à faux Sinon la partie n'est pas finie
-	 */
+	 * 
+	 * @return Retourne vrai si le joueur a atteint l'objectif ou si il a atteint le nombre d'échange max autorisé
+	 * 
+	 * */
 	@Override
 	public boolean isFin() {
 		// System.out.println(getNbEchanges() + " / " + getNbEchangesMax());

@@ -8,10 +8,12 @@ public class ModeTimer extends Controller {
 	private int secondesEcouleesMax, scoreMax;
 
 	/**
-	 * Génère un mode de jeu avec echanges limités
+	 * Mode de jeu, le joueur doit atteindre un score en un temps limité
 	 * 
-	 * @param primaryStage : Stage dans lequel afficher ce mode
-	 * @param m            : Menu qui fait appel à ce mode de jeu
+	 * @see Controller
+	 * 
+	 * @param primaryStage : Fenêtre dans laquelle il faut afficher ce Controller
+	 * @param m : Menu qui a lancé ce Controller (pour récupérer principalement le fichier csv sous forme de List<String>)
 	 */
 	public ModeTimer(Stage primaryStage, MenuController m) {
 		super(primaryStage, m);
@@ -20,6 +22,7 @@ public class ModeTimer extends Controller {
 		primaryStage.setTitle("Candy Crush - Temps limité");
 
 	}
+
 
 	/**
 	 * Fin si score atteint -> gagne = true

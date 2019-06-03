@@ -3,7 +3,10 @@ package combinaison;
 import exceptions.CandyException;
 import grille.Grille;
 
-// TROIS BONBONS SIMPLES ALIGNES HORIZONTALEMENT
+/**
+ *  TROIS BONBONS SIMPLES ALIGNES HORIZONTALEMENT
+ *
+ */
 public class TroisHorizontauxSimples extends Combinaison {
 
 	public TroisHorizontauxSimples(int dC, int l) {
@@ -11,6 +14,9 @@ public class TroisHorizontauxSimples extends Combinaison {
 		ligne = l;
 	}
 	
+	/**
+	 * @see Combinaison#executerCombinaison(Grille)
+	 */
 	public int executerCombinaison(Grille grille) throws CandyException {
 		for(int i = debutColonne; i<debutColonne+3; i++) {
 			grille.exploser(ligne, i);

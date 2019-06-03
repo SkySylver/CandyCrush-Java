@@ -3,7 +3,10 @@ package combinaison;
 import exceptions.CandyException;
 import grille.Grille;
 
-// TROIS BONBONS ALIGNES VERTICALEMENT DONT UN RAYE A L'HORIZONTALE
+/**
+ *  TROIS BONBONS ALIGNES VERTICALEMENT DONT UN RAYE A L'HORIZONTALE
+ *
+ */
 public class TroisVerticauxRayesH extends Combinaison {
 
 	public TroisVerticauxRayesH(int dL, int c) {
@@ -11,6 +14,9 @@ public class TroisVerticauxRayesH extends Combinaison {
 		colonne = c;
 	}
 	
+	/**
+	 * @see Combinaison#executerCombinaison(Grille)
+	 */
 	public int executerCombinaison(Grille grille) throws CandyException {
 		for (int i = debutLigne; i < debutLigne + 3; i++) {
 			if (grille.getType(i, colonne).equals("BonbonSimple")) {

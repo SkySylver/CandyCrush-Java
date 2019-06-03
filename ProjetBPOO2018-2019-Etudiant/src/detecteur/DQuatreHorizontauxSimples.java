@@ -5,7 +5,10 @@ import combinaison.QuatreHorizontauxSimples;
 import exceptions.CandyException;
 import grille.Grille;
 
-//QUATRE BONBONS SIMPLES ALIGNES HORIZONTALEMENT
+/**
+ * Détecte QUATRE BONBONS SIMPLES ALIGNES HORIZONTALEMENT
+ * @see Detecteur
+ */
 public class DQuatreHorizontauxSimples extends Detecteur{
 
 	private int debutColonne;
@@ -16,6 +19,9 @@ public class DQuatreHorizontauxSimples extends Detecteur{
 		super(d);
 	}
 
+	/**
+	 * @see Detecteur#combinaisonExiste(int, int, Grille)
+	 */
 	public Combinaison combinaisonExiste(int l, int c, Grille grille) throws CandyException{
 		// même principe que trois bonbons avec un bonbon en plus
 		ligne = l;
