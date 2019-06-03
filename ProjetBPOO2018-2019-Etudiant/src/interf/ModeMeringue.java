@@ -2,6 +2,7 @@ package interf;
 
 
 import exceptions.CandyException;
+import javafx.animation.Timeline;
 import javafx.stage.Stage;
 
 public class ModeMeringue extends Controller {
@@ -12,6 +13,7 @@ public class ModeMeringue extends Controller {
 		super(primaryStage, m);
 		secondesEcouleesMax = Integer.parseInt(m.getData().get(0).split(";")[2]);
 
+		primaryStage.setTitle("Candy Crush - Plus de meringues");
 	}
 
 	@Override
@@ -24,6 +26,12 @@ public class ModeMeringue extends Controller {
 				if (getGrille().getCouleur(i, j).equals("Meringue"))
 					return false;
 
+		
+		setScore(0);
+		setNbEchanges(0);
+		timeline.stop();
+		this.getGrillePane().setOnDragDetected(null);
+		
 		
 		return true;
 	}

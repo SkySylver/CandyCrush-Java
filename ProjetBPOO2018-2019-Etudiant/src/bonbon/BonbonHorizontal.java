@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 
 /**
  * Hérite de la classe Bonbon
+ * Ce bonbon a pour propriété d'exploser toute la ligne
  * @see Bonbon
  */
 public class BonbonHorizontal extends Bonbon {

@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 
 /**
  * Hérite de la classe Bonbon
- * 
+ * Ce bonbon est généré lorsqu'un bonbon explose
  * @see Bonbon
  */
 public class Vide extends Bonbon {

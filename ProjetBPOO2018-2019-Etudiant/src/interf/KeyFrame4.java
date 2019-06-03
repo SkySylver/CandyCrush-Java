@@ -14,7 +14,8 @@ public final class KeyFrame4 implements EventHandler<ActionEvent> {
 	public void handle(ActionEvent event) {
 		try {
 			if (con.isFin()) {
-				con.afficherFin();
+				System.out.println("Partie terminée");
+				con.getMenu().getNextNiveau();
 			}
 		} catch (CandyException e) {
 			e.printStackTrace();

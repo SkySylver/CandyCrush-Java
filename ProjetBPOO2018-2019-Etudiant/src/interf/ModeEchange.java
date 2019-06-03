@@ -7,7 +7,7 @@ public class ModeEchange extends Controller {
 
 	public ModeEchange(Stage primaryStage, MenuController m) {
 		super(primaryStage, m);
-
+		System.out.println(getMenu().getData().get(0));
 		String[] options = getMenu().getData().get(0).split(";");
 		setScoreMax(Integer.parseInt(options[2]));
 		setNbEchangesMax(Integer.parseInt(options[3]));
@@ -16,9 +16,15 @@ public class ModeEchange extends Controller {
 
 	@Override
 	public boolean isFin() {
-		if (getNbEchanges() >= getNbEchangesMax() || getScore() > getScoreMax())
+		if (getNbEchanges() >= getNbEchangesMax() || getScore() > getScoreMax()) {
+			System.out.println(getNbEchanges() + " / " + getNbEchangesMax());
+			System.out.println(getScore() + " /" + getScoreMax());
+			setScore(0);
+			setNbEchanges(0);
+			timeline.stop();
+			this.getGrillePane().setOnDragDetected(null);
 			return true;
-		else
+		} else
 			return false;
 	}
 
@@ -32,7 +38,6 @@ public class ModeEchange extends Controller {
 
 	@Override
 	public void afficherFin() {
-			getMenu().ViderJeu();
 	}
 
 	public int getScoreMax() {

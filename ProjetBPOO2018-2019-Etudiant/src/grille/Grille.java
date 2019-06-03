@@ -30,25 +30,23 @@ public class Grille {
 
 	/**
 	 * Crée une Grille avec des bonbons qui sont décrits dans un fichier .csv
+	 *		
+	 * LE FICHIER .csv doit être agencé de cette manière: ModeDeJeu, entier
 	 * 
+	 * TAILLE, entier 
+	 * entier, entier, ..., entier 
+	 * entier, entier, ..., entier 
+	 * ... 
+	 * entier, entier, ..., entier
 	 * @throws Exception
 	 */
 	public Grille(List<String> input) throws Exception {
-		/**
-		 * LE FICHIER .csv doit être agencé de cette manière: ModeDeJeu, entier 
-		 * TAILLE, entier 
-		 * entier, entier, ..., entier 
-		 * entier, entier, ..., entier 
-		 * ... 
-		 * entier, entier, ..., entier
-		 */
 
+System.out.println(input.get(0));
 		String mode[] = input.get(0).split(";");
 		TAILLE = Integer.parseInt(mode[1]);
 		grille = new Bonbon[TAILLE][TAILLE];
 		
-		input.remove(0);
-
 		linesToGrille((ArrayList<String>) input);
 	}
 
@@ -64,7 +62,8 @@ public class Grille {
 		 */
 
 		for (int i = 0; i <= TAILLE - 1; i++) {
-			String[] values = lines.get(i).split(";");
+			System.out.println(lines.get(i));
+			String[] values = lines.get(i+1).split(";");
 
 			for (int j = 0; j <= TAILLE - 1; j++) {
 				switch (Integer.parseInt(values[j])) {

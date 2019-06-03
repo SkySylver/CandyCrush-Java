@@ -6,6 +6,7 @@ public class BonbonSimple extends Bonbon {
 	
 	/**
 	 * Hérite de la classe Bonbon
+	 * Ce bonbon a pour propriété d'exploser tout seul
 	 * @see Bonbon
 	 */
 	public BonbonSimple() {

@@ -76,7 +76,7 @@ public abstract class Bonbon {
 
 	/**
 	 * 
-	 * @param couleur La couleur par la quelle on veut remplacer le Bonbon
+	 * @param couleur : La couleur par la quelle on veut remplacer le Bonbon
 	 */
 	public void setCouleur(String couleur) {
 		if (!lesCouleurs.contains(couleur))

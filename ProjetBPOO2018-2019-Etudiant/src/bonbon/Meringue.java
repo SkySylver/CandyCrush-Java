@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 
 /**
  * Hérite de la classe Bonbon
- * 
+ * Ce bonbon a pour propriété de ne pas pouvoir être echangé
  * @see Bonbon
  */
 public class Meringue extends Bonbon {

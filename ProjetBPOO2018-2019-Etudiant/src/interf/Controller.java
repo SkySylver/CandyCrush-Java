@@ -26,8 +26,8 @@ import javafx.util.Duration;
 public abstract class Controller {
 	private static final double TEMPS_AFFICHAGE_KEYFRAME1 = 0.5;
 	private static final double TEMPS_AFFICHAGE_KEYFRAME2 = 1;
+	private static final double TEMPS_AFFICHAGE_KEYFRAME3 = 1;
 
-	private static final int NOMBRE_DE_CANDIES = 10;
 
 	private int score, nbEchanges;
 
@@ -62,7 +62,7 @@ public abstract class Controller {
 	 */
 	private Image[] candies;
 
-	private Timeline timeline;
+	protected Timeline timeline;
 
 	/**
 	 * Pour la gestion et l'affichage du chrono
@@ -114,7 +114,6 @@ public abstract class Controller {
 	}
 
 	void initGrille() throws Exception {
-		// setGrille("C:\\Users\\emin\\Desktop\\candy\\ProjetBPOO2018-2019-Etudiant\\plateaux\\niveau1.csv");
 		grillePane = new Canvas(640, 640);
 
 		((BorderPane) root).setCenter(grillePane);
@@ -191,8 +190,10 @@ public abstract class Controller {
 		// Cette KF2 sera affichee apr�s 0.1s c-�-d la duree que l'on a defini pour la
 		// KF1
 		final KeyFrame keyframe3 = new KeyFrame(Duration.seconds(TEMPS_AFFICHAGE_KEYFRAME2), new KeyFrame3(this));
+		final KeyFrame keyframe4 = new KeyFrame(Duration.seconds(TEMPS_AFFICHAGE_KEYFRAME3), new KeyFrame4(this));
 
-		timeline = new Timeline(keyframe1, keyframe2, keyframe3);
+		
+		timeline = new Timeline(keyframe1, keyframe2, keyframe3, keyframe4);
 		timeline.setCycleCount(Animation.INDEFINITE); // L'animation va Ã©galement boucler Ã  l'infinie
 	}
 
@@ -217,16 +218,6 @@ public abstract class Controller {
 
 	public GraphicsContext getGc() {
 		return gc;
-	}
-
-	@SuppressWarnings("unused")
-	private void initImagesCandies() {
-		candies = new Image[NOMBRE_DE_CANDIES];
-		/*
-		 * try { for (int i = 0; i < candies.length; i++) { candies[i] = new
-		 * Image(getClass().getResourceAsStream("/Candy_" + i + ".png")); } } catch
-		 * (Exception e) { e.printStackTrace(); }
-		 */
 	}
 
 	public abstract boolean isFin() throws CandyException;
