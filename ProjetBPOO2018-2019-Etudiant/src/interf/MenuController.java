@@ -44,7 +44,7 @@ public class MenuController {
 
 	public void getNextNiveau() throws CandyException {
 		String tab[] = null;
-		if (listNiveau.length < lvl) {
+		if (listNiveau.length <= lvl) {
 			System.out.println("Plus de niveaux");
 			return;
 		}

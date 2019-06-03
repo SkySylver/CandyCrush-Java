@@ -19,10 +19,7 @@ public class ModeEchange extends Controller {
 		if (getNbEchanges() >= getNbEchangesMax() || getScore() > getScoreMax()) {
 			System.out.println(getNbEchanges() + " / " + getNbEchangesMax());
 			System.out.println(getScore() + " /" + getScoreMax());
-			setScore(0);
-			setNbEchanges(0);
-			timeline.stop();
-			this.getGrillePane().setOnDragDetected(null);
+			FinController();
 			return true;
 		} else
 			return false;
@@ -36,9 +33,7 @@ public class ModeEchange extends Controller {
 		return nbEchangesMax;
 	}
 
-	@Override
-	public void afficherFin() {
-	}
+
 
 	public int getScoreMax() {
 		return scoreMax;

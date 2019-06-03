@@ -24,20 +24,16 @@ public class ModeTimer extends Controller {
 
 	@Override
 	public boolean isFin() {
-		if (secondesEcouleesMax < getSecondesEcoulees() || getScore() > scoreMax) {
-			setScore(0);
-			setNbEchanges(0);
-			timeline.stop();
-			this.getGrillePane().setOnDragDetected(null);
+		if (getScore() > scoreMax) {
+			setGagne(true);
+			FinController();
+			return true;
+		} else if (secondesEcouleesMax < getSecondesEcoulees()) {
+			setGagne(false);
+			FinController();
 			return true;
 		}
-
 		return false;
-	}
-
-	@Override
-	public void afficherFin() {
-
 	}
 
 	public int getScoreMax() {

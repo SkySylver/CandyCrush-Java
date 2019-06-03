@@ -13,8 +13,16 @@ import javafx.scene.image.Image;
  * 
  */
 public class Grille {
+	/**
+	 * Taille de la Grille
+	 * @see Grille#setTaille(int)
+	 * @see Grille#getTaille()
+	 */
 	private int TAILLE = 10;
 
+	/**
+	 * La grille des bonbons
+	 */
 	private Bonbon[][] grille;
 
 	/**
@@ -30,40 +38,52 @@ public class Grille {
 
 	/**
 	 * Crée une Grille avec des bonbons qui sont décrits dans un fichier .csv
-	 *		
+	 * 
 	 * LE FICHIER .csv doit être agencé de cette manière: ModeDeJeu, entier
 	 * 
-	 * TAILLE, entier 
-	 * entier, entier, ..., entier 
-	 * entier, entier, ..., entier 
-	 * ... 
-	 * entier, entier, ..., entier
+	 * MODE_DE_JEU;TAILLE;OPTIONS;OPTIONS;;;
+	 * Entier, entier, ..., entier
+	 * Entier, entier, ..., entier
+	 * ...
+	 * Entier, entier, ..., entier
+	 * 
 	 * @throws Exception
 	 */
 	public Grille(List<String> input) throws Exception {
 
-System.out.println(input.get(0));
+		System.out.println(input.get(0));
 		String mode[] = input.get(0).split(";");
 		TAILLE = Integer.parseInt(mode[1]);
 		grille = new Bonbon[TAILLE][TAILLE];
-		
+
 		linesToGrille((ArrayList<String>) input);
 	}
 
 	/*
-	 * Génère la grille à partir d'entiers
+	 * Génère la grille à partir d'une liste de string
+	 * provenant de Grille(List<String> input)
+	 * @see
+	 * 0: Vide
+	 * 1: Meringue
+	 * 2: Bleu simple
+	 * 3: Bleu Horizontal
+	 * 4: Bleu Vertical
+	 * 5: Vert simple
+	 * 6: Vert Horizontal
+	 * 7: Vert Vertical
+	 * 8: Jaune simple
+	 * 9: Jaune Horizontal
+	 * 10: Jaune Vertical
+	 * 11: Violet simple
+	 * 12: Violet Horizontal
+	 * 13:Violet Vertical	 
 	 */
 	public void linesToGrille(ArrayList<String> lines) throws CandyException {
-		/*
-		 * 0: Vide 1: Meringue 2: Bleu simple 3: Bleu Horizontal 4: Bleu Vertical 5:
-		 * Vert simple 6: Vert Horizontal 7: Vert Vertical 8: Jaune simple 9: Jaune
-		 * Horizontal 10: Jaune Vertical 11: Violet simple 12: Violet Horizontal 13:
-		 * Viole Vertical
-		 */
+		
 
 		for (int i = 0; i <= TAILLE - 1; i++) {
 			System.out.println(lines.get(i));
-			String[] values = lines.get(i+1).split(";");
+			String[] values = lines.get(i + 1).split(";");
 
 			for (int j = 0; j <= TAILLE - 1; j++) {
 				switch (Integer.parseInt(values[j])) {
@@ -248,24 +268,50 @@ System.out.println(input.get(0));
 			throw new CandyException("Bonbon hors de grille !");
 		return grille[l][c].getCouleur();
 	}
-
+	
+	/**
+	 * Permet d'obtenir le type du Bonbon dans la Grille au coordonnées l, c
+	 * 
+	 * @param l : Numéro de ligne du Bonbon
+	 * @param c : Numéro de colonne du Bonbon
+	 * @return le type lié à la position l, c dans Grille
+	 * @throws CandyException : si les coordonnées ne sont pas dans la Grille
+	 */
 	public String getType(int l, int c) throws CandyException {
 		if (l > 9 || l < 0 || c > 9 || c < 0)
 			throw new CandyException("Bonbon hors de grille !");
 		return grille[l][c].getType();// retourne le type de bonbon
 	}
 
+	
+	/**
+	 * Permet de savoir si le Bonbon dans la Grille au coordonnées l, c est rayé
+	 * 
+	 * @param l : Numéro de ligne du Bonbon
+	 * @param c : Numéro de colonne du Bonbon
+	 * @return raye à la position l, c dans Grille
+	 * @throws CandyException : si les coordonnées ne sont pas dans la Grille
+	 */
 	public boolean isRaye(int x, int y) {
 		return grille[x][y].isRaye();
 	}
 
+	/**
+	 * Permet d'exploser le Bonbon dans la Grille au coordonnées l, c
+	 * 
+	 * @param l : Numéro de ligne du Bonbon
+	 * @param c : Numéro de colonne du Bonbon
+	 * @throws CandyException : si les coordonnées ne sont pas dans la Grille
+	 */
 	public void exploser(int l, int c) throws CandyException {
 		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
 			throw new CandyException("Coordonnées incorrectes");
 		grille[l][c] = new Vide();
 	}
 
-	// Fait tomber les bonbons de chaque colonnes + recomplete ce qu'il manque
+	/**
+	 * Fait tomber les bonbons de cette Grille
+	 */
 	public void tomber() {
 		int a;
 		for (int i = 0; i < TAILLE; i++) { // Pour x de 0 a 9 (chaque colonne)
@@ -281,6 +327,10 @@ System.out.println(input.get(0));
 		}
 	}
 
+	/**
+	 * Complete la Grille avec des Bonbon simples
+	 * @see BonbonSimple
+	 */
 	public void completer() {
 		for (int i = 0; i < TAILLE; i++)
 			for (int j = 0; j < TAILLE; j++)
@@ -288,6 +338,16 @@ System.out.println(input.get(0));
 					grille[i][j] = new BonbonSimple();
 	}
 
+	/**
+	 * Permet d'echanger un Bonbon1 et un Bonbon2 dans cette Grille
+	 * 
+	 * @param ls : Numéro de ligne du Bonbon1
+	 * @param cs : Numéro de colonne du Bonbon1
+	 * @param lt : Numéro de ligne du Bonbon2
+	 * @param ct : Numéro de colonne du Bonbon2
+	 * @return si l'echange a été effectué ou non
+	 * @throws CandyException : si les coordonnées ne sont pas dans la Grille
+	 */
 	public boolean echange(int ls, int cs, int lt, int ct) throws CandyException {
 		if (ls >= TAILLE || cs >= TAILLE || lt >= TAILLE || ct >= TAILLE || ls < 0 || cs < 0 || lt < 0 || ct < 0)
 			throw new CandyException("Coordonnées incorrectes");
@@ -317,22 +377,44 @@ System.out.println(input.get(0));
 		return true;
 	}
 
+	/**
+	 * Permet d'de placer un BonbonHorizontal aux coordonnées l, c
+	 * 
+	 * @param l : Numéro de ligne
+	 * @param c : Numéro de colonne
+	 * @throws CandyException : si les coordonnées ne sont pas dans la Grille
+	 */
 	public void putBonbonHorizontal(int l, int c, String coul) throws CandyException {
 		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
 			throw new CandyException("Coordonnées incorrectes");
 		grille[l][c] = new BonbonHorizontal(coul);
 	}
 
+	/**
+	 * Permet d'de placer un BonbonVertical aux coordonnées l, c
+	 * 
+	 * @param l : Numéro de ligne
+	 * @param c : Numéro de colonne
+	 * @throws CandyException : si les coordonnées ne sont pas dans la Grille
+	 */
 	public void putBonbonVertical(int l, int c, String coul) throws CandyException {
 		if (l >= TAILLE || c >= TAILLE || l < 0 || c < 0)
 			throw new CandyException("Coordonnées incorrectes");
 		grille[l][c] = new BonbonVertical(coul);
 	}
 
+	/**
+	 * Met n à TAILLE
+	 * @param n : Taille > 4
+	 */
 	public void setTaille(int n) {
+		if(n<4) throw new IllegalArgumentException("Taille incorrecte");
 		TAILLE = n;
 	}
 
+	/**
+	 * @return la TAILLE de la Grille
+	 */
 	public int getTaille() {
 		return TAILLE;
 	}

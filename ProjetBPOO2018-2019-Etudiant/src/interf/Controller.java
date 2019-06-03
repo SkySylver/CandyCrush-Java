@@ -28,13 +28,13 @@ public abstract class Controller {
 	private static final double TEMPS_AFFICHAGE_KEYFRAME2 = 1;
 	private static final double TEMPS_AFFICHAGE_KEYFRAME3 = 1;
 
-
 	private int score, nbEchanges;
 
 	private HBox hBScore = new HBox(), hBChrono = new HBox(), hBNbEchanges = new HBox();
 	private Label lScore, lNbEchanges;
 
 	private MenuController menu;
+
 	public MenuController getMenu() {
 		return menu;
 	}
@@ -51,6 +51,7 @@ public abstract class Controller {
 
 	private int ls, cs, lt, ct;
 
+	private boolean gagne;
 	/*
 	 * 
 	 **/
@@ -192,7 +193,6 @@ public abstract class Controller {
 		final KeyFrame keyframe3 = new KeyFrame(Duration.seconds(TEMPS_AFFICHAGE_KEYFRAME2), new KeyFrame3(this));
 		final KeyFrame keyframe4 = new KeyFrame(Duration.seconds(TEMPS_AFFICHAGE_KEYFRAME3), new KeyFrame4(this));
 
-		
 		timeline = new Timeline(keyframe1, keyframe2, keyframe3, keyframe4);
 		timeline.setCycleCount(Animation.INDEFINITE); // L'animation va Ã©galement boucler Ã  l'infinie
 	}
@@ -210,7 +210,6 @@ public abstract class Controller {
 
 		for (int l = 0; l < 10; l++) {
 			for (int c = 0; c < 10; c++) {
-
 				gc.drawImage(grille.getImage(l, c), c * 64, l * 64);
 			}
 		}
@@ -222,10 +221,11 @@ public abstract class Controller {
 
 	public abstract boolean isFin() throws CandyException;
 
-	public abstract void afficherFin();
-	
 	public void FinController() {
-	
+		setScore(0);
+		setNbEchanges(0);
+		timeline.stop();
+		this.getGrillePane().setOnDragDetected(null);
 	}
 
 	/*
@@ -349,5 +349,13 @@ public abstract class Controller {
 
 	public int getSecondesEcoulees() {
 		return secondesEcoulees;
+	}
+
+	public boolean isGagne() {
+		return gagne;
+	}
+
+	public void setGagne(boolean gagne) {
+		this.gagne = gagne;
 	}
 }

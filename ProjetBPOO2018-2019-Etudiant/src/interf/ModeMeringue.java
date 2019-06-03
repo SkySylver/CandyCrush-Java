@@ -18,8 +18,11 @@ public class ModeMeringue extends Controller {
 
 	@Override
 	public boolean isFin() throws CandyException {
-		if (getSecondesEcoulees() > secondesEcouleesMax)
+		if (getSecondesEcoulees() > secondesEcouleesMax) {
+			setGagne(false);
+			FinController();
 			return true;
+		}
 		
 		for (int i = 0; i < getGrille().getTaille(); i++)
 			for (int j = 0; j < getGrille().getTaille(); j++)
@@ -27,18 +30,9 @@ public class ModeMeringue extends Controller {
 					return false;
 
 		
-		setScore(0);
-		setNbEchanges(0);
-		timeline.stop();
-		this.getGrillePane().setOnDragDetected(null);
-		
-		
+		FinController();
+		setGagne(true);
 		return true;
-	}
-
-	@Override
-	public void afficherFin() {
-		// TODO Auto-generated method stub
 	}
 
 	public int getSecondesEcouleesMax() {
